@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-<<<<<<< HEAD
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from "./header/header.component";
-=======
-import { HeaderComponent } from './header/header.component';
->>>>>>> giouli
 
 @Component({
     selector: 'app-root',

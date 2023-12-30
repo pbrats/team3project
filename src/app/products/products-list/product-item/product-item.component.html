@@ -1,0 +1,19 @@
+
+<div class="card m-2" style="width: 18rem;">
+    <img [src]="" class="card-img-top" [alt]="product.name">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">{{ product.name }}
+      </p>
+      <div class="row">
+        <div class="col">
+          <a class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="onPreview()">Details</a>
+        </div>
+        <div class="col text-end">
+          <a class="btn btn-primary" (click)="onSelected()">Add to cart</a>
+        </div>
+        
+      </div>
+      
+    </div>
+</div>

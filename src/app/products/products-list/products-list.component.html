@@ -1,0 +1,12 @@
+
+<div class="d-flex flex-row">
+  <div class="col-3 p-2">
+    <app-categories [products]="store.products"></app-categories>
+  </div>
+    <div data-bs-spy="scroll" data-bs-smooth-scroll="true" tabindex="0">
+      <div class="d-flex flex-row flex-wrap">
+        <app-product-item *ngFor="let product of store.products" [product]="product">
+        </app-product-item>
+      </div>
+    </div>
+  </div>

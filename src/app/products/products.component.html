@@ -1,18 +1,16 @@
 <div class="row p-2">
   
     <div class="col-8">
-      <app-store-description [store]="store"></app-store-description>
-
-      <app-products-list [store]="store[0]"></app-products-list>
+      <app-store-description [store]="selectedStore"></app-store-description>
+      <app-products-list [store]="stores[0]"></app-products-list>
     </div>
-    <div class="col-4 bg-light p-2"> 
+    <div class="col-4 bg-light p-2 "> 
       <h5>My shoping cart</h5>
       <hr>
       <app-shoping-cart *ngIf="selectedProduct; else infoText" [product]="selectedProduct"></app-shoping-cart>
         <ng-template #infoText>
             <p>The cart is empty</p>
           </ng-template>
-      
     </div>
     
     <app-product-details [product]="previewedProduct"></app-product-details>

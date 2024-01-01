@@ -3,4 +3,5 @@ export interface Store {
     name: string;
     category: string;
     address: string;
+    products:[];
 }

@@ -1,0 +1,19 @@
+
+<div class="card m-2" style="width: 18rem;">
+    <img [src]="" class="card-img-top" [alt]="store.name">
+    <div class="card-body">
+      <h5 class="card-title">{{ store.name }}</h5>
+      <p class="card-text">{{ store.category }}
+      </p>
+      <div class="row">
+        <div class="col">
+          <a class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="viewStoreDetails(store.id)">See Products</a>
+        </div>
+        
+      </div>
+      
+    </div>
+</div>
+
+
+

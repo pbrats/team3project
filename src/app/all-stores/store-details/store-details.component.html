@@ -1,0 +1,22 @@
+
+<div class="row g-4">
+    <div class="col-12">
+      
+        <p>{{ store }}</p>
+    </div>
+    <div class="col-12">
+        <app-store-description [store]="storeSel"></app-store-description>
+    </div>
+    <div class="col-4 bg-light p-2" style="position:fixed; right:0;"> 
+        <h5>My shoping cart</h5>
+        <hr>
+        <app-cart *ngIf="selectedProduct; else infoText" [product]="selectedProduct"></app-cart>
+          <ng-template #infoText>
+              <p>The cart is empty</p>
+            </ng-template>
+      </div>
+    <div class="col-12">
+        <app-store-menu [store]="storeSel"></app-store-menu>
+    </div>
+    
+</div>

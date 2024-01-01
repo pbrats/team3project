@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { FooterComponent } from './components/core/footer/footer.component';
 import { HeaderComponent } from "./components/core/header/header.component";
 import { ProductsComponent } from './products/products.component';
@@ -25,7 +25,8 @@ import { FormsModule } from '@angular/forms';
         ProductsListComponent,
         ProductItemComponent,
         ShopingCartComponent,
-        FormsModule
+        FormsModule,
+        RouterLink,
     ]
 })
 export class AppComponent {

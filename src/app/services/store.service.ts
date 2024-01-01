@@ -15,6 +15,10 @@ export class StoreService {
 
   constructor() { }
 
+  getStores() {
+    return this.http.get<Store[]>(this.endpointUrl);
+  }
+
   getProducts(){
     return this.http.get<Store[]>(this.endpointUrl);
   }

@@ -7,6 +7,9 @@ import { ProductItemComponent } from './products-list/product-item/product-item.
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { StoreDescriptionComponent } from './store-description/store-description.component';
+import { ActivatedRoute } from '@angular/router';
+import { Store } from '../interfaces/store';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -25,17 +28,30 @@ import { StoreDescriptionComponent } from './store-description/store-description
 })
 export class ProductsComponent implements OnInit {
 service=inject(StoreService)
-store: any;
+activatedRoute = inject(ActivatedRoute);
+store!: Store;
 selectedProduct: any;
 previewedProduct: any;
 
 constructor() {
-  this.service.getProducts().subscribe({
-    next: (res: any) => (this.store = res)
-  });
+  
 }
   ngOnInit() {
-    console.log(this.store)
+    this.activatedRoute.params
+    .subscribe({
+      next: (params: any) => {
+        let id = params.id;
+        console.log(params.id);
+        this.service.getStoreById(id)
+        .subscribe({
+          next: products => {
+              console.log(products);
+              this.store = products;
+          }
+        })
+      }
+    })
+
     this.service.productSelected.subscribe({
       next: (res: any) => (this.selectedProduct = res),
     });

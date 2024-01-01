@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Store } from '../../interfaces/store';
 
 @Component({
   selector: 'app-store-description',
@@ -8,5 +9,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './store-description.component.css'
 })
 export class StoreDescriptionComponent {
-@Input() store: any;
+@Input() store!: Store;
 }

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { Store } from '../../interfaces/store';
 
 @Component({
   selector: 'app-products-list',
@@ -11,6 +12,6 @@ import { CategoriesComponent } from './categories/categories.component';
   styleUrl: './products-list.component.css'
 })
 export class ProductsListComponent {
-@Input() store: any;
+@Input() store!: Store;
 
 }

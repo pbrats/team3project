@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ProductItemComponent } from './product-item/product-item.component';
-import { CategoriesComponent } from './categories/categories.component';
+import { CategoriesComponent } from '../categories/categories.component';
 import { Store } from '../../interfaces/store';
 
 @Component({

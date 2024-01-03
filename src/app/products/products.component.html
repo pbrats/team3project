@@ -1,20 +1,34 @@
-<div class="row p-2" style="position: relative;">
-    <div class="col-8">
+<div class="container">
+  <div class="row" style="position: relative;">
+    <div class="col-8 p-4">
       <app-store-description [store]="store"></app-store-description>
 
       <app-products-list [store]="store"></app-products-list>
     </div>
-    <div class="col-4 bg-light" > 
-      <h5>My shoping cart</h5>
-      <hr>
-      <app-shoping-cart *ngIf="selectedProduct; else infoText" [product]="selectedProduct"></app-shoping-cart>
-        <ng-template #infoText>
+    <div class="col-4 bg-light p-4" style="position: fixed; right:0; height: 100vh; ">
+      <div class="container" style="position: relative;">
+        <h5 class="card-title">My order</h5>
+        <hr>
+        <div style="height: 66vh">
+          <app-shoping-cart *ngIf="selectedProduct; else infoText" [product]="selectedProduct"></app-shoping-cart>
+          <ng-template #infoText>
             <p>The cart is empty</p>
           </ng-template>
+        </div>
+        <div class="card-body" style="bottom:0;">
+          <div class="col">
+            <button type="button" class="btn btn-success" >Checkout</button>
+          </div>
+        </div>
+      </div>
       
     </div>
-    
+
+
+
     <app-product-details [product]="previewedProduct"></app-product-details>
-  
-   
+
+
   </div>
+
+</div>

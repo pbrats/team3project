@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FamousStoresGeneralService } from '../../service/famous-stores-general.service';
 
 @Component({
   selector: 'app-famous-stores-general',
@@ -8,5 +9,17 @@ import { Component } from '@angular/core';
   styleUrl: './famous-stores-general.component.css'
 })
 export class FamousStoresGeneralComponent {
+  famousStores:any;
+  famousStoresGService: FamousStoresGeneralService =inject(FamousStoresGeneralService);
+
+  ngOnInit() {
+    this. famousStoresGService.getFamousStoresGeneral()
+    .subscribe({
+      next: response => {
+        console.log(response);
+        this.famousStores =response;
+      } 
+    });
+  }
 
 }

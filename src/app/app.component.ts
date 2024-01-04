@@ -1,21 +1,13 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from "./header/header.component";
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    imports: [
-        CommonModule,
-        RouterOutlet,
-        FooterComponent,
-        HeaderComponent
-    ]
+    imports: [CommonModule]
 })
 export class AppComponent {
-  title = 'team3project';
+  title = 'WL Delivery';
 }

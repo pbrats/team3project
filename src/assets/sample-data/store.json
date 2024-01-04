@@ -1,0 +1,68 @@
+{
+    "id": 1,
+    "name": "McDonald's",
+    "category": "FAST_FOOD",
+    "address": "Syntagma 15",
+    "products": [
+        {
+            "id": "1",
+            "name": "Big Mac",
+            "category": "BURGERS",
+            "price" : 4.99
+        },
+        {
+            "id": "2",
+            "name": "Crispy McBacon",
+            "category": "BURGERS",
+            "price" : 3.99
+        },
+        {
+            "id": "3",
+            "name": "Deluxe Burger",
+            "category": "BURGERS",
+            "price" : 2.99
+        },
+        {
+            "id": "4",
+            "name": "Single Big Tasty Chicken Bacon",
+            "category": "BURGERS",
+            "price" : 2.79
+        },
+        {
+            "id": "5",
+            "name": "Chicken McNuggets",
+            "category": "NUGGETS",
+            "price" : 3.99
+        },
+        {
+            "id": "6",
+            "name": "Caesar Salad with crispy chicken",
+            "category": "SALADS",
+            "price" : 4.50
+        },
+        {
+            "id": "7",
+            "name": "Caesar Salad with grilled chicken",
+            "category": "SALADS",
+            "price" : 4.50
+        },
+        {
+            "id": "8",
+            "name": "Side Salad",
+            "category": "SALADS",
+            "price" : 2.50
+        },
+        {
+            "id": "9",
+            "name": "Onion Rings",
+            "category": "FRIES_&_SIDES",
+            "price" : 0.99
+        },
+        {
+            "id": "10",
+            "name": "Deluxe Fries",
+            "category": "FRIES_&_SIDES",
+            "price" : 1.20
+        }
+    ]
+}

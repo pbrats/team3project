@@ -10,6 +10,8 @@ import { StoreDescriptionComponent } from './store-description/store-description
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '../interfaces/store';
 import { map } from 'rxjs';
+import { Product } from '../interfaces/product';
+import { CategoriesComponent } from './categories/categories.component';
 
 @Component({
   selector: 'app-products',
@@ -21,7 +23,8 @@ import { map } from 'rxjs';
     ProductItemComponent,
     CommonModule,
     FormsModule,
-    StoreDescriptionComponent
+    StoreDescriptionComponent,
+    CategoriesComponent
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
@@ -29,9 +32,13 @@ import { map } from 'rxjs';
 export class ProductsComponent implements OnInit {
 service=inject(StoreService)
 activatedRoute = inject(ActivatedRoute);
-store!: Store;
+
 selectedProduct: any;
 previewedProduct: any;
+store:any;
+products: Product[] = [];
+categories: string[] = [];
+  id: number = 0;
 
 constructor() {
   
@@ -44,17 +51,35 @@ constructor() {
         console.log(params.id);
         this.service.getStoreById(id)
         .subscribe({
-          next: products => {
-              console.log(products);
-              this.store = products;
+          next: res => {
+              console.log(res);
+              this.store = res;
           }
         })
       }
     })
 
+    this.service.getCategories().subscribe(
+      (categories: string[]) => {
+        console.log(categories)
+        this.categories = categories;
+      }
+    );
+
+    this.service.getProducts()
+    .pipe(map((response: any) => response.products))
+    .subscribe({
+      next: response => {
+        console.log(response)
+        this.products = response;
+      }
+    });
+      
+
     this.service.productSelected.subscribe({
       next: (res: any) => (this.selectedProduct = res),
     });
+
     this.service.productPreviewed.subscribe({
       next: (res: any) => (this.previewedProduct = res),
     });

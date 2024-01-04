@@ -17,7 +17,7 @@ stores: Store[]=[];
 
 ngOnInit() {
   this.service.getStores().subscribe({
-    next: (res: any) => (this.stores = res)
+    next: (res) => (this.stores = res)
   });
 }
 }

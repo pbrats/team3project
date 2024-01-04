@@ -1,7 +1,4 @@
 
-<div id="list-example" class="list-group">
-    <a class="list-group-item list-group-item-action" href="">Burgers</a>
-    <a class="list-group-item list-group-item-action" href="#">Nugets</a>
-    <a class="list-group-item list-group-item-action" href="#">Salads</a>
-    <a class="list-group-item list-group-item-action" href="#">Fries & Sides</a>
-  </div>
+<div id="list-example" class="list-group" *ngFor = "let category of categories">
+    <a class="list-group-item list-group-item-action"  href="">{{category}}</a>
+</div>   

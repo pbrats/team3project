@@ -1,32 +1,25 @@
-<div class="container">
-  <div class="row" style="position: relative;">
-    <div class="col-8 p-4">
-      <app-store-description [store]="store"></app-store-description>
-
-      <app-products-list [store]="store"></app-products-list>
+<div class="container d-flex flex-row flex-wrap" style="position: relative;">
+  <div class="col-8 p-2 ">
+    <app-store-description [store]="store"></app-store-description>
+    <div class="d-flex flex-row flex-wrap col-12">
+      <app-categories class="col-3 p-2" [categories]="categories"></app-categories>
+      <app-products-list class="col-9" [products]="products"></app-products-list>
     </div>
-    <div class="col-4 bg-light p-4" style="position: fixed; right:0; height: 100vh; ">
+  </div> 
+  <div class="col-4 bg-light p-4" style="position: fixed; right:0; height: 100vh; ">
       <div class="container" style="position: relative;">
         <h2>Your Shopping Cart</h2>
         <hr>
         <div style="height: 60vh">
           <app-shoping-cart [product]="selectedProduct"></app-shoping-cart>
-          
         </div>
         <div class="card-body" style="bottom:0;">
           <div class="col">
-            <button type="button" class="btn btn-success" >Checkout</button>
+            <button type="button" class="btn btn-success">Checkout</button>
           </div>
         </div>
       </div>
-      
-    </div>
-
-
-
-    <app-product-details [product]="previewedProduct"></app-product-details>
-
-
   </div>
-
+  
 </div>
+<app-product-details [product]="previewedProduct"></app-product-details>

@@ -58,5 +58,6 @@ constructor() {
     this.service.productPreviewed.subscribe({
       next: (res: any) => (this.previewedProduct = res),
     });
+    
   }
 }

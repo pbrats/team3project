@@ -7,13 +7,11 @@
     </div>
     <div class="col-4 bg-light p-4" style="position: fixed; right:0; height: 100vh; ">
       <div class="container" style="position: relative;">
-        <h5 class="card-title">My order</h5>
+        <h2>Your Shopping Cart</h2>
         <hr>
-        <div style="height: 66vh">
-          <app-shoping-cart *ngIf="selectedProduct; else infoText" [product]="selectedProduct"></app-shoping-cart>
-          <ng-template #infoText>
-            <p>The cart is empty</p>
-          </ng-template>
+        <div style="height: 60vh">
+          <app-shoping-cart [product]="selectedProduct"></app-shoping-cart>
+          
         </div>
         <div class="card-body" style="bottom:0;">
           <div class="col">

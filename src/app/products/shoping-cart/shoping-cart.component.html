@@ -1,6 +1,15 @@
 
-    <ul class="list-group list-group-flush">
-      <a class="list-group-item" style="cursor: pointer" *ngFor="let product of products">
-        {{ product.name }}
-      </a>
-    </ul>
+<div *ngIf="products.length > 0; else emptyCart">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" *ngFor="let product of products">
+      {{ product.name }} [{{ product.quantity }}] - ${{ (product.price || 0) * (product.quantity || 0) }}
+    </li>
+  </ul>
+</div>
+    
+<ng-template #emptyCart>
+  <p>Your cart is empty.</p>
+</ng-template>
+
+
+   

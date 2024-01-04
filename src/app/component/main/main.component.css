@@ -1,0 +1,17 @@
+/* negative margins */
+.mt-n3 {
+    margin-top: -3rem !important;
+}
+.mt-n4 {
+    margin-top: -4rem !important;
+}
+/* scroll */
+@media (min-width: 576px) {
+    .card-group.card-group-scroll {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+}
+.card-group.card-group-scroll > .card {
+    flex-basis: 35%;
+}

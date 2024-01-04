@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { StoresService } from '../../service/stores.service';
 
 @Component({
   selector: 'app-categories',
@@ -8,5 +9,16 @@ import { Component } from '@angular/core';
   styleUrl: './categories.component.css'
 })
 export class CategoriesComponent {
+  categories:any;
+  storesService: StoresService =inject(StoresService);
 
+  ngOnInit() {
+    this.storesService.getStores()
+    .subscribe({
+      next: response => {
+        console.log(response);
+        this.categories =response;
+      } 
+    });
+  }
 }

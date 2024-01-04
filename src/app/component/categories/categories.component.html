@@ -1,1 +1,16 @@
-<p>categories works!</p>
+<div class="container mt-3 mb-3">
+    <h1 class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-success ">Categories</h1>
+    <div class="row row-cols-4 ">
+        @for (cat of categories; track $index){
+            <div class="col-sm-4">
+                <div class="card border border-success m-4" style="width: 18rem;">
+                    <div class="card-body  shadow">
+                        <img src="..." class="card-img-top" alt="...">
+                        <h5 class="card-title">{{cat.category}}</h5>
+                        <a class="btn btn-success">See {{cat.category}}</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

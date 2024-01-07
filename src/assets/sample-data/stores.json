@@ -75,6 +75,8 @@
         "name": "StreetWok",
         "category": "ASIAN",
         "address": "Glyfada Str. 203",
+        "logo" : "/assets/images/streetwok-logo.png",
+        "cover" : "/assets/images/streetwok-cover.jpg",
         "products": [
             {
                 "id": "11",
@@ -119,6 +121,8 @@
         "name": "Nanou Donuts House",
         "category": "DONUTS",
         "address": "Ampelokipous 23rd Av.",
+        "logo" : "/assets/images/nanou-logo.jpg",
+        "cover" : "/assets/images/nanou-cover.avif",
         "products": [
             {
                 "id": "17",

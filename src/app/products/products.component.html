@@ -2,8 +2,9 @@
   <div class="col-8 p-2 ">
     <app-store-description [store]="store"></app-store-description>
     <div class="d-flex flex-row flex-wrap col-12">
-      <app-categories class="col-3 p-2" [categories]="categories"></app-categories>
-      <app-products-list class="col-9" [products]="products"></app-products-list>
+      <!-- <app-categories class="col-3 p-2" [categories]="categories"></app-categories> -->
+      <app-categories class="col-3 p-2" [products]="store.products"></app-categories>
+      <app-products-list  class="col-9" [products]="store.products"></app-products-list>
     </div>
   </div> 
   <div class="col-4 bg-light p-4" style="position: fixed; right:0; height: 100vh; ">

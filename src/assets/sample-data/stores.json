@@ -4,12 +4,15 @@
         "name": "McDonald's",
         "category": "FAST_FOOD",
         "address": "Syntagma 15",
+        "logo" : "/assets/images/McDonalds-Logo.png",
+        "cover" : "/assets/images/pexels-polina-tankilevitch-4109116.jpg",
         "products": [
             {
                 "id": "1",
                 "name": "Big Mac",
                 "category": "BURGERS",
-                "price" : 4.99
+                "price" : 4.99,
+                "photo" : "/assets/images/amirali-mirhashemian-pjGnlZTtQ-Y-unsplash.jpg"
             },
             {
                 "id": "2",

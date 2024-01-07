@@ -14,6 +14,7 @@ export class StoreService {
   private endpointUrl2 = "../assets/sample-data/";
   productSelected = new EventEmitter<any>();
   productPreviewed = new EventEmitter<any>();
+  categorySelected = new EventEmitter<any>();
   private products: Product[] = [];
   private stores: Store[] = [];
 
@@ -23,7 +24,9 @@ export class StoreService {
     return this.http.get<Store[]>(`${this.endpointUrl}/stores.json`);
   }
   getStoreById(id:number){
-    return this.http.get<Store[]>(`${this.endpointUrl}/stores.json`)
+    return this.http.get<Store[]>(`${this.endpointUrl}/stores.json`).pipe(
+      map((stores)=> stores.find((store) => store.id === id))
+    );
   }
 
   getProducts(){
@@ -31,13 +34,13 @@ export class StoreService {
   }
 
  
-  getCategories(){
-    return this.http.get<{ products: Product[] }>(`${this.endpointUrl}/store.json`).pipe(
-      map((response) => {
-        const products = response.products;
-        return [...new Set(products.map((product) => product.category))]
-  }))
-  }
+  // getCategoriesByStoreId(id:number){
+  //   return this.http.get<{ products: Product[] }>(`${this.endpointUrl}/stores.json`).pipe(
+  //     map((response) => {
+  //       const products = response.products;
+  //       return [...new Set(products.map((product) => product.category))]
+  // }))
+  // }
 
   getProductsByCategory(category: string){
     return this.http.get<Product[]>(`${this.endpointUrl}/store.json`).pipe(

@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { StoreService } from '../../services/store.service';
+import { Product } from '../../interfaces/product';
 
 @Component({
   selector: 'app-categories',
@@ -8,6 +10,19 @@ import { Component, Input } from '@angular/core';
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css'
 })
-export class CategoriesComponent {
-@Input() categories: string[] = [];
+export class CategoriesComponent implements OnInit{
+// @Input() categories: string[] | undefined;
+@Input() products: Product[]=[];
+  categories: any[] | undefined;
+
+ngOnInit() { 
+  this.categories=this.products
+  .map(product => product.category)
+  .filter((value, index, self) => self.indexOf(value) === index)
+}
+
+onSelectCategory() {
+ 
+}
+
 }

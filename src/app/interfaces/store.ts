@@ -3,5 +3,7 @@ export interface Store {
     name: string;
     category: string;
     address: string;
+    logo: string;
+    cover: string;
     products: [];
 }

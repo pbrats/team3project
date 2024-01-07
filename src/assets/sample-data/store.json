@@ -8,8 +8,7 @@
             "id": "1",
             "name": "Big Mac",
             "category": "BURGERS",
-            "price" : 4.99,
-            "photo" : "/assets/images/amirali-mirhashemian-pjGnlZTtQ-Y-unsplash.jpg"
+            "price" : 4.99
         },
         {
             "id": "2",

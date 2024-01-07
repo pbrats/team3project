@@ -38,7 +38,9 @@ previewedProduct: any;
 store:any;
 products: Product[] = [];
 categories: string[] = [];
-  id: number = 0;
+categoryProducts: Product[] = [];
+  id!: number;
+  selectedCategory: any;
 
 constructor() {
   
@@ -47,9 +49,9 @@ constructor() {
     this.activatedRoute.params
     .subscribe({
       next: (params: any) => {
-        let id = params.id;
+        this.id = +params['id'];
         console.log(params.id);
-        this.service.getStoreById(id)
+        this.service.getStoreById(this.id)
         .subscribe({
           next: res => {
               console.log(res);
@@ -59,12 +61,12 @@ constructor() {
       }
     })
 
-    this.service.getCategories().subscribe(
-      (categories: string[]) => {
-        console.log(categories)
-        this.categories = categories;
-      }
-    );
+    // this.service.getCategories().subscribe(
+    //   (categories: string[]) => {
+    //     console.log(categories)
+    //     this.categories = categories;
+    //   }
+    // );
 
     this.service.getProducts()
     .pipe(map((response: any) => response.products))
@@ -73,6 +75,19 @@ constructor() {
         console.log(response)
         this.products = response;
       }
+    });
+
+    // this.service.getProductsByCategory()
+    // .pipe(map((response: any) => response.products))
+    // .subscribe({
+    //   next: response => {
+    //     console.log(response)
+    //     this.categoryProducts = response;
+    //   }
+    // });
+
+    this.service.categorySelected.subscribe({
+      next: (res: any) => (this.selectedCategory = res),
     });
       
 

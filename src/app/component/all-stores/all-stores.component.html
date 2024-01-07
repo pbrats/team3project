@@ -1,7 +1,7 @@
 <div class="container mt-3 mb-3">
     <h1 class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-success ">All Stores</h1>
     <div class="row row-cols-4">
-    
+        <app-store-item *ngFor="let store of stores" [store]="store"></app-store-item>
 
         <!-- @for (store of stores; track $index){
             <div class="col-sm-4">

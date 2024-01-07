@@ -1,6 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-landing-page',
@@ -32,6 +32,10 @@ export class LandingPageComponent {
   animateHeading = false;
   animateButton = false;
   animateImage = false;
+
+  buttonOrderClicked=false;
+  @Output() actionEventEmitter =new EventEmitter();
+
   ngOnInit(){
     this. triggerAnimation();
   }
@@ -41,5 +45,12 @@ export class LandingPageComponent {
     this.animateButton = true;
     this.animateImage = true;
   }
-
+  selectedbuttonOrder(){
+  
+    this.buttonOrderClicked=true;
+    console.log(this.buttonOrderClicked);
+   
+    this.actionEventEmitter.emit(this.buttonOrderClicked);
+    
+  }
 }

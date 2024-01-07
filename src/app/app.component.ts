@@ -1,17 +1,37 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './component/header/header.component';
-import { FooterComponent } from './component/footer/footer.component';
+
+import { RouterLink, RouterLinkActive,RouterOutlet } from '@angular/router';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from "./header/header.component";
 import { LandingHeaderComponent } from './component/landing-header/landing-header.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { ProductsListComponent } from './products/products-list/products-list.component';
+import { ProductItemComponent } from './products/products-list/product-item/product-item.component';
+import { ShopingCartComponent } from './products/shoping-cart/shoping-cart.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    imports: [CommonModule,RouterOutlet,HeaderComponent,FooterComponent,LandingHeaderComponent]
+    imports: [
+        CommonModule,
+        RouterOutlet,
+        FooterComponent,
+        HeaderComponent,
+        LandingHeaderComponent,
+        ProductsComponent,
+        ProductDetailsComponent,
+        ProductsListComponent,
+        ProductItemComponent,
+        ShopingCartComponent,
+        FormsModule,
+        RouterLink
+    ]
 })
 export class AppComponent {
-  title = 'Delivery';
+  title = 'team3project';
 }

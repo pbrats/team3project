@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { StoreService } from '../services/store.service';
-import { ProductDetailsComponent } from './product-details/product-details.component'; 
+import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductItemComponent } from './products-list/product-item/product-item.component';
@@ -24,72 +24,59 @@ import { CategoriesComponent } from './categories/categories.component';
     CommonModule,
     FormsModule,
     StoreDescriptionComponent,
-    CategoriesComponent
+    CategoriesComponent,
   ],
   templateUrl: './products.component.html',
-  styleUrl: './products.component.css'
+  styleUrl: './products.component.css',
 })
 export class ProductsComponent implements OnInit {
-service=inject(StoreService)
-activatedRoute = inject(ActivatedRoute);
+  service = inject(StoreService);
+  activatedRoute = inject(ActivatedRoute);
 
-selectedProduct: any;
-previewedProduct: any;
-store:any;
-products: Product[] = [];
-categories: string[] = [];
-categoryProducts: Product[] = [];
+  selectedProduct: any;
+  previewedProduct: any;
+  store: any;
+  products: Product[] = [];
+  categories: string[] = [];
+  categoryProducts: Product[] = [];
   id!: number;
   selectedCategory: any;
+  stores: Store[] = [];
 
-constructor() {
-  
-}
+  constructor() {}
+
   ngOnInit() {
-    this.activatedRoute.params
-    .subscribe({
+    this.activatedRoute.params.subscribe({
       next: (params: any) => {
         this.id = +params['id'];
         console.log(params.id);
-        this.service.getStoreById(this.id)
-        .subscribe({
-          next: res => {
-              console.log(res);
-              this.store = res;
-          }
-        })
-      }
-    })
 
-    // this.service.getCategories().subscribe(
-    //   (categories: string[]) => {
-    //     console.log(categories)
-    //     this.categories = categories;
-    //   }
-    // );
-
-    this.service.getProducts()
-    .pipe(map((response: any) => response.products))
-    .subscribe({
-      next: response => {
-        console.log(response)
-        this.products = response;
-      }
+        this.service.getStoreById(this.id).subscribe({
+          next: (res) => {
+            console.log(res);
+            this.store = res;
+          },
+        });
+      },
     });
 
-    // this.service.getProductsByCategory()
-    // .pipe(map((response: any) => response.products))
-    // .subscribe({
-    //   next: response => {
-    //     console.log(response)
-    //     this.categoryProducts = response;
-    //   }
-    // });
+    this.service.getStores().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.stores = res;
+      },
+    });
+
+    this.service.categories.subscribe({
+      next: (res: any) => {
+        this.categories = res;
+        console.log('categories on products page', this.categories);
+      },
+    });
 
     this.service.categorySelected.subscribe({
       next: (res: any) => (this.selectedCategory = res),
     });
-      
 
     this.service.productSelected.subscribe({
       next: (res: any) => (this.selectedProduct = res),
@@ -98,6 +85,6 @@ constructor() {
     this.service.productPreviewed.subscribe({
       next: (res: any) => (this.previewedProduct = res),
     });
-    
   }
 }
+

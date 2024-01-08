@@ -3,6 +3,7 @@ import { StoreService } from '../../services/store.service';
 import { Store } from '../../interfaces/store';
 import { StoreItemComponent } from './store-item/store-item.component';
 import { CommonModule } from '@angular/common';
+import { Product } from '../../interfaces/product';
 
 @Component({
   selector: 'app-all-stores',
@@ -19,5 +20,10 @@ ngOnInit() {
   this.service.getStores().subscribe({
     next: (res) => (this.stores = res)
   });
+
 }
+
+  
+
+
 }

@@ -1,6 +1,10 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
+import { PublisherService } from '../../service/publisher.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -28,16 +32,41 @@ import { Component, EventEmitter, Output } from '@angular/core';
     ]))
   ]
 })
-export class LandingPageComponent {
+export class LandingPageComponent implements OnInit {
   animateHeading = false;
   animateButton = false;
   animateImage = false;
+
+  isWelcomePage=true;
+  publisherService =inject(PublisherService);
+  pS=this.publisherService.publishData(this.isWelcomePage);
 
   buttonOrderClicked=false;
   @Output() actionEventEmitter =new EventEmitter();
 
   ngOnInit(){
     this. triggerAnimation();
+    
+    // console.log(isWelcomePage);
+    // this.router.events.subscribe((event) => console.log(event));
+  
+    this.router.events.pipe(
+      filter((event: any) => event instanceof NavigationEnd)
+    ).subscribe((event) => {
+      this.isWelcomePage=false;
+      // console.log(isWelcomePage);
+      this.publisherService.publishData(this.isWelcomePage);
+    });
+
+    // if (event instanceof NavigationEnd) {
+    //   this.isWelcomePage=false;
+    //   // console.log(isWelcomePage);
+    //   this.publisherService.publishData(this.isWelcomePage);
+      
+    // }
+  }
+  constructor(private router: Router, private titleService: Title) {
+    titleService.setTitle("Welcome");
   }
 
   triggerAnimation() {

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
-import { RouterLink, RouterLinkActive,RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterLinkActive,RouterOutlet } from '@angular/router';
 import { FooterComponent } from './component/footer/footer.component';
 import { HeaderComponent } from './component/header/header.component';
 import { LandingHeaderComponent } from './component/landing-header/landing-header.component';
@@ -11,6 +11,8 @@ import { ProductsListComponent } from './products/products-list/products-list.co
 import { ProductItemComponent } from './products/products-list/product-item/product-item.component';
 import { ShopingCartComponent } from './products/shoping-cart/shoping-cart.component';
 import { FormsModule } from '@angular/forms';
+import { LandingPageComponent } from './component/landing-page/landing-page.component';
+import { PublisherService } from './service/publisher.service';
 
 @Component({
     selector: 'app-root',
@@ -23,6 +25,7 @@ import { FormsModule } from '@angular/forms';
         FooterComponent,
         HeaderComponent,
         LandingHeaderComponent,
+        LandingPageComponent,
         ProductsComponent,
         ProductDetailsComponent,
         ProductsListComponent,
@@ -34,4 +37,16 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   title = 'team3project';
+  
+  isWelcomePage:boolean | undefined;
+  
+  publisherService =inject(PublisherService);
+
+  constructor(private router: Router,private route: ActivatedRoute) {
+    this.publisherService.listenForData()
+    .subscribe((data)=>{
+      this.isWelcomePage=data;
+      console.log(this.isWelcomePage);
+    })
+  }
 }

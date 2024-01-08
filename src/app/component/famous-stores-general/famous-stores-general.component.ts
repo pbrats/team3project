@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FamousStoresGeneralService } from '../../service/famous-stores-general.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-famous-stores-general',
@@ -21,5 +22,7 @@ export class FamousStoresGeneralComponent {
       } 
     });
   }
-
+  constructor(private titleService: Title) {
+    titleService.setTitle("Famous Stores");
+}
 }

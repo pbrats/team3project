@@ -1,16 +1,16 @@
 <div class="container mt-3 mb-3">
     <h1 class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-success ">Categories</h1>
     <div class="row row-cols-4 ">
-        @for (cat of categories| uniqueCategory; track $index){
+        <div class="m-3" *ngFor="let cat of fCategories | uniqueCategory" >
             <div class="col-sm-4">
                 <div class="card border border-success m-4" style="width: 18rem;">
                     <div class="card-body  shadow">
                         <img src="..." class="card-img-top" alt="...">
                         <h5 class="card-title">{{cat.category}}</h5>
-                        <a class="btn btn-success">See {{cat.category}}</a>
+                        <a class="btn btn-success" (click)="onCategoryClick(cat.category)">See {{cat.category}}</a>
                     </div>
                 </div>
             </div>
-        }
+        </div>
     </div>
 </div>

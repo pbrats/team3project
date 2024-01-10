@@ -8,6 +8,7 @@ import { StoresService } from '../../service/stores.service';
 import { FamousStoresGeneralService } from '../../service/famous-stores-general.service';
 import { UniqueCategoryPipe } from "../../pipe/unique-category.pipe";
 import { Title } from '@angular/platform-browser';
+import { CategoriesService } from '../../service/categories.service';
 
 @Component({
     selector: 'app-main',
@@ -20,30 +21,20 @@ export class MainComponent {
   router: Router =inject(Router);
   famousStoresGeneral:any;
   famousGeneralService: FamousStoresGeneralService =inject(FamousStoresGeneralService);
-  categories:any;
-  categories1:any;
-  categories2:any;
+  fCategories:any;
+  catService: CategoriesService =inject(CategoriesService);
   storesService: StoresService =inject(StoresService);
 
   ngOnInit() {
-    this.storesService.getStores()
-    .subscribe({
-      next: response => {
-        console.log(response);
-        this.categories1 =response;
-        // vriskei categories apo stores.json
-      } 
+    this.catService.getCategories().subscribe((data) => {
+      this.fCategories = data;
     });
     this.famousGeneralService.getFamousStoresGeneral()
     .subscribe({
       next: response => {
         console.log(response);
         this.famousStoresGeneral =response;
-        this.categories2 =response;
-        // vriskei categories apo to json most_famous_stores_in_general
-        this.categories=this.categories1.concat(this.categories2)
-        // enonei categories
-      } 
+      }
     });
   }
 
@@ -59,5 +50,8 @@ viewStores(){
 }
 viewCategories(){
   this.router.navigate(["categories"]);
+}
+onCategoryClick(category: string) {
+  this.router.navigate(["categories",category]);
 }
 }

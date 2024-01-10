@@ -6,6 +6,7 @@ import { FamousStoresGeneralComponent } from './component/famous-stores-general/
 import { MainComponent } from './component/main/main.component';
 import { LandingPageComponent } from './component/landing-page/landing-page.component';
 import { ProductsComponent } from './products/products.component';
+import { SelectedCategoryComponent } from './component/selected-category/selected-category.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "welcome", pathMatch:"full"},
@@ -14,6 +15,7 @@ export const routes: Routes = [
     {path: "famous-stores", component: FamousStoresGeneralComponent},
     {path: "stores", component: AllStoresComponent},
     {path: "categories", component: CategoriesComponent},
+    {path: "categories/:category",component: SelectedCategoryComponent},
     {path: "stores/:id", component: ProductsComponent},
     {path: "products", component: ProductsComponent},
     {path: "**", component: NotFoundComponent}

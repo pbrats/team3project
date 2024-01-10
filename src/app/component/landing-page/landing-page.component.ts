@@ -43,6 +43,10 @@ export class LandingPageComponent implements OnInit {
 
   buttonOrderClicked=false;
   @Output() actionEventEmitter =new EventEmitter();
+  
+  constructor(private router: Router, private titleService: Title) {
+    titleService.setTitle("Welcome");
+  }
 
   ngOnInit(){
     this. triggerAnimation();
@@ -64,9 +68,6 @@ export class LandingPageComponent implements OnInit {
     //   this.publisherService.publishData(this.isWelcomePage);
       
     // }
-  }
-  constructor(private router: Router, private titleService: Title) {
-    titleService.setTitle("Welcome");
   }
 
   triggerAnimation() {

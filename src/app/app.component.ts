@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-
 import { ActivatedRoute, Router, RouterLink, RouterLinkActive,RouterOutlet } from '@angular/router';
 import { FooterComponent } from './component/footer/footer.component';
 import { HeaderComponent } from './component/header/header.component';

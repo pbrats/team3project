@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>Καλώς όρισες!</h2>
+
+  <form [formGroup]="form" (submit)="onSubmit()">
+    <div>
+        <label>Τηλέφωνο<span class="text-danger">*</span></label>
+        <input formControlName="phone" placeholder="Τηλέφωνο">
+        <span class="text-danger" *ngIf="form.get('phone')?.hasError('required') && form.get('phone')?.touched">*Υποχρεωτικό πεδίο</span>
+    </div>
+    <div>
+        <label>Email<span class="text-danger">*</span></label>
+        <input formControlName="email" placeholder="Email">
+        <span class="text-danger" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">*Υποχρεωτικό πεδίο</span>
+    </div>
+    </form>
+
+  <button routerLink="/discovery" [disabled]="form.invalid" type="submit" class="btn btn-success">
+    Παράγγειλε τώρα
+  </button>
+</div>

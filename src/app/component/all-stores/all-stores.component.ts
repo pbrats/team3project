@@ -15,10 +15,16 @@ import { Title } from '@angular/platform-browser';
 export class AllStoresComponent {
   service=inject(StoreService)
   stores: Store[]=[];
+  hasLoadedStores : boolean= false;
 
 ngOnInit() {
   this.service.getStores().subscribe({
-    next: (res) => (this.stores = res)
+    next: (res) => {
+      setTimeout(() =>{
+        (this.stores = res)
+        this.hasLoadedStores=true;
+      },500);
+    }
   });
 }
 constructor(private titleService: Title) {

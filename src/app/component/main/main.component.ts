@@ -9,6 +9,8 @@ import { FamousStoresGeneralService } from '../../service/famous-stores-general.
 import { UniqueCategoryPipe } from "../../pipe/unique-category.pipe";
 import { Title } from '@angular/platform-browser';
 import { CategoriesService } from '../../service/categories.service';
+import { CategoriesPhotosService } from '../../service/categories-photos.service';
+import { StoresPhotosService } from '../../service/stores-photos.service';
 
 @Component({
     selector: 'app-main',
@@ -24,16 +26,37 @@ export class MainComponent {
   fCategories:any;
   catService: CategoriesService =inject(CategoriesService);
   storesService: StoresService =inject(StoresService);
+  catPhotoService: CategoriesPhotosService =inject(CategoriesPhotosService);
+  photosCategories: any;
+  storePhotoService: StoresPhotosService =inject(StoresPhotosService);
+  storePhotos: any;
+  hasLoadedCategories : boolean= false;
+  hasLoadedFamous : boolean= false;
 
   ngOnInit() {
-    this.catService.getCategories().subscribe((data) => {
-      this.fCategories = data;
+    this.catService.getCategories().subscribe({
+      next: data => {
+        setTimeout(() =>{
+      // (data) => {
+          this.fCategories = data;
+          this.hasLoadedCategories=true;
+        },500);
+      }
+    });
+    this.catPhotoService.getCategoriesPhotos().subscribe((response) => {
+      this.photosCategories = response;
+    });
+    this.storePhotoService.getStoresPhotos().subscribe((response) => {
+      this.storePhotos = response;
     });
     this.famousGeneralService.getFamousStoresGeneral()
     .subscribe({
       next: response => {
-        console.log(response);
-        this.famousStoresGeneral =response;
+        setTimeout(() =>{
+          console.log(response);
+          this.famousStoresGeneral =response;
+          this.hasLoadedFamous=true;
+        },500);
       }
     });
   }
@@ -42,16 +65,16 @@ export class MainComponent {
     titleService.setTitle("Discovery");
   }
 
-viewFamousStores(){
-  this.router.navigate(["famous-stores"]);
-}
-viewStores(){
-  this.router.navigate(["stores"]);
-}
-viewCategories(){
-  this.router.navigate(["categories"]);
-}
-onCategoryClick(category: string) {
-  this.router.navigate(["categories",category]);
-}
+  viewFamousStores(){
+    this.router.navigate(["famous-stores"]);
+  }
+  viewStores(){
+    this.router.navigate(["stores"]);
+  }
+  viewCategories(){
+    this.router.navigate(["categories"]);
+  }
+  onCategoryClick(category: string) {
+    this.router.navigate(["categories",category]);
+  }
 }

@@ -24,7 +24,8 @@ import { PublisherService } from '../../service/publisher.service';
         style({ transform: 'translateX(-100%)' }),
         animate('750ms ease-in', style({ transform: 'translateX(0%)' })),
       ]),
-    ])),(trigger('moveImage', [
+    ])),
+    (trigger('moveImage', [
       transition(':enter', [
         style({ transform: 'translateX(100%)' }),
         animate('850ms ease-in', style({ transform: 'translateX(0%)' })),
@@ -51,12 +52,13 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(){
     this. triggerAnimation();
     
-    // console.log(isWelcomePage);
+    // console.log(this.isWelcomePage);
     // this.router.events.subscribe((event) => console.log(event));
   
     this.router.events.pipe(
       filter((event: any) => event instanceof NavigationEnd)
     ).subscribe((event) => {
+      // console.log(event);
       this.isWelcomePage=false;
       // console.log(isWelcomePage);
       this.publisherService.publishData(this.isWelcomePage);

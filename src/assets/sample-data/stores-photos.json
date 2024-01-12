@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "name": "McDonald's",
+        "background_image": "assets/stores-photos/mcdonalds.png"
+    },
+    {
+        "id": 12,
+        "name": "Pizza Fan",
+        "background_image": "assets/stores-photos/pizzafan.png"
+    },
+    {
+        "id": 8,
+        "name": "Roma Pizza",
+        "background_image": "assets/stores-photos/romapizza.png"
+    },
+    {
+        "id": 105,
+        "name": "Goodys Burger House",
+        "background_image": "assets/stores-photos/goodys.svg"
+    },
+    {
+        "id": 80,
+        "name": "The Big Bad Wolf",
+        "background_image": "assets/stores-photos/bigbadwolf.png"
+    },
+    {
+        "id": 34,
+        "name": "Mikel",
+        "background_image": "assets/stores-photos/mikel.png"
+    },
+    {
+        "id": 2,
+        "name": "StreetWok",
+        "background_image": "assets/stores-photos/streetwok.png"
+    },
+    {
+        "id": 4,
+        "name": "Coffee Lab",
+        "background_image": "assets/stores-photos/coffeelab.png"
+    },
+    {
+        "id": 5,
+        "name": "Gregory",
+        "background_image": "assets/stores-photos/gregorys.svg"
+    },
+    {
+        "id": 3,
+        "name": "Nanou Donuts House",
+        "background_image": "assets/stores-photos/nanou.png"
+    },
+    {
+        "id": 18,
+        "name": "FoodTek",
+        "background_image": "assets/stores-photos/foodtek.png"
+    }
+]

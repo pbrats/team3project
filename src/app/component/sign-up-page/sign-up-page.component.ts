@@ -35,7 +35,11 @@ export class SignUpPageComponent implements OnInit {
   setFormValues() {
     this.form = new FormGroup({
       phone: new FormControl("", Validators.required),
-      email: new FormControl("", Validators.required)
+      email: new FormControl("", Validators.required),
+      first_name: new FormControl(""),
+      last_name: new FormControl(""),
+      address: new FormControl(""),
+      password: new FormControl("")
     });
 
     this.router.events

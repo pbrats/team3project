@@ -14,4 +14,10 @@ export class FamousStoresGeneralService {
   getFamousStoresGeneral(){
     return this.http.get(this.endpointUrl);
   }
+  // header http
+  // getMostFamousStores(){
+  //  let customHeaders= new HttpHeaders({
+  //   'fetch-type':'most-famous-stores-in-general'
+  //  });
+  //   return this.http.get(this.endpointUrl,{headers:customHeaders});
 }

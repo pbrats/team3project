@@ -1,0 +1,23 @@
+[
+    {"category": "FAST_FOOD",
+    "background_image":"assets/categories-photos/fastfood.png"
+    },
+    {"category": "PIZZA",
+    "background_image":"assets/categories-photos/pizza.png"
+    },
+    {"category": "SOUVLAKI",
+    "background_image":"assets/categories-photos/souvlaki.png"
+    },
+    {"category": "COFFEE",
+    "background_image":"assets/categories-photos/coffee.png"
+    },
+    {"category": "DONUTS",
+    "background_image":"assets/categories-photos/donut.png"
+    },
+    {"category": "OTHER",
+    "background_image":"assets/categories-photos/other.png"
+    },
+    {"category": "ASIAN",
+    "background_image":"assets/categories-photos/asian.png"
+    }
+]

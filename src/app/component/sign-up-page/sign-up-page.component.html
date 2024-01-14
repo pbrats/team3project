@@ -1,6 +1,6 @@
 <div class="container border">
 
-  <div class="row">
+  <div class="row d-grid gap-3">
     <h2 class="text-center">Καλώς όρισες!</h2>
     <form [formGroup]="form" (submit)="onSubmit()" class="col-4 mx-auto" >
       <div>
@@ -74,8 +74,8 @@
       </div>
     </form>
   </div>
-  <br>
-  <div class="col-4 mx-auto">
+  
+  <div class="col-4 mx-auto d-grid gap-2 pt-4">
   <button 
     routerLink="/discovery"
     [disabled]="form.invalid"

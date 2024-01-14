@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, inject } from '@angular/core';
-import { StoreService } from '../../services/store.service';
+import { StoreService } from '../../service/store.service';
 import { Product } from '../../interfaces/product';
 import { Store } from '../../interfaces/store';
 import { ActivatedRoute } from '@angular/router';

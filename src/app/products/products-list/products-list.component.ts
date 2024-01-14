@@ -4,7 +4,7 @@ import { ProductItemComponent } from './category-product-list/product-item/produ
 import { CategoriesComponent } from '../categories/categories.component';
 import { Store } from '../../interfaces/store';
 import { Product } from '../../interfaces/product';
-import { StoreService } from '../../services/store.service';
+import { StoreService } from '../../service/store.service';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CategoryProductListComponent } from './category-product-list/category-product-list.component';

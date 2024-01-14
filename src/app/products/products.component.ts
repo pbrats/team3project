@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import { StoreService } from '../services/store.service';
+import { StoreService } from '../service/store.service';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
 import { ProductsListComponent } from './products-list/products-list.component';
@@ -9,10 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { StoreDescriptionComponent } from './store-description/store-description.component';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '../interfaces/store';
-import { map } from 'rxjs';
 import { Product } from '../interfaces/product';
 import { CategoriesComponent } from './categories/categories.component';
-import { NgModule } from '@angular/core';
 import { CategoryProductListComponent } from './products-list/category-product-list/category-product-list.component';
 
 @Component({

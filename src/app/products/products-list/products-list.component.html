@@ -1,5 +1,5 @@
 <div class="d-flex flex-row flex-wrap" *ngFor="let category of categories" >
-  <h3>{{category}}</h3>
+  <h3 class="col-12">{{category}}</h3>
 <div *ngFor="let product of allProducts" >
 <app-product-item *ngIf="product.category == category" [product]="product"></app-product-item>
 </div>

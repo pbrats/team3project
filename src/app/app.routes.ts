@@ -18,5 +18,6 @@ export const routes: Routes = [
     {path: "categories/:category",component: SelectedCategoryComponent},
     {path: "stores/:id", component: ProductsComponent},
     {path: "products", component: ProductsComponent},
+    {path: "menu-not-found",component: NotFoundComponent},
     {path: "**", component: NotFoundComponent}
 ];

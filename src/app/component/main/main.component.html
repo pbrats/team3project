@@ -51,7 +51,7 @@
                 <div class="card-group card-group-scroll mt-3">
                     @for (famousStore of famousStoresGeneral; track $index){
                         <div class="card border border-success m-1">
-                            <div class="card-body text-center text-end shadow ">
+                            <div class="card-body text-center text-end shadow" (click)="onViewStoreDetails(famousStore.id)" title="click for details">
                                 <div *ngFor="let photo of storePhotos">
                                     <div *ngIf="photo.name==famousStore.name">
                                         <img [src]="photo.background_image" class="card-img-top" alt="{{photo.name}} store photo" style="width: 40%; height:10%">

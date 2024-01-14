@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit} from '@angular/core';
 import { StoreService } from '../../services/store.service';
 import { Store } from '../../interfaces/store';
 import { StoreItemComponent } from '../../component/store-item/store-item.component';

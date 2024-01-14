@@ -3,6 +3,7 @@ import { FamousStoresGeneralService } from '../../service/famous-stores-general.
 import { Title } from '@angular/platform-browser';
 import { StoresPhotosService } from '../../service/stores-photos.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-famous-stores-general',
@@ -17,6 +18,7 @@ export class FamousStoresGeneralComponent {
   storePhotoService: StoresPhotosService =inject(StoresPhotosService);
   storePhotos: any;
   hasLoadedFamous : boolean= false;
+  router: Router =inject(Router);
 
   ngOnInit() {
     this.storePhotoService.getStoresPhotos().subscribe((response) => {
@@ -35,5 +37,9 @@ export class FamousStoresGeneralComponent {
   }
   constructor(private titleService: Title) {
     titleService.setTitle("Famous Stores");
+  }
+  onViewStoreDetails(id: number) {
+    console.log("hello");
+      this.router.navigate(["stores", id]);
   }
 }

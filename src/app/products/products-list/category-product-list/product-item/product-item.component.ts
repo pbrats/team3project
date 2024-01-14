@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '../../../../interfaces/store';
 import { CategoryProductListComponent } from '../category-product-list.component';
+import { ProductsPhotosService } from '../../../../service/products-photos.service';
 
 @Component({
   selector: 'app-product-item',
@@ -17,7 +18,13 @@ import { CategoryProductListComponent } from '../category-product-list.component
   styleUrl: './product-item.component.css'
 })
 export class ProductItemComponent implements OnInit {
+  productPhotos: any;
+  productPhotoService:  ProductsPhotosService=inject(ProductsPhotosService);
+
   ngOnInit(){
+    this.productPhotoService.getProductsPhotos().subscribe((response) => {
+      this.productPhotos = response;
+    });
    
   }
   service = inject(StoreService);

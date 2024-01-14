@@ -46,5 +46,8 @@ export class SelectedCategoryComponent {
       }
     });
   }
-
+  onViewStoreDetails(id: number) {
+    console.log("hello");
+      this.router.navigate(["stores", id]);
+  }
 }

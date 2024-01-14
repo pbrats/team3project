@@ -3,7 +3,7 @@ import { StoreService } from '../service/store.service';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
 import { ProductsListComponent } from './products-list/products-list.component';
-import { ProductItemComponent } from './products-list/category-product-list/product-item/product-item.component';
+import { ProductItemComponent } from './products-list/product-item/product-item.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { StoreDescriptionComponent } from './store-description/store-description.component';
@@ -11,7 +11,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '../interfaces/store';
 import { Product } from '../interfaces/product';
 import { CategoriesComponent } from './categories/categories.component';
-import { CategoryProductListComponent } from './products-list/category-product-list/category-product-list.component';
 
 @Component({
   selector: 'app-products',
@@ -24,8 +23,7 @@ import { CategoryProductListComponent } from './products-list/category-product-l
     CommonModule,
     FormsModule,
     StoreDescriptionComponent,
-    CategoriesComponent,
-    CategoryProductListComponent
+    CategoriesComponent
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',

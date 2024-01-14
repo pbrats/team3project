@@ -6,9 +6,10 @@ import { HeaderComponent } from "./components/core/header/header.component";
 import { ProductsComponent } from './products/products.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { ProductsListComponent } from './products/products-list/products-list.component';
-import { ProductItemComponent } from './products/products-list/product-item/product-item.component';
+import { ProductItemComponent } from './products/products-list/category-product-list/product-item/product-item.component';
 import { ShopingCartComponent } from './products/shoping-cart/shoping-cart.component';
 import { FormsModule } from '@angular/forms';
+import { CategoryProductListComponent } from './products/products-list/category-product-list/category-product-list.component';
 
 @Component({
     selector: 'app-root',
@@ -27,6 +28,7 @@ import { FormsModule } from '@angular/forms';
         ShopingCartComponent,
         FormsModule,
         RouterLink,
+        CategoryProductListComponent
     ]
 })
 export class AppComponent {

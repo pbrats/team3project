@@ -1,9 +1,9 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { StoreService } from '../services/store.service';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
 import { ProductsListComponent } from './products-list/products-list.component';
-import { ProductItemComponent } from './products-list/product-item/product-item.component';
+import { ProductItemComponent } from './products-list/category-product-list/product-item/product-item.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { StoreDescriptionComponent } from './store-description/store-description.component';
@@ -12,6 +12,8 @@ import { Store } from '../interfaces/store';
 import { map } from 'rxjs';
 import { Product } from '../interfaces/product';
 import { CategoriesComponent } from './categories/categories.component';
+import { NgModule } from '@angular/core';
+import { CategoryProductListComponent } from './products-list/category-product-list/category-product-list.component';
 
 @Component({
   selector: 'app-products',
@@ -25,6 +27,7 @@ import { CategoriesComponent } from './categories/categories.component';
     FormsModule,
     StoreDescriptionComponent,
     CategoriesComponent,
+    CategoryProductListComponent
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',
@@ -36,12 +39,15 @@ export class ProductsComponent implements OnInit {
   selectedProduct: any;
   previewedProduct: any;
   store: any;
-  products: Product[] = [];
-  categories: string[] = [];
+  products: any[] = [];
   categoryProducts: Product[] = [];
   id!: number;
   selectedCategory: any;
   stores: Store[] = [];
+  allProducts: any;
+  cats: any;
+  categories: string[] = [];
+  @Input() category!:string;
 
   constructor() {}
 
@@ -49,30 +55,23 @@ export class ProductsComponent implements OnInit {
     this.activatedRoute.params.subscribe({
       next: (params: any) => {
         this.id = +params['id'];
-        console.log(params.id);
-
         this.service.getStoreById(this.id).subscribe({
           next: (res) => {
-            console.log(res);
             this.store = res;
-          },
+            console.log(this.store);
+            this.categories=this.service.getProductCategoriesByStore(this.store.products);
+            console.log(this.categories)
+          }
         });
+        this.service.getProductsByStore(this.id).subscribe({
+          next: (res) => {
+            this.allProducts = res;
+            console.log(this.allProducts);
+          }
+        })
       },
     });
 
-    this.service.getStores().subscribe({
-      next: (res) => {
-        console.log(res);
-        this.stores = res;
-      },
-    });
-
-    this.service.categories.subscribe({
-      next: (res: any) => {
-        this.categories = res;
-        console.log('categories on products page', this.categories);
-      },
-    });
 
     this.service.categorySelected.subscribe({
       next: (res: any) => (this.selectedCategory = res),
@@ -85,6 +84,11 @@ export class ProductsComponent implements OnInit {
     this.service.productPreviewed.subscribe({
       next: (res: any) => (this.previewedProduct = res),
     });
+
   }
+
 }
+
+
+
 

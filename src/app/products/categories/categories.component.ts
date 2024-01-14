@@ -2,6 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { StoreService } from '../../services/store.service';
 import { Product } from '../../interfaces/product';
+import { Store } from '../../interfaces/store';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-categories',
@@ -11,22 +14,13 @@ import { Product } from '../../interfaces/product';
   styleUrl: './categories.component.css'
 })
 export class CategoriesComponent implements OnInit{
-// @Input() categories: string[] | undefined;
-@Input() products: Product[]=[];
-  categories: string[]=[];
-  service = inject(StoreService)
+  @Input() categories:string[]=[];
 
-ngOnInit() { 
-  this.categories=this.products
-  .map(product => product.category)
-  .filter((value, index, self) => self.indexOf(value) === index)
-  console.log(this.products)
-  console.log(this.categories)
-  this.service.categories.emit(this.categories)
-}
+  ngOnInit() {
 
-onSelectCategory() {
+  }
 
-}
+  
+ 
 
 }

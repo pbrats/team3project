@@ -1,9 +1,7 @@
-<div class="d-flex flex-row flex-wrap" *ngFor="let category of categories" >
-  <h3 class="col-12">{{category}}</h3>
-<div *ngFor="let product of allProducts" >
-<app-product-item *ngIf="product.category == category" [product]="product"></app-product-item>
+<div class="d-flex flex-row flex-wrap m-1" *ngFor="let category of categories">
+  <h4 class="col-12 p-2">{{category}}</h4>
+  <div *ngFor="let product of allProducts">
+    <app-product-item *ngIf="product.category == category" [product]="product"></app-product-item>
+  </div>
+
 </div>
- 
-</div>
-   
-  

@@ -5,4 +5,5 @@ export interface Product {
     price: number;
     // Add a new property for quantity
     quantity?: number;
+    photo: string;
   }

@@ -1,7 +1,7 @@
 
 <div *ngIf="products.length > 0; else emptyCart">
   <ul class="list-group list-group-flush">
-    <li class="list-group-item" *ngFor="let product of products">
+    <li class="list-group-item" *ngFor="let product of products; ">
       {{ product.name }} [{{ product.quantity }}] - ${{ (product.price || 0) * (product.quantity || 0) }}
     </li>
   </ul>

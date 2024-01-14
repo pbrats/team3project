@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { StoreService } from '../../services/store.service';
+import { Product } from '../../interfaces/product';
+import { Store } from '../../interfaces/store';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-categories',
@@ -8,6 +13,14 @@ import { Component, Input } from '@angular/core';
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css'
 })
-export class CategoriesComponent {
-@Input() categories: string[] = [];
+export class CategoriesComponent implements OnInit{
+  @Input() categories:string[]=[];
+
+  ngOnInit() {
+
+  }
+
+  
+ 
+
 }

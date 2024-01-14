@@ -5,7 +5,7 @@
         <div class="row row-cols-4 ">
             <div class="m-3" *ngFor="let store of stores">
                 <div class="col-sm-4 m-4 p-1">
-                    <div class="card border border-success m-3" style="width: 350%; height: 365px">
+                    <div class="card border border-success m-3" style="width: 350%; height: 365px" (click)="onViewStoreDetails(store.id)" title="click for details">
                         <div class="card-body text-center shadow">
                             <div *ngFor="let photo of storePhotos">
                                 <div *ngIf="photo.name==store.name">

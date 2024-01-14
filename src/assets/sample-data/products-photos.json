@@ -1,0 +1,32 @@
+[
+    {"category": "BURGERS",
+    "background_image":"assets/products-photos/burger.png"
+    },
+    {"category": "NUGGETS",
+    "background_image":"assets/products-photos/nugget.png"
+    },
+    {"category": "SALADS",
+    "background_image":"assets/products-photos/salad.png"
+    },
+    {"category": "FRIES_&_SIDES",
+    "background_image":"assets/products-photos/fries.png"
+    },
+    {"category": "NOODLES",
+    "background_image":"assets/products-photos/noodles.png"
+    },
+    {"category": "RICE",
+    "background_image":"assets/products-photos/rice2.png"
+    },
+    {"category": "OTHER",
+    "background_image":"assets/products-photos/other2.png"
+    },
+    {"category": "DONUT",
+    "background_image":"assets/products-photos/donut.png"
+    },
+    {"category": "CRONUT",
+    "background_image":"assets/products-photos/cronut.png"
+    },
+    {"category": "BURGER",
+    "background_image":"assets/products-photos/burger2.png"
+    }
+]

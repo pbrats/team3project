@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, SimpleChange, inject } from '@angular/core';
 import { StoreService } from '../../services/store.service';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
@@ -15,8 +15,11 @@ export class ShopingCartComponent {
   @Input() product: any;
   products: Product[]=[];
   cartService=inject(CartService);
-
-  // ngOnInit() {
+ngOnInit(){
+  console.log(this.products);
+}
+  ngOnChanges(change:SimpleChange) {
+    console.log(this.products);
   //   this.products = [this.product];
   //   this.service.productSelected
   //     .subscribe(
@@ -25,7 +28,10 @@ export class ShopingCartComponent {
   //       }
   //     );
 
-  // }
+  }
+  ngOnDestroy(){
+    this.products = this.cartService.clearCart();
+  }
  
 
   constructor() {

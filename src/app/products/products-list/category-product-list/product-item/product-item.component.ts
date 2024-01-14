@@ -1,8 +1,8 @@
 
 import { Component, Input, OnInit, inject } from '@angular/core';
-import { StoreService } from '../../../../services/store.service';
+import { StoreService } from '../../../../service/store.service';
 import { Product } from '../../../../interfaces/product';
-import { CartService } from '../../../../services/cart.service';
+import { CartService } from '../../../../service/cart.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';

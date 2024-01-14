@@ -1,7 +1,7 @@
 import { Component, Input, SimpleChange, inject } from '@angular/core';
-import { StoreService } from '../../services/store.service';
+import { StoreService } from '../../service/store.service';
 import { CommonModule } from '@angular/common';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../service/cart.service';
 import { Product } from '../../interfaces/product';
 
 @Component({

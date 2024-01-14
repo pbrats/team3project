@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { StoreService } from '../../services/store.service';
+import { StoreService } from '../../service/store.service';
 import { StoresService } from '../../service/stores.service';
 import { Title } from '@angular/platform-browser';
 

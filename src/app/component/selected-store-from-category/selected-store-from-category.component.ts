@@ -31,8 +31,6 @@ export class SelectedStoreFromCategoryComponent {
       this.storesService.getStores().subscribe((data:any) => {
         this.items = data.filter((item:any) => item.name === this.selectedStore);
         console.log(this.items);
-        if(this.items.length==0){
-          this.router.navigate(["menu-not-found"]);}
       });
   });
 }

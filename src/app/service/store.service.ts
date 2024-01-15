@@ -16,7 +16,7 @@ export class StoreService {
   private products: Product[] = [];
   private stores: Store[] = [];
   constructor() {}
-categories:string[]=[];
+  categories:string[]=[];
   getStores() {
     return this.http.get<Store[]>(`${this.endpointUrl}/stores.json`);
   }

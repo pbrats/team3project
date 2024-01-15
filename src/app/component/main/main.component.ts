@@ -26,7 +26,8 @@ export class MainComponent {
   famousGeneralService: FamousStoresGeneralService =inject(FamousStoresGeneralService);
   fCategories:any;
   catService: CategoriesService =inject(CategoriesService);
-  storesService: StoresService =inject(StoresService);
+  stores:any;
+  storeService: StoresService =inject(StoresService);
   catPhotoService: CategoriesPhotosService =inject(CategoriesPhotosService);
   photosCategories: any;
   storePhotoService: StoresPhotosService =inject(StoresPhotosService);
@@ -49,6 +50,9 @@ export class MainComponent {
     });
     this.storePhotoService.getStoresPhotos().subscribe((response) => {
       this.storePhotos = response;
+    });
+    this.storeService.getStores().subscribe((response) => {
+      this.stores = response;
     });
     this.famousGeneralService.getFamousStoresGeneral()
     .subscribe({
@@ -78,8 +82,13 @@ export class MainComponent {
   onCategoryClick(category: string) {
     this.router.navigate(["categories",category]);
   }
-  onViewStoreDetails(id: number) {
-    console.log("hello");
-      this.router.navigate(["stores", id]);
+  onViewStoreDetails(idClicked: number) {
+    const foundStore = this.stores.find((store: any) => store.id === idClicked);
+  console.log(foundStore);
+  if (foundStore){
+    this.router.navigate(["stores",idClicked]);
+  }else{
+    this.router.navigate(["menu-not-found"]);
   }
+}
 }

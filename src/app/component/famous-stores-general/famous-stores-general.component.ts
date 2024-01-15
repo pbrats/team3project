@@ -4,6 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { StoresPhotosService } from '../../service/stores-photos.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { StoresService } from '../../service/stores.service';
 
 @Component({
   selector: 'app-famous-stores-general',
@@ -17,12 +18,18 @@ export class FamousStoresGeneralComponent {
   famousStoresGService: FamousStoresGeneralService =inject(FamousStoresGeneralService);
   storePhotoService: StoresPhotosService =inject(StoresPhotosService);
   storePhotos: any;
+  stores:any;
+  storeService: StoresService =inject(StoresService);
+
   hasLoadedFamous : boolean= false;
   router: Router =inject(Router);
 
   ngOnInit() {
     this.storePhotoService.getStoresPhotos().subscribe((response) => {
       this.storePhotos = response;
+    });
+    this.storeService.getStores().subscribe((response) => {
+      this.stores = response;
     });
     this. famousStoresGService.getFamousStoresGeneral()
     .subscribe({
@@ -38,8 +45,13 @@ export class FamousStoresGeneralComponent {
   constructor(private titleService: Title) {
     titleService.setTitle("Famous Stores");
   }
-  onViewStoreDetails(id: number) {
-    console.log("hello");
-      this.router.navigate(["stores", id]);
+  onViewStoreDetails(idClicked: number) {
+    const foundStore = this.stores.find((store: any) => store.id === idClicked);
+    console.log(foundStore);
+    if (foundStore){
+      this.router.navigate(["stores",idClicked]);
+    }else{
+      this.router.navigate(["menu-not-found"]);
+    }
   }
 }

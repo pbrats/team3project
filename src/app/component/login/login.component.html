@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="offcanvas-header">
+        <!-- <h3 class="offcanvas-title">Σύνδεση / Εγγραφή</h3> -->
+        <button
+          type="button"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+  <div>
+    <form [formGroup]="form" (submit)="onSubmit()">
+      <div class="align-left">
+        <label class="form-label"
+          >Τηλέφωνο<span class="text-danger">*</span></label
+        >
+        <input
+          type="phone"
+          formControlName="phone"
+          class="form-control"
+          placeholder="Τηλέφωνο"
+        />
+        <span
+          class="text-danger"
+          *ngIf="
+            form.get('phone')?.hasError('required') &&
+            form.get('phone')?.touched
+          "
+          >*Υποχρεωτικό πεδίο</span
+        >
+      </div>
+      <div>
+        <label class="form-label"
+          >Email<span class="text-danger">*</span></label
+        >
+        <input
+          type="email"
+          formControlName="email"
+          class="form-control"
+          placeholder="Email"
+        />
+        <span
+          class="text-danger"
+          *ngIf="
+            form.get('email')?.hasError('required') &&
+            form.get('email')?.touched
+          "
+          >*Υποχρεωτικό πεδίο</span
+        >
+      </div>
+    </form>
+  </div>
+
+  <div class="container px-auto">
+    <button
+      routerLink="/discovery"
+      [disabled]="form.invalid"
+      type="submit"
+      class="btn btn-success"
+    >
+      Παράγγειλε τώρα
+    </button>
+  </div>
+  <p>Δεν έχεις λογαριασμό; Κάνε εγγραφή <a data-bs-dismiss="offcanvas" routerLink="/sign-up">εδώ</a></p>
+</div>

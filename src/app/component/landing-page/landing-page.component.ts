@@ -4,6 +4,7 @@ import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
 import { PublisherService } from '../../service/publisher.service';
+import { Subject, interval, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-landing-page',
@@ -40,6 +41,10 @@ export class LandingPageComponent implements OnInit {
   isWelcomePage=true;
   buttonOrderClicked=false;
   @Output() actionEventEmitter =new EventEmitter();
+  private destroy$ = new Subject<void>();
+  orderTexts: string[] = ['Pizza', 'Burger', 'Asian', 'Donut', 'Coffee','Fast Food'];
+  currentIndex = 0;
+  orderText: string = this.orderTexts[0];
   
   constructor(private router: Router, private titleService: Title) {
     titleService.setTitle("Welcome");
@@ -61,6 +66,11 @@ export class LandingPageComponent implements OnInit {
   }
   ngOnInit(){
     this. triggerAnimation();
+    this.startUpdatingText();
+  }
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
   triggerAnimation() {
     this.animateHeading = true;
@@ -71,5 +81,13 @@ export class LandingPageComponent implements OnInit {
     this.buttonOrderClicked=true;
     console.log(this.buttonOrderClicked);
     this.actionEventEmitter.emit(this.buttonOrderClicked);
+  }
+  private startUpdatingText() {
+    interval(700)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(() => {
+        this.orderText = this.orderTexts[this.currentIndex];
+        this.currentIndex = (this.currentIndex + 1) % this.orderTexts.length;
+      });
   }
 }

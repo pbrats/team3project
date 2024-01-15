@@ -8,6 +8,10 @@ import { LandingPageComponent } from './component/landing-page/landing-page.comp
 import { ProductsComponent } from './products/products.component';
 import { SelectedCategoryComponent } from './component/selected-category/selected-category.component';
 import { SignUpPageComponent } from './component/sign-up-page/sign-up-page.component';
+import { AboutComponent } from './component/about/about.component';
+import { TermsOfUseComponent } from './component/terms-of-use/terms-of-use.component';
+import { FaqsComponent } from './component/faqs/faqs.component';
+import { SupportComponent } from './component/support/support.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "welcome", pathMatch:"full"},
@@ -21,5 +25,9 @@ export const routes: Routes = [
     {path: "products", component: ProductsComponent},
     {path: "sign-up", component: SignUpPageComponent},
     {path: "menu-not-found",component: NotFoundComponent},
+    {path: "about", component: AboutComponent},
+    {path: "faqs", component: FaqsComponent},
+    {path: "support", component: SupportComponent},
+    {path: "terms-of-use", component: TermsOfUseComponent},
     {path: "**", component: NotFoundComponent}
 ];

@@ -14,9 +14,8 @@
         <div *ngFor="let photo of storePhotos" class="m-3">
           <div *ngIf="photo.name==store.name">
               <p class="card-text">Rating: {{photo.rating}} <span class="text-success"style="font-size:150%">&starf;</span></p> 
-              
           </div>
-      </div>
+        </div>
         <div class="row">
           <div class="col">
             <a class="btn btn-success text-wrap" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >See {{store.name}}</a>

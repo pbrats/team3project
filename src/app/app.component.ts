@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink, RouterLinkActive,RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { FooterComponent } from './component/footer/footer.component';
 import { HeaderComponent } from './component/header/header.component';
 import { LandingHeaderComponent } from './component/landing-header/landing-header.component';
@@ -36,9 +36,7 @@ import { PublisherService } from './service/publisher.service';
 })
 export class AppComponent {
   title = 'team3project';
-  
   isWelcomePage:boolean | undefined;
-  
   publisherService =inject(PublisherService);
 
   constructor(private router: Router,private route: ActivatedRoute) {

@@ -5,7 +5,6 @@
         flex-wrap: nowrap;
     }
 }
-
 .card-group.card-group-scroll > .card {
     flex-basis: 35%;
 }

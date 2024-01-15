@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
 import { PublisherService } from '../../service/publisher.service';
 
 @Component({
@@ -37,52 +36,40 @@ export class LandingPageComponent implements OnInit {
   animateHeading = false;
   animateButton = false;
   animateImage = false;
-
-  isWelcomePage=true;
   publisherService =inject(PublisherService);
-  pS=this.publisherService.publishData(this.isWelcomePage);
-
+  isWelcomePage=true;
   buttonOrderClicked=false;
   @Output() actionEventEmitter =new EventEmitter();
   
   constructor(private router: Router, private titleService: Title) {
     titleService.setTitle("Welcome");
+    this.isWelcomePage=true;
+    this.publisherService.publishData(this.isWelcomePage);
+    console.log(this.isWelcomePage);
+    this.router.events.subscribe((event) => console.log(event));
+    this.router.events.subscribe(event=>{
+      if(event instanceof NavigationEnd){
+        if (event.url.includes('welcome')||event.url.includes('')){
+          this.isWelcomePage=true;
+          this.publisherService.publishData(this.isWelcomePage);
+        }else{
+          this.isWelcomePage=false;
+          this.publisherService.publishData(this.isWelcomePage);
+        }
+      }
+    });
   }
-
   ngOnInit(){
     this. triggerAnimation();
-    
-    // console.log(this.isWelcomePage);
-    // this.router.events.subscribe((event) => console.log(event));
-  
-    this.router.events.pipe(
-      filter((event: any) => event instanceof NavigationEnd)
-    ).subscribe((event) => {
-      // console.log(event);
-      this.isWelcomePage=false;
-      // console.log(isWelcomePage);
-      this.publisherService.publishData(this.isWelcomePage);
-    });
-
-    // if (event instanceof NavigationEnd) {
-    //   this.isWelcomePage=false;
-    //   // console.log(isWelcomePage);
-    //   this.publisherService.publishData(this.isWelcomePage);
-      
-    // }
   }
-
   triggerAnimation() {
     this.animateHeading = true;
     this.animateButton = true;
     this.animateImage = true;
   }
   selectedbuttonOrder(){
-  
     this.buttonOrderClicked=true;
     console.log(this.buttonOrderClicked);
-   
     this.actionEventEmitter.emit(this.buttonOrderClicked);
-    
   }
 }

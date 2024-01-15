@@ -9,8 +9,7 @@ export class FamousStoresGeneralService {
   private http=inject(HttpClient);
   private endpointUrl="assets/sample-data/most_famous_stores_in_general.json";
 
-  constructor() { }
-
+  constructor() {}
   getFamousStoresGeneral(){
     return this.http.get(this.endpointUrl);
   }

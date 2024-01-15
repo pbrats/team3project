@@ -30,7 +30,7 @@ export class CategoriesComponent {
     // (data) => {
         this.fCategories = data;
         this.hasLoadedCategories=true;
-      },500);
+      },10);
       }
    });
     this.catPhotoService.getCategoriesPhotos().subscribe((data) => {

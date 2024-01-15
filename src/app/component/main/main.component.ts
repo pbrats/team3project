@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FamousStoresGeneralComponent } from '../famous-stores-general/famous-stores-general.component';
 import { AllStoresComponent } from '../all-stores/all-stores.component';
 import { CategoriesComponent } from '../categories/categories.component';
@@ -11,7 +11,6 @@ import { Title } from '@angular/platform-browser';
 import { CategoriesService } from '../../service/categories.service';
 import { CategoriesPhotosService } from '../../service/categories-photos.service';
 import { StoresPhotosService } from '../../service/stores-photos.service';
-import { Store } from '../../interfaces/store';
 
 @Component({
     selector: 'app-main',
@@ -36,13 +35,14 @@ export class MainComponent {
   hasLoadedFamous : boolean= false;
 
   ngOnInit() {
+    this.titleService.setTitle("Discovery");
     this.catService.getCategories().subscribe({
       next: data => {
         setTimeout(() =>{
       // (data) => {
           this.fCategories = data;
           this.hasLoadedCategories=true;
-        },500);
+        },10);
       }
     });
     this.catPhotoService.getCategoriesPhotos().subscribe((response) => {
@@ -61,15 +61,13 @@ export class MainComponent {
           console.log(response);
           this.famousStoresGeneral =response;
           this.hasLoadedFamous=true;
-        },500);
+        },10);
       }
     });
   }
-
   constructor(private route: ActivatedRoute,private titleService: Title) {
     titleService.setTitle("Discovery");
   }
-
   viewFamousStores(){
     this.router.navigate(["famous-stores"]);
   }
@@ -84,11 +82,11 @@ export class MainComponent {
   }
   onViewStoreDetails(idClicked: number) {
     const foundStore = this.stores.find((store: any) => store.id === idClicked);
-  console.log(foundStore);
-  if (foundStore){
-    this.router.navigate(["stores",idClicked]);
-  }else{
-    this.router.navigate(["menu-not-found"]);
+    console.log(foundStore);
+    if (foundStore){
+      this.router.navigate(["stores",idClicked]);
+    }else{
+      this.router.navigate(["menu-not-found"]);
+    }
   }
-}
 }

@@ -10,8 +10,8 @@ import { ProductsPhotosService } from '../../service/products-photos.service';
   styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent {
-@Input() product: any;
-productPhotos: any;
+  @Input() product: any;
+  productPhotos: any;
   productPhotoService:  ProductsPhotosService=inject(ProductsPhotosService);
   ngOnInit() {
     this.productPhotoService.getProductsPhotos().subscribe((response) => {

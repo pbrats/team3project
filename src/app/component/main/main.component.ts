@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FamousStoresGeneralComponent } from '../famous-stores-general/famous-stores-general.component';
 import { AllStoresComponent } from '../all-stores/all-stores.component';
 import { CategoriesComponent } from '../categories/categories.component';
@@ -11,7 +11,6 @@ import { Title } from '@angular/platform-browser';
 import { CategoriesService } from '../../service/categories.service';
 import { CategoriesPhotosService } from '../../service/categories-photos.service';
 import { StoresPhotosService } from '../../service/stores-photos.service';
-import { Store } from '../../interfaces/store';
 
 @Component({
     selector: 'app-main',

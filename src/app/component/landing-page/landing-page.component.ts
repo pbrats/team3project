@@ -5,11 +5,12 @@ import { Title } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { PublisherService } from '../../service/publisher.service';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LoginComponent],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css',
   animations: [
@@ -85,4 +86,5 @@ export class LandingPageComponent implements OnInit {
     this.actionEventEmitter.emit(this.buttonOrderClicked);
     
   }
+  
 }

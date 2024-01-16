@@ -1,16 +1,17 @@
 <div class="container">
-    <div class="offcanvas-header">
-        <!-- <h3 class="offcanvas-title">Σύνδεση / Εγγραφή</h3> -->
-        <button
-          type="button"
-          class="btn-close text-reset"
-          data-bs-dismiss="offcanvas"
-        ></button>
-      </div>
-  <div>
+    <div class="row">
+  <div class="offcanvas-header">
+    <!-- <h3 class="offcanvas-title">Σύνδεση / Εγγραφή</h3> -->
+    <button
+      type="button"
+      class="btn-close text-reset"
+      data-bs-dismiss="offcanvas"
+    ></button>
+  </div>
+  <div class="container mt-1 mb-4">
     <form [formGroup]="form" (submit)="onSubmit()">
-      <div class="align-left">
-        <label class="form-label"
+      <div>
+        <label class="form-label float-start"
           >Τηλέφωνο<span class="text-danger">*</span></label
         >
         <input
@@ -29,7 +30,7 @@
         >
       </div>
       <div>
-        <label class="form-label"
+        <label class="form-label float-start"
           >Email<span class="text-danger">*</span></label
         >
         <input
@@ -55,10 +56,14 @@
       routerLink="/discovery"
       [disabled]="form.invalid"
       type="submit"
-      class="btn btn-success"
+      class="btn btn-success float-start"
     >
       Παράγγειλε τώρα
     </button>
   </div>
-  <p>Δεν έχεις λογαριασμό; Κάνε εγγραφή <a data-bs-dismiss="offcanvas" routerLink="/sign-up">εδώ</a></p>
+  <p>
+    Δεν έχεις λογαριασμό; Κάνε εγγραφή
+    <a data-bs-dismiss="offcanvas" routerLink="/sign-up">εδώ</a>
+  </p>
+</div>
 </div>

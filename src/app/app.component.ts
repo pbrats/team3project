@@ -48,4 +48,5 @@ export class AppComponent {
       console.log(this.isWelcomePage);
     })
   }
+  
 }

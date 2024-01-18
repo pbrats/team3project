@@ -19,9 +19,9 @@
             
             <div *ngFor="let info of storeInfos" class="mt-2" >
                 <div *ngIf="info.name==store.name">
-                    <span class="card-text text-success my-5"><svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#pin-map-fill"/></svg></span><span class="fst-italic"> {{store.address}} </span> 
-                    <span class="card-text text-success m-2 "><svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#send-fill"/></svg></span><span> {{info.delivery_cost}} &euro; </span>
-                    <span class="card-text text-success m-2"><svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#clock-fill"/></svg> </span><span> {{info.delivery_time}}'</span>
+                    <span class="card-text text-success my-5 m-2"><svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#pin-map-fill"/></svg></span><span class="fst-italic"> {{store.address}} </span> 
+                    <span class="card-text text-success m-2 "><svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#send-fill"/></svg></span><span>{{info.delivery_cost}} &euro; </span>
+                    <span class="card-text text-success m-2"><svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#clock-fill"/></svg> </span><span>{{info.delivery_time}}'</span>
                 </div>
             </div>
         </div>

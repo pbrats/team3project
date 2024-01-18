@@ -10,7 +10,6 @@ import { UniqueCategoryPipe } from "../../pipe/unique-category.pipe";
 import { Title } from '@angular/platform-browser';
 import { CategoriesService } from '../../service/categories.service';
 import { CategoriesPhotosService } from '../../service/categories-photos.service';
-import { StoresPhotosService } from '../../service/stores-photos.service';
 
 @Component({
     selector: 'app-main',
@@ -29,8 +28,6 @@ export class MainComponent {
   storeService: StoresService =inject(StoresService);
   catPhotoService: CategoriesPhotosService =inject(CategoriesPhotosService);
   photosCategories: any;
-  storePhotoService: StoresPhotosService =inject(StoresPhotosService);
-  storePhotos: any;
   hasLoadedCategories : boolean= false;
   hasLoadedFamous : boolean= false;
 
@@ -47,9 +44,6 @@ export class MainComponent {
     });
     this.catPhotoService.getCategoriesPhotos().subscribe((response) => {
       this.photosCategories = response;
-    });
-    this.storePhotoService.getStoresPhotos().subscribe((response) => {
-      this.storePhotos = response;
     });
     this.storeService.getStores().subscribe((response) => {
       this.stores = response;

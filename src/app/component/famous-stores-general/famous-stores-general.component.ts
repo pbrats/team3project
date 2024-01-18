@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FamousStoresGeneralService } from '../../service/famous-stores-general.service';
 import { Title } from '@angular/platform-browser';
-import { StoresPhotosService } from '../../service/stores-photos.service';
+import { StoresInfosService } from '../../service/stores-infos.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { StoresService } from '../../service/stores.service';
@@ -16,17 +16,12 @@ import { StoresService } from '../../service/stores.service';
 export class FamousStoresGeneralComponent {
   famousStores:any;
   famousStoresGService: FamousStoresGeneralService =inject(FamousStoresGeneralService);
-  storePhotoService: StoresPhotosService =inject(StoresPhotosService);
-  storePhotos: any;
   stores:any;
   storeService: StoresService =inject(StoresService);
   hasLoadedFamous : boolean= false;
   router: Router =inject(Router);
 
   ngOnInit() {
-    this.storePhotoService.getStoresPhotos().subscribe((response) => {
-      this.storePhotos = response;
-    });
     this.storeService.getStores().subscribe((response) => {
       this.stores = response;
     });

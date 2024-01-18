@@ -7,20 +7,20 @@
                 <div class="col-sm-4 m-4 p-1">
                     <div class="card border border-success m-3" style="width: 350%; height: 365px" (click)="onViewStoreDetails(store.id)" title="click for details">
                         <div class="card-body text-center shadow">
-                            <div *ngFor="let photo of storePhotos">
-                                <div *ngIf="photo.name==store.name">
-                                    <img [src]="photo.background_image" class="card-img-top" alt="{{photo.name}} store photo" style="width: 50%; height:10%">
+                            <div *ngFor="let info of storeInfos">
+                                <div *ngIf="info.name==store.name">
+                                    <img [src]="info.logo" class="card-img-top" alt="{{info.name}} store photo" style="width: 50%; height:10%">
                                 </div>
                             </div>
                             <h5 class="card-title">{{store.name}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted"> {{store.category}}</h6>
                             <p class="card-text">Address: {{store.address}}</p>
-                            <div *ngFor="let photo of storePhotos" class="m-3">
-                                <div *ngIf="photo.name==store.name">
-                                    <p class="card-text">Rating: {{photo.rating}} <span class="text-success"style="font-size:150%">&starf;</span></p>
+                            <div *ngFor="let info of storeInfos" class="m-3">
+                                <div *ngIf="info.name==store.name">
+                                    <p class="card-text">Rating: {{info.rating}} <span class="text-success"style="font-size:150%">&starf;</span></p>
                                 </div>
                             </div>
-                            <a class="btn btn-success text-wrap">See {{store.name}}</a>
+                            <a class="btn btn-success text-wrap">{{store.name}}</a>
                         </div>
                     </div>
                 </div>

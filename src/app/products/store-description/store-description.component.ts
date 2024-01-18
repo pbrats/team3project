@@ -1,7 +1,7 @@
 import { Component, Input, inject } from '@angular/core';
 import { Store } from '../../interfaces/store';
 import { CommonModule } from '@angular/common';
-import { StoresPhotosService } from '../../service/stores-photos.service';
+import { StoresInfosService } from '../../service/stores-infos.service';
 
 @Component({
   selector: 'app-store-description',
@@ -12,11 +12,11 @@ import { StoresPhotosService } from '../../service/stores-photos.service';
 })
 export class StoreDescriptionComponent {
   @Input() store!: Store;
-  storePhotoService: StoresPhotosService =inject(StoresPhotosService);
-  storePhotos:any;
+  storeInfosService: StoresInfosService =inject(StoresInfosService);
+  storeInfos:any;
   ngOnInit(): void {    
-    this.storePhotoService.getStoresPhotos().subscribe((response) => {
-      this.storePhotos = response;
+    this.storeInfosService.getStoresInfos().subscribe((response) => {
+      this.storeInfos = response;
     });
   }
 }

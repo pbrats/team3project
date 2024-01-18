@@ -3,22 +3,22 @@
   <div class="col-sm-4 mx-5 px-1">
     <div class="card border border-success mx-3" style="width:390%; height: 300px">
       <div class="card-body text-center shadow" (click)="onViewStoreDetails(store.id)" title="click for details">
-        <div *ngFor="let photo of storePhotos">
-          <div *ngIf="photo.name==store.name">
-            <img [src]="photo.background_image" class="card-img-top" alt="{{photo.name}} store photo" style="width: 30%; height:10%">
+        <div *ngFor="let info of storeInfos">
+          <div *ngIf="info.name==store.name">
+            <img [src]="info.logo" class="card-img-top" alt="{{info.name}} store photo" style="width: 30%; height:10%">
           </div>
         </div>
         <h5 class="card-title">{{ store.name }}</h5>
         <p class="card-subtitle mb-2 text-muted">{{ store.category }}</p>
         <p class="card-text">Address: {{store.address}}</p>
-        <div *ngFor="let photo of storePhotos" class="m-3">
-          <div *ngIf="photo.name==store.name">
-              <p class="card-text">Rating: {{photo.rating}} <span class="text-success"style="font-size:150%">&starf;</span></p> 
+        <div *ngFor="let info of storeInfos" class="m-3">
+          <div *ngIf="info.name==store.name">
+              <p class="card-text">Rating: {{info.rating}} <span class="text-success"style="font-size:150%">&starf;</span></p> 
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <a class="btn btn-success text-wrap" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >See {{store.name}}</a>
+            <a class="btn btn-success text-wrap" data-bs-toggle="modal" data-bs-target="#staticBackdrop">{{store.name}}</a>
           </div>
         </div>
       </div>

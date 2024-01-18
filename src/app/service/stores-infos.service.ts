@@ -4,11 +4,11 @@ import { Injectable, inject } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class StoresPhotosService {
+export class StoresInfosService {
   private http=inject(HttpClient);
-  private endpointUrl="assets/sample-data/stores-photos.json";
+  private endpointUrl="assets/sample-data/most_famous_stores_in_general.json";
 
-  getStoresPhotos(){
+  getStoresInfos(){
     return this.http.get(this.endpointUrl);
   }
 }

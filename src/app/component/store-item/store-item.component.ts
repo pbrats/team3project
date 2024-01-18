@@ -2,7 +2,7 @@ import { Component, Input, inject } from '@angular/core';
 import { Store } from '../../interfaces/store';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { StoresPhotosService } from '../../service/stores-photos.service';
+import { StoresInfosService } from '../../service/stores-infos.service';
 import { StoresService } from '../../service/stores.service';
 
 @Component({
@@ -15,14 +15,14 @@ import { StoresService } from '../../service/stores.service';
 export class StoreItemComponent {
 @Input() store!: Store;
 router: Router = inject(Router);
-storePhotoService: StoresPhotosService =inject(StoresPhotosService);
-storePhotos: any;
+storeInfosService: StoresInfosService =inject(StoresInfosService);
+storeInfos: any;
 stores:any;
 storeService: StoresService =inject(StoresService);
 
 ngOnInit() {
-  this.storePhotoService.getStoresPhotos().subscribe((response) => {
-    this.storePhotos = response;
+  this.storeInfosService.getStoresInfos().subscribe((response) => {
+    this.storeInfos = response;
   });
   this.storeService.getStores().subscribe((response) => {
     this.stores = response;

@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriesService } from '../../service/categories.service';
 import { Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { StoresPhotosService } from '../../service/stores-photos.service';
+import { StoresInfosService } from '../../service/stores-infos.service';
 import { StoresService } from '../../service/stores.service';
 
 @Component({
@@ -21,15 +21,15 @@ export class SelectedCategoryComponent {
   storeService: StoresService =inject(StoresService);
   router: Router =inject(Router);
   catService: CategoriesService =inject(CategoriesService);
-  storePhotoService: StoresPhotosService =inject(StoresPhotosService);
-  storePhotos: any;
+  storeInfosService: StoresInfosService =inject(StoresInfosService);
+  storeInfos: any;
   hasLoadedStores : boolean= false;
 
   constructor(private titleService: Title) {}
 
   ngOnInit(): void {
-    this.storePhotoService.getStoresPhotos().subscribe((response) => {
-      this.storePhotos = response;
+    this.storeInfosService.getStoresInfos().subscribe((response) => {
+      this.storeInfos = response;
     });
     this.storeService.getStores().subscribe((response) => {
       this.storeFilter = response;

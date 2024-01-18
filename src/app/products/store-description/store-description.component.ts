@@ -2,11 +2,12 @@ import { Component, Input, inject } from '@angular/core';
 import { Store } from '../../interfaces/store';
 import { CommonModule } from '@angular/common';
 import { StoresInfosService } from '../../service/stores-infos.service';
+import { RatingsComponent } from '../../component/ratings/ratings.component';
 
 @Component({
   selector: 'app-store-description',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RatingsComponent],
   templateUrl: './store-description.component.html',
   styleUrl: './store-description.component.css'
 })

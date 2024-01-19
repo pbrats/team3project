@@ -61,4 +61,16 @@ export class SelectedCategoryComponent {
       this.router.navigate(["menu-not-found"]);
     }
   }
+  sortStoresByRating(): void {
+    this.stores.sort((a: { rating: number; }, b: { rating: number; }) => b.rating - a.rating);
+  }
+  sortStoresByDeliveryTime():void {
+    this.stores.sort((a: { delivery_time: number; }, b: { delivery_time: number; }) =>  a.delivery_time - b.delivery_time);
+  }
+  sortStoresAlphabetically():void {
+    this.stores.sort((a: { name: string; }, b: { name: string; }) => a.name.localeCompare(b.name));
+  }
+  sortStoresZtoA():void {
+    this.stores.sort((a: { name: string; }, b: { name: string; }) => b.name.localeCompare(a.name));
+  }
 }

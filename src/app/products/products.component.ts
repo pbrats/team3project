@@ -71,6 +71,7 @@ export class ProductsComponent implements OnInit {
     });
     this.service.categorySelected.subscribe({
       next: (res: any) => (this.selectedCategory = res),
+      
     });
     this.service.productSelected.subscribe({
       next: (res: any) => (this.selectedProduct = res),
@@ -78,5 +79,21 @@ export class ProductsComponent implements OnInit {
     this.service.productPreviewed.subscribe({
       next: (res: any) => (this.previewedProduct = res),
     });
+  }
+  sortStoresByPriceDescending(): void {
+    
+    this.allProducts.sort((a: { price: number; }, b: { price: number; }) =>  a.price - b.price);
+    //   console.log(categoryGroup)
+    //   categoryGroup.products.sort((a, b) => b.price - a.price);
+    // });
+  }
+  sortStoresByPriceAscending():void {
+    this.allProducts.sort((a: { price: number; }, b: { price: number; }) =>  b.price - a.price);
+  }
+  sortStoresAlphabetically():void {
+    this.allProducts.sort((a: { name: string; }, b: { name: string; }) => a.name.localeCompare(b.name));
+  }
+  sortStoresZtoA():void {
+    this.allProducts.sort((a: { name: string; }, b: { name: string; }) => b.name.localeCompare(a.name));
   }
 }

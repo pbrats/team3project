@@ -12,6 +12,7 @@ import { AboutComponent } from './component/about/about.component';
 import { TermsOfUseComponent } from './component/terms-of-use/terms-of-use.component';
 import { FaqsComponent } from './component/faqs/faqs.component';
 import { SupportComponent } from './component/support/support.component';
+import { SearchComponent } from './component/search/search.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "welcome", pathMatch:"full"},
@@ -29,5 +30,6 @@ export const routes: Routes = [
     {path: "faqs", component: FaqsComponent},
     {path: "support", component: SupportComponent},
     {path: "terms-of-use", component: TermsOfUseComponent},
+    {path: "search", component: SearchComponent},
     {path: "**", component: NotFoundComponent}
 ];

@@ -3,66 +3,277 @@
         "id": 1,
         "name": "McDonald's",
         "category": "FAST_FOOD",
-        "address": "Syntagma 15" 
+        "address": "Syntagma 15" ,
+        "telephone": "2106578543",
+        "logo": "assets/stores-photos/mcdonalds.png",
+        "cover" : "/assets/images/mcdonalds_cover.jpg",
+        "minimum_order":5,
+        "working_hours":"11:00-00:00",
+        "delivery_cost":0,
+        "distance_limit":2,
+        "delivery_time":30,
+        "rating" : "4.0",
+        "ratings":[
+            {
+                "id":1,
+                "user":"john",
+                "comment":"I'll definetely order again",
+                "stars":4,
+                "date":"11/01/2024"
+            },
+            {
+                "id":2,
+                "user":"mary",
+                "comment":"Everything was great",
+                "stars":4,
+                "date":"05/01/2024"
+            },
+            {
+                "id":3,
+                "user":"nick",
+                "comment":"average",
+                "stars":1,
+                "date":"03/01/2024"
+            },
+            {
+                "id":4,
+                "user":"johnny B.",
+                "comment":"Fast!",
+                "stars":4,
+                "date":"11/12/2023"
+            },
+            {
+                "id":5,
+                "user":"nancy",
+                "comment":"big mac the best",
+                "stars":4,
+                "date":"11/01/2014"
+            },
+            {
+                "id":6,
+                "user":"george g.",
+                "comment":"the food was cold",
+                "stars":2,
+                "date":"11/01/2014"
+            }
+        ]
     },
     {
         "id": 12,
         "name": "Pizza Fan",
         "category": "PIZZA",
-        "address": "Ippokrateiou 35" 
+        "address": "Ippokrateiou 35" ,
+        "telephone": "2102278416",
+        "logo": "assets/stores-photos/pizzafan.png",
+        "cover" : "",
+        "minimum_order":5,
+        "working_hours":"12:00-02:00",
+        "delivery_cost":0,
+        "distance_limit":3,
+        "delivery_time":30,
+        "rating" : "4.3",
+        "ratings":[]
     },
     {
         "id": 8,
         "name": "Roma Pizza",
         "category": "PIZZA",
-        "address": "Menelaou 22" 
+        "address": "Menelaou 22" ,
+        "telephone": "2103956189",
+        "logo": "assets/stores-photos/romapizza.png",
+        "cover" : "",
+        "minimum_order":5,
+        "working_hours":"12:00-00:00",
+        "delivery_cost":0,
+        "distance_limit":2,
+        "delivery_time":40,
+        "rating" : "3.9",
+        "ratings":[]
     },
     {
         "id": 105,
         "name": "Goodys Burger House",
         "category": "FAST_FOOD",
-        "address": "Ampelokipous 23rd Av."
+        "address": "Ampelokipous 23rd Av.",
+        "telephone": "2111349073",
+        "logo": "assets/stores-photos/goodys.svg",
+        "cover" : "",
+        "minimum_order":6.5,
+        "working_hours":"13:00-01:00",
+        "delivery_cost":0,
+        "distance_limit":4,
+        "delivery_time":45,
+        "rating" : "4.1",
+        "ratings":[]
     },
     {
         "id": 80,
         "name": "The Big Bad Wolf",
         "category": "SOUVLAKI",
-        "address": "Agioi Anargiroi 98" 
+        "address": "Agioi Anargiroi 98" ,
+        "telephone": "2135677120",
+        "logo": "assets/stores-photos/bigbadwolf.png",
+        "cover" : "",
+        "minimum_order":6.0,
+        "working_hours":"12:30-01:30",
+        "delivery_cost":0,
+        "distance_limit":2.5,
+        "delivery_time":35,
+        "rating" : "3.8",
+        "ratings":[]
     },
     {
         "id": 34,
         "name": "Mikel",
         "category": "COFFEE",
-        "address": "Ampelokipoi 72" 
+        "address": "Ampelokipoi 72" ,
+        "telephone": "2125572976",
+        "logo": "assets/stores-photos/mikel.png",
+        "cover" : "",
+        "minimum_order":3.0,
+        "working_hours":"08:30-22:30",
+        "delivery_cost":0,
+        "distance_limit":2,
+        "delivery_time":20,
+        "rating" : "4.1",
+        "ratings":[]
     },
     {
         "id": 2,
         "name": "StreetWok",
         "category": "ASIAN",
-        "address": "Glyfada Str. 203"
+        "address": "Glyfada Str. 203",
+        "telephone": "2116539875",
+        "logo": "assets/images/streetwok-logo.png",
+        "cover" : "/assets/images/streetwok-cover.jpg",
+        "minimum_order":6,
+        "working_hours":"13:00-01:00",
+        "delivery_cost":1.5,
+        "distance_limit":2.5,
+        "delivery_time":40,
+        "rating" : "3.9",
+        "ratings":[
+            {
+                "id":1,
+                "user":"peter t.",
+                "comment":"best asian",
+                "stars":4,
+                "date":"11/11/2023"
+            },
+            {
+                "id":2,
+                "user":"helen m.",
+                "comment":"rice noodles",
+                "stars":4,
+                "date":"23/11/2023"
+            },
+            {
+                "id":3,
+                "user":"manolis r.",
+                "comment":"not reccomend",
+                "stars":1,
+                "date":"21/01/2024"
+            },
+            {
+                "id":4,
+                "user":"rick m.",
+                "comment":"tasty",
+                "stars":4,
+                "date":"23/12/2023"
+            }
+        ]
     },
     {
         "id": 4,
         "name": "Coffee Lab",
         "category": "COFFEE",
-        "address": "Athinaion 15" 
+        "address": "Athinaion 15" ,
+        "telephone": "2108975396",
+        "logo": "assets/stores-photos/coffeelab.png",
+        "cover" : "",
+        "minimum_order":3.0,
+        "working_hours":"07:30-21:30",
+        "delivery_cost":0,
+        "distance_limit":3,
+        "delivery_time":15,
+        "rating" : "4.2",
+        "ratings":[]
     },
     {
         "id": 5,
         "name": "Gregory",
         "category": "COFFEE",
-        "address": "Agisilaou 222" 
+        "address": "Agisilaou 222" ,
+        "telephone": "2116789345",
+        "logo": "assets/stores-photos/gregorys.svg",
+        "cover" : "",
+        "minimum_order":4.0,
+        "working_hours":"07:30-20:00",
+        "delivery_cost":0,
+        "distance_limit":3.5,
+        "delivery_time":20,
+        "rating" : "4.4",
+        "ratings":[]
     },
     {
         "id": 3,
         "name": "Nanou Donuts House",
         "category": "DONUTS",
-        "address": "Ampelokipous 23rd Av."
+        "address": "Ampelokipous 23rd Av.",
+        "telephone": "2136543218",
+        "logo": "assets/stores-photos/nanou.png",
+        "cover" : "/assets/images/nanou-cover.avif",
+        "minimum_order":4,
+        "working_hours":"16:00-22:00",
+        "delivery_cost":1.5,
+        "distance_limit":1.5,
+        "delivery_time":15,
+        "rating" : "4.4",
+        "ratings":[
+            {
+                "id":1,
+                "user":"raul b.",
+                "comment":"delicious donuts",
+                "stars":4,
+                "date":"22/1/2024"
+            },
+            {
+                "id":2,
+                "user":"maria w.",
+                "comment":"chocolate pleasure",
+                "stars":4,
+                "date":"16/1/2024"
+            },
+            {
+                "id":3,
+                "user":"gregory d.",
+                "comment":"arrived delayed",
+                "stars":3,
+                "date":"11/12/2023"
+            },
+            {
+                "id":4,
+                "user":"rick m.",
+                "comment":"not special",
+                "stars":2,
+                "date":"02/12/2023"
+            }
+        ]
     },
     {
         "id": 18,
         "name": "FoodTek",
         "category": "OTHER",
-        "address": "Ioanninon 14" 
+        "address": "Ioanninon 14" ,
+        "telephone": "2125645678",
+        "logo": "assets/stores-photos/foodtek.png",
+        "cover" : "",
+        "minimum_order":10,
+        "working_hours":"09:30-20:00",
+        "delivery_cost":5,
+        "distance_limit":6,
+        "delivery_time":60,
+        "rating" : "4.1",
+        "ratings":[]
     }
 ]

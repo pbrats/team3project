@@ -10,7 +10,10 @@ import { StoreDescriptionComponent } from './store-description/store-description
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '../interfaces/store';
 import { Product } from '../interfaces/product';
-import { CategoriesComponent } from './categories/categories.component';
+import { CategoriesComponent } from './categories/categories.component'
+import { Title } from '@angular/platform-browser';
+
+import { CategoryProductListComponent } from './products-list/category-product-list/category-product-list.component';
 
 @Component({
   selector: 'app-products',
@@ -31,7 +34,6 @@ import { CategoriesComponent } from './categories/categories.component';
 export class ProductsComponent implements OnInit {
   service = inject(StoreService);
   activatedRoute = inject(ActivatedRoute);
-
   selectedProduct: any;
   previewedProduct: any;
   store: any;
@@ -45,8 +47,7 @@ export class ProductsComponent implements OnInit {
   categories: string[] = [];
   @Input() category!:string;
 
-  constructor() {}
-
+  constructor(private titleService: Title) {}
   ngOnInit() {
     this.activatedRoute.params.subscribe({
       next: (params: any) => {
@@ -55,6 +56,7 @@ export class ProductsComponent implements OnInit {
           next: (res) => {
             this.store = res;
             console.log(this.store);
+            this.titleService.setTitle(`${this.store.name}`);
             this.categories=this.service.getProductCategoriesByStore(this.store.products);
             console.log(this.categories)
           }
@@ -67,24 +69,31 @@ export class ProductsComponent implements OnInit {
         })
       },
     });
-
-
     this.service.categorySelected.subscribe({
       next: (res: any) => (this.selectedCategory = res),
+      
     });
-
     this.service.productSelected.subscribe({
       next: (res: any) => (this.selectedProduct = res),
     });
-
     this.service.productPreviewed.subscribe({
       next: (res: any) => (this.previewedProduct = res),
     });
-
   }
-
+  sortStoresByPriceDescending(): void {
+    
+    this.allProducts.sort((a: { price: number; }, b: { price: number; }) =>  a.price - b.price);
+    //   console.log(categoryGroup)
+    //   categoryGroup.products.sort((a, b) => b.price - a.price);
+    // });
+  }
+  sortStoresByPriceAscending():void {
+    this.allProducts.sort((a: { price: number; }, b: { price: number; }) =>  b.price - a.price);
+  }
+  sortStoresAlphabetically():void {
+    this.allProducts.sort((a: { name: string; }, b: { name: string; }) => a.name.localeCompare(b.name));
+  }
+  sortStoresZtoA():void {
+    this.allProducts.sort((a: { name: string; }, b: { name: string; }) => b.name.localeCompare(a.name));
+  }
 }
-
-
-
-

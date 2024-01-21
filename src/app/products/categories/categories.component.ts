@@ -1,10 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, inject } from '@angular/core';
-import { StoreService } from '../../service/store.service';
-import { Product } from '../../interfaces/product';
-import { Store } from '../../interfaces/store';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-categories',
@@ -16,11 +11,5 @@ import { Observable } from 'rxjs';
 export class CategoriesComponent implements OnInit{
   @Input() categories:string[]=[];
 
-  ngOnInit() {
-
-  }
-
-  
- 
-
+  ngOnInit() {}
 }

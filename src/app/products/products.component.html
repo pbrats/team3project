@@ -1,6 +1,14 @@
 <div class="container d-flex flex-row flex-wrap" style="position: relative;">
   <div class="col-8 p-2 ">
     <app-store-description [store]="store"></app-store-description>
+    <div class="text-success text-end ">
+      <!-- <svg class="bi" width="24" height="24" fill="currentColor"><use xlink:href="#funnel-fill"/></svg> -->
+      <i class="bi bi-funnel-fill fs-5 mx-2"></i>
+      <button  class="btn btn-sm btn-outline-success m-1" (click)="sortStoresByPriceDescending()">Price <i class="bi bi-arrow-down fs-6"></i></button>
+      <button  class="btn btn-sm btn-outline-success m-1" (click)="sortStoresByPriceAscending()">Price <i class="bi bi-arrow-up fs-6"></i></button>
+      <button  class="btn btn-sm btn-outline-success m-1" (click)="sortStoresAlphabetically()"><i class="bi bi-sort-alpha-down fs-6"></i></button>
+      <button  class="btn btn-sm btn-outline-success m-1" (click)="sortStoresZtoA()"><i class="bi bi-sort-alpha-down-alt fs-6"></i></button>
+  </div>
     <div class="d-flex flex-row flex-wrap col-12">
       <app-categories class="col-3 p-2" [categories]="categories"></app-categories>
       <!-- <app-categories class="col-3 p-2" [products]="allProducts" ></app-categories> -->
@@ -21,6 +29,5 @@
         </div>
       </div>
   </div>
-  
 </div>
 <app-product-details [product]="previewedProduct"></app-product-details>

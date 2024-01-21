@@ -3,7 +3,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PublisherService } from '../../service/publisher.service';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
-import { filter } from 'rxjs';
+
 
 @Component({
   selector: 'app-sign-up-page',
@@ -13,25 +13,28 @@ import { filter } from 'rxjs';
   styleUrl: './sign-up-page.component.css',
 })
 export class SignUpPageComponent implements OnInit {
-  isSignUpPage!: boolean;
+  isSignUpPage=true;
   publisherService = inject(PublisherService);
-  // pS = this.publisherService.publishData(this.isSignUpPage);
-
   form!: FormGroup;
 
   constructor(private router: Router) {
-    this.router.events
-      .pipe(filter((event: any) => event instanceof NavigationEnd))
-      .subscribe((event) => {
-        this.isSignUpPage = true;
-        this.publisherService.publishData(this.isSignUpPage);
+    this.isSignUpPage=true;
+    this.publisherService.publishData(this.isSignUpPage);
+      this.router.events.subscribe(event=>{
+        if(event instanceof NavigationEnd){
+          if (event.url.includes('sign-up')){
+            this.isSignUpPage=true;
+            this.publisherService.publishData(this.isSignUpPage);
+          }else{
+            this.isSignUpPage=false;
+            this.publisherService.publishData(this.isSignUpPage);
+          }
+        }
       });
   }
-
   ngOnInit() {
     this.setFormValues();
   }
-
   setFormValues() {
     this.form = new FormGroup({
       phone: new FormControl("", Validators.required),
@@ -40,19 +43,8 @@ export class SignUpPageComponent implements OnInit {
       last_name: new FormControl(""),
       address: new FormControl(""),
       password: new FormControl("")
-    });
-
-    this.router.events
-      .pipe(
-        //change boolean
-        filter((event: any) => event instanceof NavigationEnd)
-      )
-      .subscribe((event) => {
-        this.isSignUpPage = false;
-        this.publisherService.publishData(this.isSignUpPage);
-      });
+    }); 
   }
-
   onSubmit(){
     if(this.form.valid){
       // service backend call

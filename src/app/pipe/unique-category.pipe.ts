@@ -13,5 +13,4 @@ export class UniqueCategoryPipe implements PipeTransform {
     );
     return uniqueArray;
   }
-
 }

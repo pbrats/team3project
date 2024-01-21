@@ -4,19 +4,6 @@
     <ng-template #storesBlock> 
         <div class="row row-cols-4">
             <app-store-item *ngFor="let store of stores" [store]="store"></app-store-item>
-            <!-- @for (store of stores; track $index){
-                <div class="col-sm-4">
-                    <div class="card border border-success m-4" style="width: 18rem;">
-                        <div class="card-body shadow">
-                            <img src="..." class="card-img-top" alt="...">
-                            <h5 class="card-title">{{store.name}}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"> {{store.category}}</h6>
-                            <p class="card-text">Address: {{store.address}}</p>
-                            <a class="btn btn-success">See {{store.name}}</a>
-                        </div>
-                    </div>
-                </div>
-            } -->
         </div>
     </ng-template>
     <ng-template #noStoresBlock>

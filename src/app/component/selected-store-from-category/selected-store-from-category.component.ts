@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { StoreService } from '../../service/store.service';
 import { StoresService } from '../../service/stores.service';
 import { Title } from '@angular/platform-browser';
 
@@ -24,7 +23,6 @@ export class SelectedStoreFromCategoryComponent {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params:any) => {
       console.log(params);
-     
       this.selectedStore = params.name;
       console.log(this.selectedStore);
       this.titleService.setTitle(`${this.selectedStore}`);
@@ -32,6 +30,6 @@ export class SelectedStoreFromCategoryComponent {
         this.items = data.filter((item:any) => item.name === this.selectedStore);
         console.log(this.items);
       });
-  });
-}
+    });
+  }
 }

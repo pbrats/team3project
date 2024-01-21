@@ -60,6 +60,11 @@
                                 <h5 class="card-title">{{famousStore.name}}</h5>
                                 <h6 class="card-subtitle mb-2 text-muted"> {{famousStore.category}}</h6>
                                 <p class="card-text">Address: {{famousStore.address}}</p>
+                                <div *ngFor="let photo of storePhotos" class="m-3">
+                                    <div *ngIf="photo.name==famousStore.name">
+                                        <p class="card-text">Rating: {{photo.rating}} <span class="text-success"style="font-size:150%">&starf;</span></p>
+                                    </div>
+                                </div>
                                 <a class="btn btn-success text-wrap">See {{famousStore.name}}</a>
                             </div>
                         </div>

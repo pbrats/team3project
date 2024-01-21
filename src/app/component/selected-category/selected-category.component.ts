@@ -48,7 +48,7 @@ export class SelectedCategoryComponent {
             console.log(this.stores);
           });
           this.hasLoadedStores=true;
-          },500);
+          },10);
       }
     });
   }

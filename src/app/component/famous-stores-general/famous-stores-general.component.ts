@@ -20,7 +20,6 @@ export class FamousStoresGeneralComponent {
   storePhotos: any;
   stores:any;
   storeService: StoresService =inject(StoresService);
-
   hasLoadedFamous : boolean= false;
   router: Router =inject(Router);
 
@@ -38,13 +37,15 @@ export class FamousStoresGeneralComponent {
           console.log(response);
           this.famousStores =response;
           this.hasLoadedFamous=true;
-        },500);
+        },10);
       } 
     });
   }
+
   constructor(private titleService: Title) {
     titleService.setTitle("Famous Stores");
   }
+
   onViewStoreDetails(idClicked: number) {
     const foundStore = this.stores.find((store: any) => store.id === idClicked);
     console.log(foundStore);

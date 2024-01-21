@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CategoriesService {
-
   private http=inject(HttpClient);
   private endpointUrl="assets/sample-data/most_famous_stores_in_general.json";
 

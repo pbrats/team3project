@@ -14,13 +14,11 @@ import { StoresService } from '../../service/stores.service';
 })
 export class StoreItemComponent {
 @Input() store!: Store;
-
 router: Router = inject(Router);
 storePhotoService: StoresPhotosService =inject(StoresPhotosService);
 storePhotos: any;
 stores:any;
 storeService: StoresService =inject(StoresService);
-
 
 ngOnInit() {
   this.storePhotoService.getStoresPhotos().subscribe((response) => {
@@ -30,13 +28,13 @@ ngOnInit() {
     this.stores = response;
   });
 }
-onViewStoreDetails(idClicked: number) {
-  const foundStore = this.stores.find((store: any) => store.id === idClicked);
-  console.log(foundStore);
-  if (foundStore){
-    this.router.navigate(["stores",idClicked]);
-  }else{
-    this.router.navigate(["menu-not-found"]);
+  onViewStoreDetails(idClicked: number) {
+    const foundStore = this.stores.find((store: any) => store.id === idClicked);
+    console.log(foundStore);
+    if (foundStore){
+      this.router.navigate(["stores",idClicked]);
+    }else{
+      this.router.navigate(["menu-not-found"]);
+    }
   }
-}
 }

@@ -12,6 +12,7 @@ import { Store } from '../interfaces/store';
 import { Product } from '../interfaces/product';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryProductListComponent } from './products-list/category-product-list/category-product-list.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-products',
@@ -33,7 +34,6 @@ import { CategoryProductListComponent } from './products-list/category-product-l
 export class ProductsComponent implements OnInit {
   service = inject(StoreService);
   activatedRoute = inject(ActivatedRoute);
-
   selectedProduct: any;
   previewedProduct: any;
   store: any;
@@ -47,8 +47,7 @@ export class ProductsComponent implements OnInit {
   categories: string[] = [];
   @Input() category!:string;
 
-  constructor() {}
-
+  constructor(private titleService: Title) {}
   ngOnInit() {
     this.activatedRoute.params.subscribe({
       next: (params: any) => {
@@ -57,6 +56,7 @@ export class ProductsComponent implements OnInit {
           next: (res) => {
             this.store = res;
             console.log(this.store);
+            this.titleService.setTitle(`${this.store.name}`);
             this.categories=this.service.getProductCategoriesByStore(this.store.products);
             console.log(this.categories)
           }
@@ -69,24 +69,14 @@ export class ProductsComponent implements OnInit {
         })
       },
     });
-
-
     this.service.categorySelected.subscribe({
       next: (res: any) => (this.selectedCategory = res),
     });
-
     this.service.productSelected.subscribe({
       next: (res: any) => (this.selectedProduct = res),
     });
-
     this.service.productPreviewed.subscribe({
       next: (res: any) => (this.previewedProduct = res),
     });
-
   }
-
 }
-
-
-
-

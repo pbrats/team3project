@@ -5,7 +5,6 @@ import { Injectable, inject } from '@angular/core';
   providedIn: 'root'
 })
 export class CategoriesPhotosService {
-
   private http=inject(HttpClient);
   private endpointUrl="assets/sample-data/categories-photos.json";
 

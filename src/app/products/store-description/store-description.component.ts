@@ -11,12 +11,12 @@ import { StoresPhotosService } from '../../service/stores-photos.service';
   styleUrl: './store-description.component.css'
 })
 export class StoreDescriptionComponent {
-@Input() store!: Store;
-storePhotoService: StoresPhotosService =inject(StoresPhotosService);
-storePhotos:any;
-ngOnInit(): void {    
-  this.storePhotoService.getStoresPhotos().subscribe((response) => {
-    this.storePhotos = response;
-  });
-}
+  @Input() store!: Store;
+  storePhotoService: StoresPhotosService =inject(StoresPhotosService);
+  storePhotos:any;
+  ngOnInit(): void {    
+    this.storePhotoService.getStoresPhotos().subscribe((response) => {
+      this.storePhotos = response;
+    });
+  }
 }

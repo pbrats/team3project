@@ -11,5 +11,4 @@ import { LoginComponent } from '../login/login.component';
   styleUrl: './landing-header.component.css'
 })
 export class LandingHeaderComponent {
-
 }

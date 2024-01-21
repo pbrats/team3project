@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, inject } from '@angular/core';
 import { Store } from '../interfaces/store';
 import { Product } from '../interfaces/product';
-import { Observable, map } from 'rxjs';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -15,8 +15,9 @@ export class StoreService {
   categorySelected = new EventEmitter<any>();
   private products: Product[] = [];
   private stores: Store[] = [];
-  constructor() {}
   categories:string[]=[];
+
+  constructor() {}
   getStores() {
     return this.http.get<Store[]>(`${this.endpointUrl}/stores.json`);
   }
@@ -33,17 +34,13 @@ export class StoreService {
       return [];
     }
   }
-  
   getProductsByStore(storeId: number){
     return this.getStores().pipe(
       map((stores: Store[]) => {
         const store = stores.find((s) => s.id === storeId);
-
         // Return the products of the selected store if found, otherwise an empty array
         return store ? store.products || [] : [];
       })
     );
   }
-    
-  }
-
+}

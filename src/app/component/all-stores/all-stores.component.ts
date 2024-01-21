@@ -23,11 +23,11 @@ ngOnInit() {
       setTimeout(() =>{
         (this.stores = res)
         this.hasLoadedStores=true;
-      },500);
+      },10);
     }
   });
 }
-constructor(private titleService: Title) {
-  titleService.setTitle("Stores");
-}
+  constructor(private titleService: Title) {
+    titleService.setTitle("Stores");
+  }
 }

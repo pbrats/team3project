@@ -4,7 +4,7 @@
     <form [formGroup]="form" (submit)="onSubmit()" class="col-4 mx-auto">
       <div>
         <label class="form-label">Τηλέφωνο<span class="text-danger">*</span></label>
-        <input type="phone" formControlName="phone" class="form-control" placeholder="Τηλέφωνο"/>
+        <input type="phone" formControlName="phone" class="form-control" placeholder="Τηλέφωνο" autocomplete="tel"/>
         <span class="text-danger" *ngIf="form.get('phone')?.hasError('required') && form.get('phone')?.touched">*Υποχρεωτικό πεδίο</span>
       </div>
       <div>
@@ -14,19 +14,19 @@
       </div>
       <div>
         <label class="form-label">Όνομα</label>
-        <input type="name" formControlName="first_name" class="form-control" placeholder="Όνομα"/>
+        <input type="name" formControlName="first_name" class="form-control" placeholder="Όνομα" autocomplete="given-name"/>
       </div>
       <div>
         <label class="form-label">Επώνυμο</label>
-        <input type="name" formControlName="last_name" class="form-control" placeholder="Επώνυμο" />
+        <input type="name" formControlName="last_name" class="form-control" placeholder="Επώνυμο" autocomplete="family-name"/>
       </div>
       <div>
         <label class="form-label">Διεύθυνση</label>
-        <input formControlName="address" class="form-control" placeholder="Διεύθυνση"/>
+        <input formControlName="address" class="form-control" placeholder="Διεύθυνση" autocomplete="street-address"/>
       </div>
       <div>
         <label class="form-label">Κωδικός</label>
-        <input type="password" formControlName="password" class="form-control" placeholder="Κωδικός"/>
+        <input type="password" formControlName="password" class="form-control" placeholder="Κωδικός" autocomplete="new-password"/>
       </div>
     </form>
   </div>

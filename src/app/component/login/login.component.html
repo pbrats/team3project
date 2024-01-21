@@ -19,6 +19,7 @@
           formControlName="phone"
           class="form-control"
           placeholder="Τηλέφωνο"
+          autocomplete="tel"
         />
         <span
           class="text-danger"
@@ -30,10 +31,12 @@
         >
       </div>
       <div>
-        <label class="form-label float-start"
+        <label class="form-label float-start" for="email"
           >Email<span class="text-danger">*</span></label
         >
         <input
+          name="email"
+          id="email"
           type="email"
           formControlName="email"
           class="form-control"

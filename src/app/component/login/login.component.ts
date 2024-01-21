@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
+import { PublisherService } from '../../service/publisher.service';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,9 @@ import { RouterLink } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  isWelcomePage!: boolean;
+  publisherService = inject(PublisherService);
+  router = inject(Router);
 
   form!: FormGroup;
 
@@ -35,6 +39,22 @@ export class LoginComponent {
       console.log("invalid");
     }
     console.log(this.form);
+    this.isWelcomePage=false;
+    console.log("isWelcomePage: " + this.isWelcomePage);
+    this.publisherService.publishData(this.isWelcomePage);
+    
+    this.router.events.subscribe(event=>{
+      if(event instanceof NavigationEnd){
+        if (event.url.includes('sign-up')){
+          this.isWelcomePage=true;
+          this.publisherService.publishData(this.isWelcomePage);
+        }else{
+          this.isWelcomePage=false;
+          this.publisherService.publishData(this.isWelcomePage);
+        }
+      }
+    });
   }
+
 
 }

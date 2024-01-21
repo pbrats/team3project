@@ -52,7 +52,9 @@
   </div>
 
   <div class="container px-auto">
-    <button data-bs-dismiss="offcanvas"
+    <button 
+      (click)="onSubmit()"
+      data-bs-dismiss="offcanvas"
       routerLink="/discovery"
       [disabled]="form.invalid"
       type="submit"

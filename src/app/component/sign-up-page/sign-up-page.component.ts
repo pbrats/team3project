@@ -47,13 +47,8 @@ export class SignUpPageComponent implements OnInit {
   }
   onSubmit(){
     if(this.form.valid){
-      // service backend call
-      console.log("valid!");
     } else {
-      // error message
       this.form.markAllAsTouched();
-      console.log("invalid");
     }
-    console.log(this.form);
   }
 }

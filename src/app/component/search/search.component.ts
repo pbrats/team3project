@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StoresService } from '../../service/stores.service';
-import { Publisher2Service } from '../../service/publisher2.service';
+import { FamousStoresGeneralService } from '../../service/famous-stores-general.service';
 
 @Component({
   selector: 'app-search',
@@ -12,50 +12,40 @@ import { Publisher2Service } from '../../service/publisher2.service';
   styleUrl: './search.component.css'
 })
 export class SearchComponent {
-  publisherService2 =inject(Publisher2Service);
+  famousStores:any;
   stores:any;
   storesService: StoresService =inject(StoresService);
+  famousService: FamousStoresGeneralService =inject(FamousStoresGeneralService);
   searchResult: any[]=[];
+  query: string = '';
 
-  constructor(private router: Router,private route: ActivatedRoute) {
-    this.publisherService2.listenForData2()
-    .subscribe((data)=>{
-      this.searchResult=data;
-      console.log('ekei')
-      console.log(this.searchResult);
-      console.log(this.searchResult.length);
-    })
-  }
+  constructor(private router: Router,private route: ActivatedRoute) {}
   
-  ngOnit(){
+  ngOnInit() {
     this.storesService.getStores().subscribe((response) => {
       this.stores = response;
     });
-  //   this.publisherService2.listenForData2()
-  //   .subscribe((data)=>{
-  //     this.filter=data;
-  //     console.log('edo')
-  //     console.log(this.filter);
-  //   })
+    this.route.queryParams.subscribe(params => {
+      this.query = params['query'];
+      if (this.query) {
+        this.famousService.getFamousStoresGeneral().subscribe((response) => {
+          this.famousStores = response;
+          this.searchResult = this.famousStores.filter((store: { name: string , category:string}) =>
+           store.name.toLowerCase().includes(this.query.toLowerCase())
+            ||
+            store.category.toLowerCase().includes(this.query.toLowerCase())
+          );
+          console.log(this.searchResult)
+        });
+      }
+    });
   }
-  // ngOnChanges(simplechange:any){
-  //   this.publisherService2.listenForData2()
-  //   .subscribe((data)=>{
-  //     this.searchResult=data;
-  //     console.log('ekei2')
-  //     console.log(this.searchResult);
-  //     console.log(this.searchResult.length);
-  //   })
-  // }
-  onStoreClick(clickName: string) {
-    console.log(12)
-    const foundStore = this.stores.find((store: any) => store.name === clickName);
+  onViewStoreDetails(idClicked: number) {
+    const foundStore = this.stores.find((store: any) => store.id === idClicked);
     console.log(foundStore);
     if (foundStore){
-      console.log(13)
-      this.router.navigate(["stores",clickName]);
+      this.router.navigate(["stores",idClicked]);
     }else{
-      console.log(14)
       this.router.navigate(["menu-not-found"]);
     }
   }

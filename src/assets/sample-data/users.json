@@ -1,0 +1,59 @@
+[
+    {
+        "id":1,
+        "name":"John",
+        "lastname":"Doe",
+        "address":"Ioanninon 2",
+        "telephone":"6977777777",
+        "email":"johndoe@mailcom",
+        "password":"1234",
+        "previous_orders":[
+            {
+                "id":1,
+                "store_name":"McDonald's",
+                "total":12,
+                "date":"01/12/23"
+             },
+             {
+                "id":2,
+                "store_name":"Nanou Donuts House",
+                "total":8,
+                "date":"22/12/23"
+             }
+        ]
+},
+{
+    "id":2,
+    "name":"Jane",
+    "lastname":"Doe",
+    "address":"Patras 16",
+    "telephone":"6944444444",
+    "email":"janedoe@mailcom",
+    "password":"5555",
+    "previous_orders":[
+        {
+            "id":1,
+            "store_name":"MCoffee Lab",
+            "total":6,
+            "date":"01/01/24"
+         },
+         {
+            "id":2,
+            "store_name":"Gregory",
+            "total":9,
+            "date":"12/12/23"
+         }
+    ]
+},
+{
+    
+    "id":3,
+    "name":"Maria",
+    "lastname":"Pentagiotissa",
+    "address":"Tripoleos 127",
+    "telephone":"6999999999",
+    "email":"mariap@mailcom",
+    "password":"1111",
+    "previous_orders":[ ]
+}
+]

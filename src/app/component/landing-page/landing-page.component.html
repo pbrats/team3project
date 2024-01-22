@@ -1,7 +1,7 @@
 <div class="container my-5">
     <div class="row justify-content-between">
         <div class="col d-flex flex-wrap align-items-center justify-content-lg-start">
-            <h1 *ngIf="animateHeading" [@moveHeading]>Παραγγειλε <br> ο,τι θελεις <br> αμεσα !</h1>
+            <h1 *ngIf="animateHeading" [@moveHeading]>Παραγγειλε <br><span class="text-success fst-italic fw-bold">{{orderText}} </span> αμεσα !</h1>
             <button type="button" class="btn btn-success" data-bs-toggle="offcanvas"
             data-bs-target="#login" (click)="selectedbuttonOrder(); buttonOrderClicked = true;" *ngIf="animateButton" [@moveButton] >Παραγγειλε τωρα</button>
         </div>

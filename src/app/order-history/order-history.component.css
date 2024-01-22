@@ -1,0 +1,10 @@
+.accordian-body {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+/* Add some space between the table rows */
+.table tbody tr {
+    margin-bottom: 5px;
+}

@@ -7,6 +7,7 @@ import { MainComponent } from './component/main/main.component';
 import { LandingPageComponent } from './component/landing-page/landing-page.component';
 import { ProductsComponent } from './products/products.component';
 import { SelectedCategoryComponent } from './component/selected-category/selected-category.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "welcome", pathMatch:"full"},
@@ -18,5 +19,7 @@ export const routes: Routes = [
     {path: "categories/:category",component: SelectedCategoryComponent},
     {path: "stores/:id", component: ProductsComponent},
     {path: "products", component: ProductsComponent},
-    {path: "**", component: NotFoundComponent}
+    {path: "menu-not-found",component: NotFoundComponent},
+    {path: "**", component: NotFoundComponent},
+    {path: "previous-orders", component: OrderHistoryComponent},
 ];

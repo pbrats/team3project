@@ -10,12 +10,14 @@ import { UniqueCategoryPipe } from "../../pipe/unique-category.pipe";
 import { Title } from '@angular/platform-browser';
 import { CategoriesService } from '../../service/categories.service';
 
+
 @Component({
     selector: 'app-main',
     standalone: true,
     templateUrl: './main.component.html',
     styleUrl: './main.component.css',
     imports: [CommonModule, FamousStoresGeneralComponent, AllStoresComponent, CategoriesComponent, UniqueCategoryPipe]
+   
 })
 export class MainComponent {
   router: Router =inject(Router);
@@ -55,3 +57,6 @@ onCategoryClick(category: string) {
   this.router.navigate(["categories",category]);
 }
 }
+
+
+

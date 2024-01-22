@@ -1,0 +1,34 @@
+
+<div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="background-color: #337ab7; color: #fff; padding: 15px; text-align: left;">
+        <h1 style="margin: 0; font-size: 24px;">Ιστορικό παραγγελιών</h1>
+        <small style="font-size: 16px;">Total Orders: {{ totalOrders }}</small>
+        <input type="text" [(ngModel)]="searchTerm" (input)="filterTable()" placeholder="Search for names.." title="Type in a name">
+      </div>
+      <div class="panel-body">
+        <table
+  data-toggle="table"
+  data-url="order-history.json"
+  data-pagination="true"
+  data-search="true"
+        class="table table-condensed table-striped">
+          <thead>
+            <tr>
+              <th >Store</th>
+              <th>Date</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <div [attr.data-toggle]="'collapse'"><tr *ngFor="let order of filteredOrders"  [attr.data-target]="'#demo' + order.id" class="accordion-toggle">
+              <td>{{ order.store }}</td>
+              <td>{{ order.date }}</td>
+              <td>{{ order.total }}</td>
+              <td><button id="arrow{{ order.id }}" class="btn btn-default btn-xs arrow"><span class="glyphicon glyphicon-chevron-right"></span></button></td>
+            </tr></div>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

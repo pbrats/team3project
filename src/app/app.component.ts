@@ -13,39 +13,40 @@ import { FormsModule } from '@angular/forms';
 import { LandingPageComponent } from './component/landing-page/landing-page.component';
 import { PublisherService } from './service/publisher.service';
 
+
+
+
+
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css'],
-    imports: [
-        CommonModule,
-        RouterOutlet,
-        FooterComponent,
-        HeaderComponent,
-        LandingHeaderComponent,
-        LandingPageComponent,
-        ProductsComponent,
-        ProductDetailsComponent,
-        ProductsListComponent,
-        ProductItemComponent,
-        ShopingCartComponent,
-        FormsModule,
-        RouterLink
-    ]
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  imports: [
+      CommonModule,
+      RouterOutlet,
+      FooterComponent,
+      HeaderComponent,
+      LandingHeaderComponent,
+      LandingPageComponent,
+      ProductsComponent,
+      ProductDetailsComponent,
+      ProductsListComponent,
+      ProductItemComponent,
+      ShopingCartComponent,
+      FormsModule,
+      RouterLink
+  ]
 })
 export class AppComponent {
-  title = 'team3project';
-  
-  isWelcomePage:boolean | undefined;
-  
-  publisherService =inject(PublisherService);
+title = 'team3project';
+isWelcomePage:boolean | undefined;
+publisherService =inject(PublisherService);
 
-  constructor(private router: Router,private route: ActivatedRoute) {
-    this.publisherService.listenForData()
-    .subscribe((data)=>{
-      this.isWelcomePage=data;
-      console.log(this.isWelcomePage);
-    })
-  }
-}
+constructor(private router: Router,private route: ActivatedRoute) {
+  this.publisherService.listenForData()
+  .subscribe((data)=>{
+    this.isWelcomePage=data;
+    console.log(this.isWelcomePage);
+  })
+}}

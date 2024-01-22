@@ -9,8 +9,7 @@ import { FamousStoresGeneralService } from '../../service/famous-stores-general.
 import { UniqueCategoryPipe } from "../../pipe/unique-category.pipe";
 import { Title } from '@angular/platform-browser';
 import { CategoriesService } from '../../service/categories.service';
-
-
+import { CategoriesPhotosService } from '../../service/categories-photos.service';
 @Component({
     selector: 'app-main',
     standalone: true,
@@ -25,21 +24,41 @@ export class MainComponent {
   famousGeneralService: FamousStoresGeneralService =inject(FamousStoresGeneralService);
   fCategories:any;
   catService: CategoriesService =inject(CategoriesService);
-  storesService: StoresService =inject(StoresService);
+  stores:any;
+  storeService: StoresService =inject(StoresService);
+  catPhotoService: CategoriesPhotosService =inject(CategoriesPhotosService);
+  photosCategories: any;
+  hasLoadedCategories : boolean= false;
+  hasLoadedFamous : boolean= false;
 
   ngOnInit() {
-    this.catService.getCategories().subscribe((data) => {
-      this.fCategories = data;
+    this.titleService.setTitle("Discovery");
+    this.catService.getCategories().subscribe({
+      next: data => {
+        setTimeout(() =>{
+      // (data) => {
+          this.fCategories = data;
+          this.hasLoadedCategories=true;
+        },10);
+      }
+    });
+    this.catPhotoService.getCategoriesPhotos().subscribe((response) => {
+      this.photosCategories = response;
+    });
+    this.storeService.getStores().subscribe((response) => {
+      this.stores = response;
     });
     this.famousGeneralService.getFamousStoresGeneral()
     .subscribe({
       next: response => {
-        console.log(response);
-        this.famousStoresGeneral =response;
+        setTimeout(() =>{
+          console.log(response);
+          this.famousStoresGeneral =response;
+          this.hasLoadedFamous=true;
+        },10);
       }
     });
   }
-
   constructor(private route: ActivatedRoute,private titleService: Title) {
     titleService.setTitle("Discovery");
   }
@@ -56,7 +75,12 @@ viewCategories(){
 onCategoryClick(category: string) {
   this.router.navigate(["categories",category]);
 }
-}
-
-
-
+onViewStoreDetails(idClicked: number) {
+  const foundStore = this.stores.find((store: any) => store.id === idClicked);
+  console.log(foundStore);
+  if (foundStore){
+    this.router.navigate(["stores",idClicked]);
+  }else{
+    this.router.navigate(["menu-not-found"]);
+  }
+}}

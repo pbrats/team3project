@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-categories',
@@ -8,6 +8,8 @@ import { Component, Input } from '@angular/core';
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css'
 })
-export class CategoriesComponent {
-@Input() categories: string[] = [];
+export class CategoriesComponent implements OnInit{
+  @Input() categories:string[]=[];
+
+  ngOnInit() {}
 }

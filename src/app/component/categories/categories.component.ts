@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriesService } from '../../service/categories.service';
+import { CategoriesPhotosService } from '../../service/categories-photos.service';
 
 @Component({
     selector: 'app-categories',
@@ -18,10 +19,22 @@ export class CategoriesComponent {
   activatedRoute =inject(ActivatedRoute);
   fCategories: any;
   catService: CategoriesService =inject(CategoriesService);
+  catPhotoService: CategoriesPhotosService =inject(CategoriesPhotosService);
+  photosCategories: any;
+  hasLoadedCategories : boolean= false;
   
   ngOnInit() {
-    this.catService.getCategories().subscribe((data) => {
-      this.fCategories = data;
+    this.catService.getCategories().subscribe({
+      next: data => {
+      setTimeout(() =>{
+    // (data) => {
+        this.fCategories = data;
+        this.hasLoadedCategories=true;
+      },10);
+      }
+   });
+    this.catPhotoService.getCategoriesPhotos().subscribe((data) => {
+      this.photosCategories = data;
     });
   }
   
@@ -31,5 +44,11 @@ export class CategoriesComponent {
 
   constructor(private titleService: Title) {
     titleService.setTitle("Categories");
-}
+  }
+  sortStoresAlphabetically():void {
+    this.fCategories.sort((a: { category: string; }, b: { category: string; }) => a.category.localeCompare(b.category));
+  }
+  sortStoresZtoA():void {
+    this.fCategories.sort((a: { category: string; }, b: { category: string; }) => b.category.localeCompare(a.category));
+  }
 }

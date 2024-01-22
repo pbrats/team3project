@@ -1,0 +1,32 @@
+<div class="container p-2">
+    <div class="container border my-5">
+        <h1 class="text-success">Support</h1>
+        <p>Αν δε βρήκες την απάντηση που έψαχνες στα FAQ, μη διστάσεις να επικοινωνήσεις μαζί μας: </p>
+        <ul>
+            <li>Γράψε μας στο info&#64;wldelivery.gr</li>
+            <li>Καλεσε μας στο 210 123 4567 </li>
+            <li>Στείλε μας ένα tweet</li>
+            <li>Συμπληρώστε την παρακάτω φόρμα επικοινωνίας</li>
+        </ul>
+        <div class="border border-success m-5 p-5">
+            <h6 class="text-success">Contact Form</h6>
+            <form [formGroup]="FormData" (ngSubmit)="onSubmit(FormData!.value)">
+                <div class="form-group">
+                    <label  class="text-success" for="Email">Email</label>
+                    <input type="email" class="form-control" name="Email" aria-describedby="emailHelp" placeholder="Enter email"formControlName="Email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label  class="text-success" for="fullname">Full Name</label>
+                    <input type="text" class="form-control" name="Fullname" placeholder="Full Name" formControlName="Fullname">
+                </div>
+                <div class="form-group">
+                    <label  class="text-success" for="comment">Comment</label>
+                    <textarea class="form-control" formControlName="Comment" name="Comment">
+                    </textarea>
+                </div>
+                <button type="submit" class="btn btn-success" [disabled]="!FormData.valid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

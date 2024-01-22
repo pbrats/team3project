@@ -1,10 +1,8 @@
-<ng-template *ngIf="isWelcomePage; then welcomeBlock">
-</ng-template>
+<ng-template *ngIf="isWelcomePage; then welcomeBlock"></ng-template>
 <ng-template #welcomeBlock>
     <app-landing-header/>
 </ng-template>
-<ng-template *ngIf="!isWelcomePage; then notWelcomeBlock">
-</ng-template>
+<ng-template *ngIf="!isWelcomePage; then notWelcomeBlock"></ng-template>
 <ng-template #notWelcomeBlock>
     <app-header />
 </ng-template>

@@ -1,7 +1,6 @@
-import { Component, Input, inject } from '@angular/core';
-import { StoreService } from '../../services/store.service';
+import { Component, Input, SimpleChange, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../service/cart.service';
 import { Product } from '../../interfaces/product';
 
 @Component({
@@ -15,19 +14,15 @@ export class ShopingCartComponent {
   @Input() product: any;
   products: Product[]=[];
   cartService=inject(CartService);
-
-  // ngOnInit() {
-  //   this.products = [this.product];
-  //   this.service.productSelected
-  //     .subscribe(
-  //       (product) => {
-  //         this.products.push(product);
-  //       }
-  //     );
-
-  // }
- 
-
+  ngOnInit(){
+    console.log(this.products);
+  }
+  ngOnChanges(change:SimpleChange) {
+    console.log(this.products);
+  }
+  ngOnDestroy(){
+    this.products = this.cartService.clearCart();
+  }
   constructor() {
     // Initialize cartItems with the items from the CartService
     this.products = this.cartService.getCart();

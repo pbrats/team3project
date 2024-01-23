@@ -11,7 +11,7 @@
             <ng-template #categoriesBlock> 
                 <div class="card-group card-group-scroll mt-3">
                     @for (cat of fCategories| uniqueCategory; track $index){
-                        <div class="card border border-success m-1" (click)="onCategoryClick(cat.category)" title="click for details">
+                        <div class="card border border-success rounded rounded-3 m-1" (click)="onCategoryClick(cat.category)" title="click for details">
                             <div class="card-body text-center shadow">
                                 <div *ngFor="let photo of photosCategories">
                                     <div *ngIf="photo.category==cat.category">
@@ -50,7 +50,7 @@
             <ng-template #famousBlock>
                 <div class="card-group card-group-scroll mt-3">
                     @for (famousStore of famousStoresGeneral; track $index){
-                        <div class="card border border-success m-1">
+                        <div class="card border border-success rounded rounded-2 m-1">
                             <div class="card-body text-center text-end shadow" (click)="onViewStoreDetails(famousStore.id)" title="click for details">
                                 <img [src]="famousStore.logo" class="card-img-top" alt="{{famousStore.name}} store photo" style="width: 40%">
                                 <h5 class="card-title">{{famousStore.name}}</h5>

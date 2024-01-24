@@ -1,37 +1,114 @@
 <div class="container border">
   <div class="row d-grid gap-3">
     <h2 class="text-center">Καλώς όρισες!</h2>
-    <form [formGroup]="form" (submit)="onSubmit()" class="col-4 mx-auto">
+    <form [formGroup]="signUpForm" (submit)="onSubmit()" class="col-4 mx-auto">
       <div>
-        <label class="form-label">Τηλέφωνο<span class="text-danger">*</span></label>
-        <input type="phone" formControlName="phone" class="form-control" placeholder="Τηλέφωνο" autocomplete="tel"/>
-        <span class="text-danger" *ngIf="form.get('phone')?.hasError('required') && form.get('phone')?.touched">*Υποχρεωτικό πεδίο</span>
+        <label class="form-label" for="phone"
+          >Τηλέφωνο<span class="text-danger">*</span></label
+        >
+        <input
+          type="phone"
+          name="phone"
+          id="phone"
+          formControlName="phone"
+          class="form-control"
+          placeholder="Τηλέφωνο"
+          autocomplete="tel"
+        />
+        <span
+          class="text-danger"
+          *ngIf="
+            signUpForm.get('phone')?.hasError('required') &&
+            signUpForm.get('phone')?.touched
+          "
+          >*Υποχρεωτικό πεδίο</span
+        >
       </div>
       <div>
-        <label class="form-label">Email<span class="text-danger">*</span></label>
-        <input type="email" formControlName="email" class="form-control" placeholder="Email"/>
-        <span class="text-danger" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">*Υποχρεωτικό πεδίο</span>
+        <label class="form-label" for="email"
+          >Email<span class="text-danger">*</span></label
+        >
+        <input
+          type="email"
+          name="email"
+          id="email"
+          formControlName="email"
+          class="form-control"
+          placeholder="Email"
+          autocomplete="email"
+        />
+        <span
+          class="text-danger"
+          *ngIf="
+            signUpForm.get('email')?.hasError('required') &&
+            signUpForm.get('email')?.touched
+          "
+          >*Υποχρεωτικό πεδίο</span
+        >
       </div>
       <div>
-        <label class="form-label">Όνομα</label>
-        <input type="name" formControlName="first_name" class="form-control" placeholder="Όνομα" autocomplete="given-name"/>
+        <label class="form-label" for="first_name"
+        >Όνομα</label>
+        <input
+          type="name"
+          name="first_name"
+          id="first_name"
+          formControlName="first_name"
+          class="form-control"
+          placeholder="Όνομα"
+          autocomplete="given-name"
+        />
       </div>
       <div>
-        <label class="form-label">Επώνυμο</label>
-        <input type="name" formControlName="last_name" class="form-control" placeholder="Επώνυμο" autocomplete="family-name"/>
+        <label class="form-label" for="last_name"
+        >Επώνυμο</label>
+        <input
+          type="name"
+          name="last_name"
+          id="last_name"
+          formControlName="last_name"
+          class="form-control"
+          placeholder="Επώνυμο"
+          autocomplete="family-name"
+        />
       </div>
       <div>
-        <label class="form-label">Διεύθυνση</label>
-        <input formControlName="address" class="form-control" placeholder="Διεύθυνση" autocomplete="street-address"/>
+        <label class="form-label" for="address"
+        >Διεύθυνση</label>
+        <input
+          formControlName="address"
+          name="address"
+          id="address"
+          class="form-control"
+          placeholder="Διεύθυνση"
+          autocomplete="street-address"
+        />
       </div>
       <div>
-        <label class="form-label">Κωδικός</label>
-        <input type="password" formControlName="password" class="form-control" placeholder="Κωδικός" autocomplete="new-password"/>
+        <label class="form-label" for="password"
+        >Κωδικός</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          formControlName="password"
+          class="form-control"
+          placeholder="Κωδικός"
+          autocomplete="new-password"
+        />
+      </div>
+      <div class="col-6 mx-auto d-grid gap-2 pt-4">
+        <button
+          routerLink="/discovery"
+          [disabled]="signUpForm.invalid"
+          type="submit"
+          type="button"
+          class="btn btn-success"
+        >
+          Παράγγειλε τώρα
+        </button>
+        <br />
       </div>
     </form>
-  </div>
-  <div class="col-4 mx-auto d-grid gap-2 pt-4">
-    <button routerLink="/discovery" [disabled]="form.invalid" type="submit" class="btn btn-success"> Παράγγειλε τώρα </button>
-    <br />
   </div>
 </div>

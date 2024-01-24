@@ -12,10 +12,13 @@
     <form [formGroup]="form" (submit)="onSubmit()">
       <div>
         <label class="form-label float-start"
+          for="phone-l"
           >Τηλέφωνο<span class="text-danger">*</span></label
         >
         <input
           type="phone"
+          name="phone"
+          id="phone-l"
           formControlName="phone"
           class="form-control"
           placeholder="Τηλέφωνο"
@@ -31,16 +34,18 @@
         >
       </div>
       <div>
-        <label class="form-label float-start" for="email"
+        <label class="form-label float-start" for="email-l"
           >Email<span class="text-danger">*</span></label
         >
         <input
           name="email"
-          id="email"
+          id="email-l"
           type="email"
           formControlName="email"
           class="form-control"
           placeholder="Email"
+          autocomplete="email"
+          email
         />
         <span
           class="text-danger"

@@ -13,6 +13,7 @@ import { TermsOfUseComponent } from './component/terms-of-use/terms-of-use.compo
 import { FaqsComponent } from './component/faqs/faqs.component';
 import { SupportComponent } from './component/support/support.component';
 import { SearchComponent } from './component/search/search.component';
+import { ProfileComponent } from './component/profile/profile.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "welcome", pathMatch:"full"},
@@ -25,6 +26,7 @@ export const routes: Routes = [
     {path: "stores/:id", component: ProductsComponent},
     {path: "products", component: ProductsComponent},
     {path: "sign-up", component: SignUpPageComponent},
+    {path: "profile", component: ProfileComponent},
     {path: "menu-not-found",component: NotFoundComponent},
     {path: "about", component: AboutComponent},
     {path: "faqs", component: FaqsComponent},

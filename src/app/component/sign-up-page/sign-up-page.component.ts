@@ -4,7 +4,6 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { PublisherService } from '../../service/publisher.service';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 
-
 @Component({
   selector: 'app-sign-up-page',
   standalone: true,
@@ -15,7 +14,7 @@ import { NavigationEnd, Router, RouterLink } from '@angular/router';
 export class SignUpPageComponent implements OnInit {
   isSignUpPage=true;
   publisherService = inject(PublisherService);
-  form!: FormGroup;
+  signUpForm!: FormGroup;
 
   constructor(private router: Router) {
     this.isSignUpPage=true;
@@ -36,19 +35,25 @@ export class SignUpPageComponent implements OnInit {
     this.setFormValues();
   }
   setFormValues() {
-    this.form = new FormGroup({
+    this.signUpForm = new FormGroup({
       phone: new FormControl("", Validators.required),
-      email: new FormControl("", Validators.required),
+      email: new FormControl("", [Validators.required, Validators.email]),
       first_name: new FormControl(""),
       last_name: new FormControl(""),
       address: new FormControl(""),
       password: new FormControl("")
     }); 
+    
   }
   onSubmit(){
-    if(this.form.valid){
+    if(this.signUpForm.valid){
+      sessionStorage.setItem("phone",this.signUpForm.value.phone);
+      sessionStorage.setItem("email",this.signUpForm.value.email);
+      sessionStorage.setItem("first_name",this.signUpForm.value.first_name);
+      sessionStorage.setItem("last_name",this.signUpForm.value.last_name);
+      sessionStorage.setItem("address",this.signUpForm.value.address);
     } else {
-      this.form.markAllAsTouched();
+      this.signUpForm.markAllAsTouched();
     }
   }
 }

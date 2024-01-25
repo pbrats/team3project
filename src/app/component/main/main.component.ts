@@ -31,6 +31,8 @@ export class MainComponent {
   hasLoadedCategories : boolean= false;
   hasLoadedFamous : boolean= false;
 
+  first_name: string="";
+
   ngOnInit() {
     this.titleService.setTitle("Discovery");
     this.catService.getCategories().subscribe({
@@ -61,6 +63,7 @@ export class MainComponent {
   }
   constructor(private route: ActivatedRoute,private titleService: Title) {
     titleService.setTitle("Discovery");
+    this.first_name = JSON.stringify(sessionStorage.getItem("first_name")).replace(/"/g, "");
   }
   viewFamousStores(){
     this.router.navigate(["famous-stores"]);
@@ -82,5 +85,6 @@ export class MainComponent {
     }else{
       this.router.navigate(["menu-not-found"]);
     }
+    
   }
 }

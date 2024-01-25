@@ -26,8 +26,8 @@ export class LoginComponent {
 
   setFormValues(){
     this.form = new FormGroup({
-      phone: new FormControl("", Validators.required),
-      email: new FormControl("", Validators.required)
+      phone: new FormControl("", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]),
+      email: new FormControl("", [Validators.required, Validators.email])
     })
   }
 

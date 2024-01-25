@@ -32,6 +32,22 @@
           "
           >*Υποχρεωτικό πεδίο</span
         >
+        <span
+          class="text-danger"
+          *ngIf="
+            form.get('phone')?.hasError('minlength') &&
+            form.get('phone')?.touched
+          "
+          >*Τουλαχιστον 10 ψηφια</span
+        >
+        <span
+          class="text-danger"
+          *ngIf="
+            form.get('phone')?.hasError('maxlength') &&
+            form.get('phone')?.touched
+          "
+          >*Μεγιστο 10 ψηφια</span
+        >
       </div>
       <div>
         <label class="form-label float-start" for="email-l"
@@ -54,6 +70,14 @@
             form.get('email')?.touched
           "
           >*Υποχρεωτικό πεδίο</span
+        >
+        <span
+          class="text-danger"
+          *ngIf="
+            form.get('email')?.hasError('email') &&
+            form.get('email')?.touched
+          "
+          >*Λαθος μορφή email</span
         >
       </div>
     </form>

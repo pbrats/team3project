@@ -5,6 +5,7 @@ import { Injectable, inject } from '@angular/core';
   providedIn: 'root'
 })
 export class ReadOrderService {
+  [x: string]: any;
   private http=inject(HttpClient);
   private endpointUrl="assets/sample-data/order-history.json";
 

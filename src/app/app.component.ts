@@ -12,7 +12,7 @@ import { ShopingCartComponent } from './products/shoping-cart/shoping-cart.compo
 import { FormsModule } from '@angular/forms';
 import { LandingPageComponent } from './component/landing-page/landing-page.component';
 import { PublisherService } from './service/publisher.service';
-
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 
 

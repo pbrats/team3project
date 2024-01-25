@@ -1,6 +1,6 @@
 <div class="container p-2">
     <div class="container border my-5">
-        <h1 class="text-success">Support</h1>
+        <h1 class="text-success mb-3">Support</h1>
         <p>Αν δε βρήκες την απάντηση που έψαχνες στα FAQ, μη διστάσεις να επικοινωνήσεις μαζί μας: </p>
         <ul>
             <li>Γράψε μας στο info&#64;wldelivery.gr</li>
@@ -10,23 +10,41 @@
         </ul>
         <div class="border border-success m-5 p-5">
             <h6 class="text-success">Contact Form</h6>
-            <form [formGroup]="FormData" (ngSubmit)="onSubmit(FormData!.value)">
+            <form [formGroup]="FormData" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <label  class="text-success" for="Email">Email</label>
-                    <input type="email" class="form-control" name="Email" aria-describedby="emailHelp" placeholder="Enter email"formControlName="Email">
+                    <input type="email" class="form-control" name="Email" aria-describedby="emailHelp" placeholder="Enter email" formControlName="Email" autocomplete="email">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <div *ngIf="FormData.get('Email')?.hasError('required') && FormData.get('Email')?.touched">
+                        <span class="text-danger fw-bold fst-italic">Email is required.</span>
+                    </div>
+                    <div *ngIf="FormData.get('Email')?.hasError('email') && FormData.get('Email')?.touched">
+                        <span class="text-danger fw-bold fst-italic">Invalid email format.</span>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label  class="text-success" for="fullname">Full Name</label>
-                    <input type="text" class="form-control" name="Fullname" placeholder="Full Name" formControlName="Fullname">
+                    <input type="text" class="form-control" name="Fullname" placeholder="Full Name" formControlName="Fullname" autocomplete="name">
+                    <div *ngIf="FormData.get('Fullname')?.hasError('required') && FormData.get('Fullname')?.touched">
+                        <span class="text-danger fw-bold fst-italic">Fullname is required.</span>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label  class="text-success" for="comment">Comment</label>
-                    <textarea class="form-control" formControlName="Comment" name="Comment">
+                    <textarea class="form-control" formControlName="Comment" name="Comment" autocomplete="off">
                     </textarea>
+                    <div *ngIf="FormData.get('Comment')?.hasError('required') && FormData.get('Comment')?.touched">
+                        <span class="text-danger fw-bold fst-italic">Comment is required.</span>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-success" [disabled]="!FormData.valid">Submit</button>
+                <div class="container mt-4">
+                    <button type="submit" class="btn btn-success" (click)="showAlert()" [disabled]="!FormData.valid">Submit</button>
+                    <div *ngIf="showAlertFlag" class="alert alert-success alert-dismissible mt-3" role="alert">
+                        <div><i class="bi bi-check-circle-fill mx-2"></i>Your message was successfully sent!</div>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
             </form>
-        </div>
+        </div>  
     </div>
 </div>

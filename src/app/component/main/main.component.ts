@@ -30,7 +30,7 @@ export class MainComponent {
   photosCategories: any;
   hasLoadedCategories : boolean= false;
   hasLoadedFamous : boolean= false;
-
+  showAlertFlag= false;
   first_name: string="";
 
   ngOnInit() {
@@ -64,6 +64,12 @@ export class MainComponent {
   constructor(private route: ActivatedRoute,private titleService: Title) {
     titleService.setTitle("Discovery");
     this.first_name = JSON.stringify(sessionStorage.getItem("first_name")).replace(/"/g, "");
+    if(this.first_name){
+      this.showAlertFlag= true;
+    }
+    setTimeout(() => {
+      this.showAlertFlag = false;
+    }, 5000); 
   }
   viewFamousStores(){
     this.router.navigate(["famous-stores"]);

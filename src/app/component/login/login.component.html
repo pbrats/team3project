@@ -13,7 +13,7 @@
       <div>
         <label class="form-label float-start"
           for="phone-l"
-          >Τηλέφωνο<span class="text-danger">*</span></label
+          >Phone number<span class="text-danger">*</span></label
         >
         <input
           type="phone"
@@ -21,7 +21,7 @@
           id="phone-l"
           formControlName="phone"
           class="form-control"
-          placeholder="Τηλέφωνο"
+          placeholder="Phone number"
           autocomplete="tel"
         />
         <span
@@ -30,7 +30,7 @@
             form.get('phone')?.hasError('required') &&
             form.get('phone')?.touched
           "
-          >*Υποχρεωτικό πεδίο</span
+          >*Required</span
         >
       </div>
       <div>
@@ -53,7 +53,7 @@
             form.get('email')?.hasError('required') &&
             form.get('email')?.touched
           "
-          >*Υποχρεωτικό πεδίο</span
+          >*Required</span
         >
       </div>
     </form>
@@ -68,13 +68,13 @@
       type="submit"
       class="btn btn-success float-start"
     >
-      Παράγγειλε τώρα
+      Order Now
     </button>
   </div>
   <br>
   <p>
-    Δεν έχεις λογαριασμό; Κάνε εγγραφή
-    <a data-bs-dismiss="offcanvas" routerLink="/sign-up">εδώ</a>
+    Don't have an account? Register 
+    <a data-bs-dismiss="offcanvas" routerLink="/sign-up">here</a>
   </p>
 </div>
 </div>

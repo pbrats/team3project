@@ -1,34 +1,63 @@
 <div class="container">
-    <h1>Προφίλ</h1>
+  <h1 class="text-center">Profile</h1>
 </div>
-
-<!-- <div class="card" style="width: 18rem;">
-    <div class="card-header">
-      <h3>{{first_name}} {{last_name}}</h3>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">{{phone}}</li>
-      <li class="list-group-item">{{email}}</li>
-      <li class="list-group-item">{{address}}</li>
-    </ul>
-  </div> -->
 
 <div class="container">
-    <div class="row">
-        <div class="card col-6 ml-auto">
-            <h4 class="card-title">
-                Τηλέφωνο
-            </h4>
-            <p class="card-body">{{phone}}</p>
-        </div>
-    </div>
-    <div class="row">
-      <div class="card col-6 ml-auto">
-          <h4 class="card-title">
-              Email
-          </h4>
-          <p class="card-body">{{email}}</p>
+  <div class="row">
+    <div class="card col-6 mx-auto">
+      <div class="card-header">
+        <h3>{{ first_name }} {{ last_name }}</h3>
       </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <h4>Phone number:</h4>
+          <p>{{ phone }}</p>
+        </li>
+        <li class="list-group-item">
+          <h4>Email:</h4>
+          <p>{{ email }}</p>
+        </li>
+        <li class="list-group-item">
+          <h4>Address:</h4>
+          <p>{{ address }}</p>
+          <button class="btn btn-light" (click)="showNewAddress()">
+            Change address
+          </button>
+
+          <div *ngIf="newAddressBlock" class="mx-auto pt-2">
+            <form [formGroup]="addressForm">
+              <div>
+                <input
+                  type="address"
+                  name="address"
+                  id="address"
+                  formControlName="address"
+                  autocomplete="street-address"
+                />
+                <span
+          class="text-danger"
+          *ngIf="
+            addressForm.get('address')?.hasError('required') &&
+            addressForm.get('address')?.touched
+          "
+          >*Required</span
+        >
+                <div class="mx-auto d-grip gap-2 pt-2">
+                  <button
+                    (click)="onSubmit()"
+                    type="submit"
+                    type="button"
+                    [disabled]="addressForm.invalid"
+                    class="btn btn-success mx-auto"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
-

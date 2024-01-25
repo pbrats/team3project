@@ -1,10 +1,10 @@
 <div class="container border">
   <div class="row d-grid gap-3">
-    <h2 class="text-center">Καλώς όρισες!</h2>
+    <h2 class="text-center">Welcome!</h2>
     <form [formGroup]="signUpForm" class="col-4 mx-auto">
       <div>
         <label class="form-label" for="phone"
-          >Τηλέφωνο<span class="text-danger">*</span></label
+          >Phone number<span class="text-danger">*</span></label
         >
         <input
           type="phone"
@@ -12,7 +12,7 @@
           id="phone"
           formControlName="phone"
           class="form-control"
-          placeholder="Τηλέφωνο"
+          placeholder="Phone number"
           autocomplete="tel"
         />
         <span
@@ -21,7 +21,7 @@
             signUpForm.get('phone')?.hasError('required') &&
             signUpForm.get('phone')?.touched
           "
-          >*Υποχρεωτικό πεδίο</span
+          >*Required</span
         >
       </div>
       <div>
@@ -43,57 +43,57 @@
             signUpForm.get('email')?.hasError('required') &&
             signUpForm.get('email')?.touched
           "
-          >*Υποχρεωτικό πεδίο</span
+          >*Required</span
         >
       </div>
       <div>
         <label class="form-label" for="first_name"
-        >Όνομα</label>
+        >First name</label>
         <input
           type="name"
           name="first_name"
           id="first_name"
           formControlName="first_name"
           class="form-control"
-          placeholder="Όνομα"
+          placeholder="First name"
           autocomplete="given-name"
         />
       </div>
       <div>
         <label class="form-label" for="last_name"
-        >Επώνυμο</label>
+        >Last name</label>
         <input
           type="name"
           name="last_name"
           id="last_name"
           formControlName="last_name"
           class="form-control"
-          placeholder="Επώνυμο"
+          placeholder="Last name"
           autocomplete="family-name"
         />
       </div>
       <div>
         <label class="form-label" for="address"
-        >Διεύθυνση</label>
+        >Address</label>
         <input
           formControlName="address"
           name="address"
           id="address"
           class="form-control"
-          placeholder="Διεύθυνση"
+          placeholder="Address"
           autocomplete="street-address"
         />
       </div>
       <div>
         <label class="form-label" for="password"
-        >Κωδικός</label>
+        >Password</label>
         <input
           type="password"
           name="password"
           id="password"
           formControlName="password"
           class="form-control"
-          placeholder="Κωδικός"
+          placeholder="Password"
           autocomplete="new-password"
         />
       </div>
@@ -106,7 +106,7 @@
           type="button"
           class="btn btn-success"
         >
-          Παράγγειλε τώρα
+          Register
         </button>
         <br />
       </div>

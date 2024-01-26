@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, SimpleChange, inject } from '@angular/core';
 import { FamousStoresGeneralComponent } from '../famous-stores-general/famous-stores-general.component';
 import { AllStoresComponent } from '../all-stores/all-stores.component';
 import { CategoriesComponent } from '../categories/categories.component';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { StoresService } from '../../service/stores.service';
 import { FamousStoresGeneralService } from '../../service/famous-stores-general.service';
 import { UniqueCategoryPipe } from "../../pipe/unique-category.pipe";
@@ -36,6 +36,7 @@ export class MainComponent {
   User: any; 
   publisherService =inject(PublisherService);
   isWelcomePage=false;
+  
   ngOnInit() {
     this.titleService.setTitle("Discovery");
     this.publisherService.publishData(this.isWelcomePage);

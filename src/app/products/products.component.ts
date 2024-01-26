@@ -13,6 +13,7 @@ import { Product } from '../interfaces/product';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryProductListComponent } from './products-list/category-product-list/category-product-list.component';
 import { Title } from '@angular/platform-browser';
+import { PublisherService } from '../service/publisher.service';
 
 @Component({
   selector: 'app-products',
@@ -46,9 +47,12 @@ export class ProductsComponent implements OnInit {
   cats: any;
   categories: string[] = [];
   @Input() category!:string;
-
+  publisherService =inject(PublisherService);
+  isWelcomePage=false;
+ 
   constructor(private titleService: Title) {}
   ngOnInit() {
+    this.publisherService.publishData(this.isWelcomePage);
     this.activatedRoute.params.subscribe({
       next: (params: any) => {
         this.id = +params['id'];

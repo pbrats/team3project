@@ -5,6 +5,7 @@ import { Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { StoresInfosService } from '../../service/stores-infos.service';
 import { StoresService } from '../../service/stores.service';
+import { PublisherService } from '../../service/publisher.service';
 
 @Component({
   selector: 'app-selected-category',
@@ -24,10 +25,13 @@ export class SelectedCategoryComponent {
   storeInfosService: StoresInfosService =inject(StoresInfosService);
   storeInfos: any;
   hasLoadedStores : boolean= false;
+  publisherService =inject(PublisherService);
+  isWelcomePage=false;
 
   constructor(private titleService: Title) {}
 
   ngOnInit(): void {
+    this.publisherService.publishData(this.isWelcomePage);
     this.storeInfosService.getStoresInfos().subscribe((response) => {
       this.storeInfos = response;
     });

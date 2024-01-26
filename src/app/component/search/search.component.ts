@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StoresService } from '../../service/stores.service';
 import { FamousStoresGeneralService } from '../../service/famous-stores-general.service';
+import { PublisherService } from '../../service/publisher.service';
 
 @Component({
   selector: 'app-search',
@@ -18,10 +19,13 @@ export class SearchComponent {
   famousService: FamousStoresGeneralService =inject(FamousStoresGeneralService);
   searchResult: any[]=[];
   query: string = '';
+  publisherService =inject(PublisherService);
+  isWelcomePage=false;
 
   constructor(private router: Router,private route: ActivatedRoute) {}
   
   ngOnInit() {
+    this.publisherService.publishData(this.isWelcomePage);
     this.storesService.getStores().subscribe((response) => {
       this.stores = response;
     });

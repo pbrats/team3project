@@ -12,7 +12,30 @@
       <li class="list-group-item">{{address}}</li>
     </ul>
   </div> -->
-
+  <div class="row">
+  <div class="card col-6 ml-auto">
+      <h4 class="card-title">
+          photo
+      </h4>
+      <img [src]="User.photo" class="card-img-top" alt="{{User.first_name}} {{User.last_name}} user's photo" style="width:300px;">
+  </div>
+</div>
+<div class="row">
+    <div class="card col-6 ml-auto">
+        <h4 class="card-title">
+            Fisrt Name
+        </h4>
+        <p class="card-body">{{User.first_name}}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="card col-6 ml-auto">
+        <h4 class="card-title">
+            Last Name
+        </h4>
+        <p class="card-body">{{User.last_name}}</p>
+    </div>
+</div>
 <div class="container">
     <div class="row">
         <div class="card col-6 ml-auto">
@@ -30,36 +53,13 @@
           <p class="card-body">{{User.email}}</p>
       </div>
   </div>
-  <div class="row">
-    <div class="card col-6 ml-auto">
-        <h4 class="card-title">
-            Fisrt Name
-        </h4>
-        <p class="card-body">{{User.first_name}}</p>
-    </div>
-</div>
-<div class="row">
-    <div class="card col-6 ml-auto">
-        <h4 class="card-title">
-            Last Name
-        </h4>
-        <p class="card-body">{{User.last_name}}</p>
-    </div>
-</div>
+  
 <div class="row">
     <div class="card col-6 ml-auto">
         <h4 class="card-title">
             address
         </h4>
         <p class="card-body">{{User.address}}</p>
-    </div>
-</div>
-<div class="row">
-    <div class="card col-6 ml-auto">
-        <h4 class="card-title">
-            photo
-        </h4>
-        <img [src]="User.photo" class="card-img-top" alt="{{User.first_name}} {{User.last_name}} user's photo" style="width:100%;">
     </div>
 </div>
 </div>

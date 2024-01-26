@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { PublisherService } from '../../service/publisher.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,8 +15,12 @@ export class ProfileComponent {
   last_name!: string;
   address!: string;
   User:any;
+  publisherService =inject(PublisherService);
+  isWelcomePage=false;
 
-  ngOnInit(){ //get user data from session storage
+  ngOnInit(){ 
+    this.publisherService.publishData(this.isWelcomePage);
+    //get user data from session storage
     // this.phone = JSON.stringify(sessionStorage.getItem("phone")).replace(/"/g, "");
     // this.email = JSON.stringify(sessionStorage.getItem("email")).replace(/"/g, "");
     // this.first_name = JSON.stringify(sessionStorage.getItem("first_name")).replace(/"/g, "");

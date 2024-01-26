@@ -25,9 +25,11 @@
             <span class="text-danger" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">*Υποχρεωτικό πεδίο</span>
             <span class="text-danger" *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched">*Λαθος μορφή email</span>
           </div>
-          <button data-bs-dismiss="offcanvas" [disabled]="form.invalid" type="submit" class="btn btn-success float-start my-4">
+          <div *ngIf="!showErrorAlert">   
+          <button  [disabled]="form.invalid" type="submit" class="btn btn-success float-start my-4">
             Παράγγειλε τώρα
           </button>
+        </div>
         </form>
       </div>
       <div class="my-5 text-center">

@@ -10,6 +10,7 @@ import { UniqueCategoryPipe } from "../../pipe/unique-category.pipe";
 import { Title } from '@angular/platform-browser';
 import { CategoriesService } from '../../service/categories.service';
 import { CategoriesPhotosService } from '../../service/categories-photos.service';
+import { PublisherService } from '../../service/publisher.service';
 
 @Component({
     selector: 'app-main',
@@ -32,9 +33,39 @@ export class MainComponent {
   hasLoadedFamous : boolean= false;
   showAlertFlag= false;
   first_name: string="";
-
+  User: any; 
+  publisherService =inject(PublisherService);
+  isWelcomePage=false;
   ngOnInit() {
     this.titleService.setTitle("Discovery");
+    this.publisherService.publishData(this.isWelcomePage);
+    // this.first_name = JSON.stringify(sessionStorage.getItem("first_name")).replace(/"/g, "");
+    // if(this.first_name){
+    //   this.showAlertFlagSignUp= true;
+    // }
+    // setTimeout(() => {
+    //   this.showAlertFlagSignUp = false;
+    // }, 5000); 
+    // Retrieve the stored user information from local storage
+   
+    const storedUser = sessionStorage.getItem('User');
+    console.log( storedUser);
+   
+    if (storedUser) {
+      this.showAlertFlag= true;
+      setTimeout(() => {
+        this.showAlertFlag = false;
+      }, 5000); 
+      // Parse the stored JSON string back into a JavaScript object
+      this.User = JSON.parse(storedUser);
+      console.log(this.User);
+      // Now, this.authenticatedUser contains the information of the authenticated user
+    } else {
+      // Handle the case when no user information is stored in local storage
+      console.log('No user information found in local storage');
+      this.showAlertFlag = false;
+    }
+  
     this.catService.getCategories().subscribe({
       next: data => {
         setTimeout(() =>{
@@ -63,13 +94,6 @@ export class MainComponent {
   }
   constructor(private route: ActivatedRoute,private titleService: Title) {
     titleService.setTitle("Discovery");
-    this.first_name = JSON.stringify(sessionStorage.getItem("first_name")).replace(/"/g, "");
-    if(this.first_name){
-      this.showAlertFlag= true;
-    }
-    setTimeout(() => {
-      this.showAlertFlag = false;
-    }, 5000); 
   }
   viewFamousStores(){
     this.router.navigate(["famous-stores"]);

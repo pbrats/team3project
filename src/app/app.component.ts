@@ -43,7 +43,7 @@ export class AppComponent {
     this.publisherService.listenForData()
     .subscribe((data)=>{
       this.isWelcomePage=data;
-      console.log(this.isWelcomePage);
+      // console.log(this.isWelcomePage);
     })
   }
   

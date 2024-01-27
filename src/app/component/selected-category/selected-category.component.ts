@@ -42,14 +42,14 @@ export class SelectedCategoryComponent {
       next: params => {
         setTimeout(() =>{
       // (params:any) => {
-          console.log(params);
+          // console.log(params);
           this.selectedCategory = params['category'];
           // this.selectedCategory = params.category;
-          console.log(this.selectedCategory);
+          // console.log(this.selectedCategory);
           this.titleService.setTitle(`${this.selectedCategory}`);
           this.catService.getCategories().subscribe((data:any) => {
             this.stores = data.filter((store:any) => store.category === this.selectedCategory);
-            console.log(this.stores);
+            // console.log(this.stores);
           });
           this.hasLoadedStores=true;
           },10);
@@ -58,7 +58,7 @@ export class SelectedCategoryComponent {
   }
   onViewStoreDetails(idClicked: number) {
     const foundStore = this.storeFilter.find((store: any) => store.id === idClicked);
-    console.log(foundStore);
+    // console.log(foundStore);
     if (foundStore){
       this.router.navigate(["stores",idClicked]);
     }else{

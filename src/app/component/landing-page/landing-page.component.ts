@@ -51,7 +51,7 @@ export class LandingPageComponent implements OnInit {
     titleService.setTitle("Welcome");
     this.isWelcomePage=true;
     this.publisherService.publishData(this.isWelcomePage);
-    console.log(this.isWelcomePage);
+    // console.log(this.isWelcomePage);
     this.router.events.subscribe((event) => console.log(event));
     this.router.events.subscribe(event=>{
       if(event instanceof NavigationEnd){
@@ -80,7 +80,7 @@ export class LandingPageComponent implements OnInit {
   }
   selectedbuttonOrder(){
     this.buttonOrderClicked=true;
-    console.log(this.buttonOrderClicked);
+    // console.log(this.buttonOrderClicked);
     this.actionEventEmitter.emit(this.buttonOrderClicked);
   }
   private startUpdatingText() {

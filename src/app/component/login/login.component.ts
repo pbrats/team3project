@@ -33,11 +33,11 @@ export class LoginComponent {
     let typedEmail = this.form.value.email;
     let typedPhone = this.form.value.phone;
     this.userService.authenticate(typedEmail, typedPhone).subscribe(authenticatedUser => {
-      console.log(authenticatedUser)
+      // console.log(authenticatedUser)
       if (authenticatedUser) {
         // Authentication successful, you can navigate or perform other actions
         console.log('Login successful!');
-        console.log(authenticatedUser)
+        // console.log(authenticatedUser)
         this.showErrorAlert = false;
         localStorage.setItem('alertShown','no');
         sessionStorage.setItem('User', JSON.stringify(authenticatedUser));
@@ -45,7 +45,7 @@ export class LoginComponent {
       } else {
         // Authentication failed, show error message or take appropriate action
         console.log('Invalid email or password');
-        console.log(authenticatedUser)
+        // console.log(authenticatedUser)
         this.showErrorAlert = true;
       }
     });

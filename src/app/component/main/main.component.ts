@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core';
 import { FamousStoresGeneralComponent } from '../famous-stores-general/famous-stores-general.component';
 import { AllStoresComponent } from '../all-stores/all-stores.component';
 import { CategoriesComponent } from '../categories/categories.component';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StoresService } from '../../service/stores.service';
 import { FamousStoresGeneralService } from '../../service/famous-stores-general.service';
 import { UniqueCategoryPipe } from "../../pipe/unique-category.pipe";
@@ -32,7 +32,6 @@ export class MainComponent {
   hasLoadedCategories : boolean= false;
   hasLoadedFamous : boolean= false;
   showAlertFlag= false;
-  first_name: string="";
   User: any; 
   publisherService =inject(PublisherService);
   isWelcomePage=false;
@@ -47,32 +46,28 @@ export class MainComponent {
     // setTimeout(() => {
     //   this.showAlertFlagSignUp = false;
     // }, 5000); 
+
     // Retrieve the stored user information from local storage
-   
     const storedUser = sessionStorage.getItem('User');
-    console.log( storedUser);
-   
+    // console.log( storedUser);
     if (storedUser) {
-      // this.showAlertFlag= true;
-      // setTimeout(() => {
-      //   this.showAlertFlag = false;
-      // }, 5000); 
-      // Parse the stored JSON string back into a JavaScript object
+      // Parse the stored JSON string back into an object
       this.User = JSON.parse(storedUser);
-      console.log(this.User);
-      // Now, this.authenticatedUser contains the information of the authenticated user
+      // console.log(this.User);
+      // Now, this.User contains the information of the authenticated user
       const hasAlertBeenShown = localStorage.getItem('alertShown');
-      console.log(hasAlertBeenShown);
+      // console.log(hasAlertBeenShown);
       if (this.User && hasAlertBeenShown==='no') {
         this.showAlertFlag = true;
         setTimeout(() => {
             this.showAlertFlag = false;
-            // an valo edo reload lynei to thema me ti lathos fortosi selidas
+
+            // A WAY TO FIX THE PROBLEMATIC LOAD
+
             // window.location.reload();
           }, 5000); 
         // Set the flag in local storage to indicate that the alert has been shown
         localStorage.setItem('alertShown', 'yes');
-       
         }
     } else {
       // Handle the case when no user information is stored in local storage
@@ -98,7 +93,7 @@ export class MainComponent {
     .subscribe({
       next: response => {
         setTimeout(() =>{
-          console.log(response);
+          // console.log(response);
           this.famousStoresGeneral =response;
           this.hasLoadedFamous=true;
         },10);
@@ -122,12 +117,11 @@ export class MainComponent {
   }
   onViewStoreDetails(idClicked: number) {
     const foundStore = this.stores.find((store: any) => store.id === idClicked);
-    console.log(foundStore);
+    // console.log(foundStore);
     if (foundStore){
       this.router.navigate(["stores",idClicked]);
     }else{
       this.router.navigate(["menu-not-found"]);
     }
-    
   }
 }

@@ -22,17 +22,12 @@ export class PreviousOrdersComponent {
     
     this.publisherService.publishData(this.isWelcomePage);
     const storedUser = sessionStorage.getItem('User');
-    console.log( storedUser);
+    // console.log( storedUser);
     if (storedUser) {
-      // Parse the stored JSON string back into a JavaScript object
+      // Parse the stored JSON string back into an object
       this.User = JSON.parse(storedUser);
-      console.log(this.User);
-      if(this.User.previous_orders){
-        console.log("e")
-      }else{
-        console.log("o")
-      }
-      // Now, this.authenticatedUser contains the information of the authenticated user
+      // console.log(this.User);
+      // Now, this.User contains the information of the authenticated user
     } else {
       // Handle the case when no user information is stored in local storage
       console.log('No user information found in local storage');

@@ -39,14 +39,14 @@ export class SearchComponent {
             ||
             store.category.toLowerCase().includes(this.query.toLowerCase())
           );
-          console.log(this.searchResult)
+          // console.log(this.searchResult)
         });
       }
     });
   }
   onViewStoreDetails(idClicked: number) {
     const foundStore = this.stores.find((store: any) => store.id === idClicked);
-    console.log(foundStore);
+    // console.log(foundStore);
     if (foundStore){
       this.router.navigate(["stores",idClicked]);
     }else{

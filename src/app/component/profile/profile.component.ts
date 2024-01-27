@@ -30,12 +30,12 @@ export class ProfileComponent {
     // this.last_name = JSON.stringify(sessionStorage.getItem("last_name")).replace(/"/g, "");
     // this.address = JSON.stringify(sessionStorage.getItem("address")).replace(/"/g, "");
     const storedUser = sessionStorage.getItem('User');
-    console.log( storedUser);
+    // console.log( storedUser);
     if (storedUser) {
-      // Parse the stored JSON string back into a JavaScript object
+      // Parse the stored JSON string back into an object
       this.User = JSON.parse(storedUser);
-      console.log(this.User);
-      // Now, this.authenticatedUser contains the information of the authenticated user
+      // console.log(this.User);
+      // Now, this.User contains the information of the authenticated user
     } else {
       // Handle the case when no user information is stored in local storage
       console.log('No user information found in local storage');

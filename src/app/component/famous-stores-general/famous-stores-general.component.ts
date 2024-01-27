@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FamousStoresGeneralService } from '../../service/famous-stores-general.service';
 import { Title } from '@angular/platform-browser';
-import { StoresInfosService } from '../../service/stores-infos.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { StoresService } from '../../service/stores.service';
@@ -33,21 +32,19 @@ export class FamousStoresGeneralComponent {
     .subscribe({
       next: response => {
         setTimeout(() =>{
-          console.log(response);
+          // console.log(response);
           this.famousStores =response;
           this.hasLoadedFamous=true;
         },10);
       } 
     });
   }
-
   constructor(private titleService: Title) {
     titleService.setTitle("Famous Stores");
   }
-
   onViewStoreDetails(idClicked: number) {
     const foundStore = this.stores.find((store: any) => store.id === idClicked);
-    console.log(foundStore);
+    // console.log(foundStore);
     if (foundStore){
       this.router.navigate(["stores",idClicked]);
     }else{

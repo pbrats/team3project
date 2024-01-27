@@ -59,16 +59,16 @@ export class ProductsComponent implements OnInit {
         this.service.getStoreById(this.id).subscribe({
           next: (res) => {
             this.store = res;
-            console.log(this.store);
+            // console.log(this.store);
             this.titleService.setTitle(`${this.store.name}`);
             this.categories=this.service.getProductCategoriesByStore(this.store.products);
-            console.log(this.categories)
+            // console.log(this.categories)
           }
         });
         this.service.getProductsByStore(this.id).subscribe({
           next: (res) => {
             this.allProducts = res;
-            console.log(this.allProducts);
+            // console.log(this.allProducts);
           }
         })
       },

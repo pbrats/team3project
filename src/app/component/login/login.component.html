@@ -105,7 +105,7 @@
   <div class="row">
     <div class="offcanvas-end"  id="login" aria-labelledby="login">
     <div class="offcanvas-header">
-      <h3 class="offcanvas-title">Σύνδεση</h3>
+      <h3 class="offcanvas-title">Login</h3>
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -116,29 +116,29 @@
       <div class="container mt-1 mb-4">
         <form [formGroup]="form" (submit)="onSubmit()">
           <div class="form-group">
-            <label class="form-label float-start" for="phone-l">Τηλέφωνο<span class="text-danger">*</span></label>
-            <input type="tel" name="phone" id="phone-l" formControlName="phone" class="form-control" placeholder="Τηλέφωνο" autocomplete="tel"/>
-            <span class="text-danger" *ngIf="form.get('phone')?.hasError('required') && form.get('phone')?.touched">*Υποχρεωτικό πεδίο</span>
-            <span class="text-danger" *ngIf="form.get('phone')?.hasError('minlength') && form.get('phone')?.touched">*Τουλαχιστον 10 ψηφια</span>
-            <span class="text-danger" *ngIf="form.get('phone')?.hasError('maxlength') && form.get('phone')?.touched">*Μεγιστο 10 ψηφια</span>
+            <label class="form-label float-start" for="phone-l">Phone number<span class="text-danger">*</span></label>
+            <input type="tel" name="phone" id="phone-l" formControlName="phone" class="form-control" placeholder="Phone number" autocomplete="tel"/>
+            <span class="text-danger" *ngIf="form.get('phone')?.hasError('required') && form.get('phone')?.touched">*Required</span>
+            <span class="text-danger" *ngIf="form.get('phone')?.hasError('minlength') && form.get('phone')?.touched">*10 characters minimum length</span>
+            <span class="text-danger" *ngIf="form.get('phone')?.hasError('maxlength') && form.get('phone')?.touched">*10 characters maximum length</span>
           </div>
           <div class="form-group">
             <label class="form-label float-start" for="email-l">Email<span class="text-danger">*</span></label>
             <input name="email" id="email-l" type="email" formControlName="email" class="form-control" placeholder="Email" autocomplete="email"/>
-            <span class="text-danger" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">*Υποχρεωτικό πεδίο</span>
-            <span class="text-danger" *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched">*Λαθος μορφή email</span>
+            <span class="text-danger" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">*Required</span>
+            <span class="text-danger" *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched">*Please enter a valid email</span>
           </div>
           <div *ngIf="!showErrorAlert">   
           <button  [disabled]="form.invalid" type="submit" class="btn btn-success float-start my-4">
-            Παράγγειλε τώρα
+            Order now
           </button>
         </div>
         </form>
       </div>
       <div class="my-5 text-center">
         <p class="p-5">
-          Δεν έχεις λογαριασμό; Κάνε εγγραφή
-          <a data-bs-dismiss="offcanvas" routerLink="/sign-up">εδώ</a>
+          Don't have an account? Register 
+          <a data-bs-dismiss="offcanvas" routerLink="/sign-up">here</a>
         </p>
       </div>
     </div>

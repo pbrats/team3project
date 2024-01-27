@@ -3,72 +3,77 @@
 </div>
 
 <div class="container">
-    <!-- <div class="row">
-        <div class="card col-6 ml-auto">
-            <h4 class="card-title">
-                Τηλέφωνο
-            </h4>
-            <p class="card-body">{{phone}}</p>
-        </div>
-    </div>
-    <div class="row">
-      <div class="card col-6 ml-auto">
-          <h4 class="card-title">
-              Email
-          </h4>
-          <p class="card-body">{{email}}</p>
+  <div class="row">
+    <div class="card col-6 mx-auto">
+      <div class="card-header">
+        <h3>{{ User.first_name }} {{ User.last_name }}</h3>
       </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <h4>Phone number:</h4>
+          <p>{{ User.phone }}</p>
+        </li>
+        <li class="list-group-item">
+          <h4>Email:</h4>
+          <p>{{ User.email }}</p>
+        </li>
+        <li class="list-group-item">
+          <h4>Address:</h4>
+          <p>{{ User.address }}</p>
+        </li>
+      </ul>
+    </div>
   </div>
-</div> -->
-<div class="row">
-  <div class="card col-6 ml-auto">
-      <h4 class="card-title">
-          photo
-      </h4>
-      <img [src]="User.photo" class="card-img-top" alt="{{User.first_name}} {{User.last_name}} user's photo" style="width:300px;">
+  <div class="row">
+    <div class="col-6 mx-auto d-grid gap-2 pt-4 pb-4">
+      <button class="btn btn-danger" routerLink="/welcome" (click)="SignOut()">Sign out</button>
+    </div>
   </div>
-</div>
-<div class="row">
-    <div class="card col-6 ml-auto">
-        <h4 class="card-title">
-            Fisrt Name
-        </h4>
-        <p class="card-body">{{User.first_name}}</p>
-    </div>
-</div>
-<div class="row">
-    <div class="card col-6 ml-auto">
-        <h4 class="card-title">
-            Last Name
-        </h4>
-        <p class="card-body">{{User.last_name}}</p>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="card col-6 ml-auto">
-            <h4 class="card-title">
-                Τηλέφωνο
-            </h4>
-            <p class="card-body">{{User.phone}}</p>
-        </div>
-    </div>
-    <div class="row">
-      <div class="card col-6 ml-auto">
-          <h4 class="card-title">
-              Email
-          </h4>
-          <p class="card-body">{{User.email}}</p>
-      </div>
-  </div>
-  
-<div class="row">
-    <div class="card col-6 ml-auto">
-        <h4 class="card-title">
-            address
-        </h4>
-        <p class="card-body">{{User.address}}</p>
-    </div>
-</div>
 </div>
 
+<!-- <div class="container">
+  <div class="row">
+    <div class="card col-6 mx-auto">
+      <h4 class="card-title">photo</h4>
+      <img
+        [src]="User.photo"
+        class="card-img-top"
+        alt="{{ User.first_name }} {{ User.last_name }} user's photo"
+        style="width: 300px"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="card col-6 mx-auto">
+      <h4 class="card-title">Fisrt Name</h4>
+      <p class="card-body">{{ User.first_name }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card col-6 mx-auto">
+      <h4 class="card-title">Last Name</h4>
+      <p class="card-body">{{ User.last_name }}</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="card col-6 mx-auto">
+        <h4 class="card-title">Phone number</h4>
+        <p class="card-body">{{ User.phone }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="card col-6 mx-auto">
+        <h4 class="card-title">Email</h4>
+        <p class="card-body">{{ User.email }}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="card col-6 mx-auto">
+        <h4 class="card-title">Address</h4>
+        <p class="card-body">{{ User.address }}</p>
+      </div>
+    </div>
+  </div>
+</div> -->

@@ -23,6 +23,22 @@
           "
           >*Required</span
         >
+        <span
+          class="text-danger"
+          *ngIf="
+            signUpForm.get('phone')?.hasError('minlength') &&
+            signUpForm.get('phone')?.touched
+          "
+          >*10 characters minimum length</span
+        >
+        <span
+          class="text-danger"
+          *ngIf="
+            signUpForm.get('phone')?.hasError('maxlength') &&
+            signUpForm.get('phone')?.touched
+          "
+          >*10 characters maximum length</span
+        >
       </div>
       <div>
         <label class="form-label" for="email"
@@ -45,10 +61,17 @@
           "
           >*Required</span
         >
+        <span
+          class="text-danger"
+          *ngIf="
+            signUpForm.get('email')?.hasError('email') &&
+            signUpForm.get('email')?.touched
+          "
+          >*Please enter a valid email</span
+        >
       </div>
       <div>
-        <label class="form-label" for="first_name"
-        >First name</label>
+        <label class="form-label" for="first_name">First name</label>
         <input
           type="name"
           name="first_name"
@@ -60,8 +83,7 @@
         />
       </div>
       <div>
-        <label class="form-label" for="last_name"
-        >Last name</label>
+        <label class="form-label" for="last_name">Last name</label>
         <input
           type="name"
           name="last_name"
@@ -73,8 +95,7 @@
         />
       </div>
       <div>
-        <label class="form-label" for="address"
-        >Address</label>
+        <label class="form-label" for="address">Address</label>
         <input
           formControlName="address"
           name="address"
@@ -85,8 +106,7 @@
         />
       </div>
       <div>
-        <label class="form-label" for="password"
-        >Password</label>
+        <label class="form-label" for="password">Password</label>
         <input
           type="password"
           name="password"

@@ -7,7 +7,7 @@
                     WL DELIVERY
                 </a>
                 <form [formGroup]="form" (submit)="onSubmit()" class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto text-center d-flex mx-auto">
-                    <input formControlName="searchData" type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                    <input formControlName="searchData" id="searchData" type="search" class="form-control" placeholder="Search..." aria-label="Search">
                     <button type="submit" class="btn btn-success rounded rounded-3 btn-sm ms-1" [disabled]="!form.valid"><i class="bi bi-search"></i></button>
                   </form>
                 <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">

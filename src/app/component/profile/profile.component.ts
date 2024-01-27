@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { PublisherService } from '../../service/publisher.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile',
@@ -17,7 +18,9 @@ export class ProfileComponent {
   User:any;
   publisherService =inject(PublisherService);
   isWelcomePage=false;
-
+  constructor(private titleService: Title) {
+    titleService.setTitle("Profile");
+  }
   ngOnInit(){ 
     this.publisherService.publishData(this.isWelcomePage);
     //get user data from session storage

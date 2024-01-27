@@ -30,15 +30,16 @@ export class LoginComponent {
     })
   }
   onSubmit(){
-    let email = this.form.value.email;
-    let phone = this.form.value.phone;
-    this.userService.authenticate(email, phone).subscribe(authenticatedUser => {
+    let typedEmail = this.form.value.email;
+    let typedPhone = this.form.value.phone;
+    this.userService.authenticate(typedEmail, typedPhone).subscribe(authenticatedUser => {
       console.log(authenticatedUser)
       if (authenticatedUser) {
         // Authentication successful, you can navigate or perform other actions
         console.log('Login successful!');
         console.log(authenticatedUser)
         this.showErrorAlert = false;
+        localStorage.setItem('alertShown','no');
         sessionStorage.setItem('User', JSON.stringify(authenticatedUser));
         this.router.navigate(["discovery"]);
       } else {

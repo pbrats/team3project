@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, SimpleChange, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FamousStoresGeneralComponent } from '../famous-stores-general/famous-stores-general.component';
 import { AllStoresComponent } from '../all-stores/all-stores.component';
 import { CategoriesComponent } from '../categories/categories.component';
@@ -53,20 +53,32 @@ export class MainComponent {
     console.log( storedUser);
    
     if (storedUser) {
-      this.showAlertFlag= true;
-      setTimeout(() => {
-        this.showAlertFlag = false;
-      }, 5000); 
+      // this.showAlertFlag= true;
+      // setTimeout(() => {
+      //   this.showAlertFlag = false;
+      // }, 5000); 
       // Parse the stored JSON string back into a JavaScript object
       this.User = JSON.parse(storedUser);
       console.log(this.User);
       // Now, this.authenticatedUser contains the information of the authenticated user
+      const hasAlertBeenShown = localStorage.getItem('alertShown');
+      console.log(hasAlertBeenShown);
+      if (this.User && hasAlertBeenShown==='no') {
+        this.showAlertFlag = true;
+        setTimeout(() => {
+            this.showAlertFlag = false;
+            // an valo edo reload lynei to thema me ti lathos fortosi selidas
+            // window.location.reload();
+          }, 5000); 
+        // Set the flag in local storage to indicate that the alert has been shown
+        localStorage.setItem('alertShown', 'yes');
+       
+        }
     } else {
       // Handle the case when no user information is stored in local storage
       console.log('No user information found in local storage');
       this.showAlertFlag = false;
     }
-  
     this.catService.getCategories().subscribe({
       next: data => {
         setTimeout(() =>{

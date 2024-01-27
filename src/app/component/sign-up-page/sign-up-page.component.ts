@@ -48,6 +48,7 @@ export class SignUpPageComponent implements OnInit {
   onSubmit(){
     if(this.signUpForm.valid){
       console.log(this.signUpForm.value)
+      localStorage.setItem('alertShown','no');
       sessionStorage.setItem("User",JSON.stringify(this.signUpForm.value));
       // sessionStorage.setItem("phone",this.signUpForm.value.phone);
       // sessionStorage.setItem("email",this.signUpForm.value.email);

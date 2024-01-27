@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { PublisherService } from '../../service/publisher.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-previous-orders',
@@ -13,6 +14,9 @@ export class PreviousOrdersComponent {
   User:any;
   publisherService =inject(PublisherService);
   isWelcomePage=false;
+  constructor(private titleService: Title) {
+    titleService.setTitle("Previous Orders");
+  }
  
   ngOnInit(){
     

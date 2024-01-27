@@ -1,17 +1,11 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { PublisherService } from '../../service/publisher.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })
@@ -21,51 +15,48 @@ export class ProfileComponent {
   first_name!: string;
   last_name!: string;
   address!: string;
+  User:any;
+  publisherService =inject(PublisherService);
+  isWelcomePage=false;
+  constructor(private titleService: Title) {
+    titleService.setTitle("Profile");
+  }
 
-  addressForm!: FormGroup;
-
-  newAddressBlock: boolean = false;
-
-  ngOnInit() {
+  ngOnInit(){ 
+    this.publisherService.publishData(this.isWelcomePage);
     //get user data from session storage
-    this.phone = JSON.stringify(sessionStorage.getItem('phone')).replace(
-      /"/g,
-      ''
-    );
-    this.email = JSON.stringify(sessionStorage.getItem('email')).replace(
-      /"/g,
-      ''
-    );
-    this.first_name = JSON.stringify(
-      sessionStorage.getItem('first_name')
-    ).replace(/"/g, '');
-    this.last_name = JSON.stringify(
-      sessionStorage.getItem('last_name')
-    ).replace(/"/g, '');
-    this.address = JSON.stringify(sessionStorage.getItem('address')).replace(
-      /"/g,
-      ''
-    );
-
-    this.addressForm = new FormGroup({
-      address: new FormControl("", Validators.required),
-    });
-  }
-
-  onSubmit() {
-    if (this.addressForm.valid) {
-      sessionStorage.setItem("address", this.addressForm.value.address);
-      this.address = JSON.stringify(sessionStorage.getItem('address')).replace(
-        /"/g,
-        ''
-      );
-    }
-    else{
-      this.addressForm.markAllAsTouched();
+    // this.phone = JSON.stringify(sessionStorage.getItem("phone")).replace(/"/g, "");
+    // this.email = JSON.stringify(sessionStorage.getItem("email")).replace(/"/g, "");
+    // this.first_name = JSON.stringify(sessionStorage.getItem("first_name")).replace(/"/g, "");
+    // this.last_name = JSON.stringify(sessionStorage.getItem("last_name")).replace(/"/g, "");
+    // this.address = JSON.stringify(sessionStorage.getItem("address")).replace(/"/g, "");
+    const storedUser = sessionStorage.getItem('User');
+    // console.log( storedUser);
+    if (storedUser) {
+      // Parse the stored JSON string back into an object
+      this.User = JSON.parse(storedUser);
+      // console.log(this.User);
+      // Now, this.User contains the information of the authenticated user
+    } else {
+      // Handle the case when no user information is stored in local storage
+      console.log('No user information found in local storage');
     }
   }
-
-  showNewAddress() {
-    this.newAddressBlock = true;
+  updateAddress(newAddress: string){
+    sessionStorage.setItem("address", newAddress);
+    this.address = JSON.stringify(sessionStorage.getItem("address")).replace(/"/g, "");
   }
+
+  // ngOnInit(){ 
+  //   this.phone = JSON.stringify(sessionStorage.getItem("phone")).replace(/"/g, "");
+  //   this.email = JSON.stringify(sessionStorage.getItem("email")).replace(/"/g, "");
+  //   this.first_name = JSON.stringify(sessionStorage.getItem("first_name")).replace(/"/g, "");
+  //   this.last_name = JSON.stringify(sessionStorage.getItem("last_name")).replace(/"/g, "");
+  //   this.address = JSON.stringify(sessionStorage.getItem("address")).replace(/"/g, "");
+  // }
+
+  // updateAddress(newAddress: string){
+  //   sessionStorage.setItem("address", newAddress);
+  //   this.address = JSON.stringify(sessionStorage.getItem("address")).replace(/"/g, "");
+  // }
 }

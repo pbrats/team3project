@@ -1,7 +1,6 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row">
-  <div class="offcanvas-header">
-    <!-- <h3 class="offcanvas-title">Σύνδεση / Εγγραφή</h3> -->
+  <div class="offcanvas-header" id="login" aria-labelledby="login">
     <button
       type="button"
       class="btn-close text-reset"
@@ -13,7 +12,7 @@
       <div>
         <label class="form-label float-start"
           for="phone-l"
-          >Phone number<span class="text-danger">*</span></label
+          >Τηλέφωνο<span class="text-danger">*</span></label
         >
         <input
           type="phone"
@@ -21,7 +20,7 @@
           id="phone-l"
           formControlName="phone"
           class="form-control"
-          placeholder="Phone number"
+          placeholder="Τηλέφωνο"
           autocomplete="tel"
         />
         <span
@@ -30,7 +29,7 @@
             form.get('phone')?.hasError('required') &&
             form.get('phone')?.touched
           "
-          >*Required</span
+          >*Υποχρεωτικό πεδίο</span
         >
         <span
           class="text-danger"
@@ -69,7 +68,7 @@
             form.get('email')?.hasError('required') &&
             form.get('email')?.touched
           "
-          >*Required</span
+          >*Υποχρεωτικό πεδίο</span
         >
         <span
           class="text-danger"
@@ -92,13 +91,57 @@
       type="submit"
       class="btn btn-success float-start"
     >
-      Order Now
+      Παράγγειλε τώρα
     </button>
   </div>
   <br>
   <p>
-    Don't have an account? Register 
-    <a data-bs-dismiss="offcanvas" routerLink="/sign-up">here</a>
+    Δεν έχεις λογαριασμό; Κάνε εγγραφή
+    <a data-bs-dismiss="offcanvas" routerLink="/sign-up">εδώ</a>
   </p>
 </div>
+</div> -->
+<div class="container">
+  <div class="row">
+    <div class="offcanvas-end"  id="login" aria-labelledby="login">
+    <div class="offcanvas-header">
+      <h3 class="offcanvas-title">Σύνδεση</h3>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div *ngIf="showErrorAlert" class="alert alert-danger alert-dismissible" role="alert">
+        <div class="text-danger fw-bold fst-italic text-center">Invalid email or password!<br>Please try again</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeErrorAlert()"></button>
+      </div>
+      <div class="container mt-1 mb-4">
+        <form [formGroup]="form" (submit)="onSubmit()">
+          <div class="form-group">
+            <label class="form-label float-start" for="phone-l">Τηλέφωνο<span class="text-danger">*</span></label>
+            <input type="tel" name="phone" id="phone-l" formControlName="phone" class="form-control" placeholder="Τηλέφωνο" autocomplete="tel"/>
+            <span class="text-danger" *ngIf="form.get('phone')?.hasError('required') && form.get('phone')?.touched">*Υποχρεωτικό πεδίο</span>
+            <span class="text-danger" *ngIf="form.get('phone')?.hasError('minlength') && form.get('phone')?.touched">*Τουλαχιστον 10 ψηφια</span>
+            <span class="text-danger" *ngIf="form.get('phone')?.hasError('maxlength') && form.get('phone')?.touched">*Μεγιστο 10 ψηφια</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label float-start" for="email-l">Email<span class="text-danger">*</span></label>
+            <input name="email" id="email-l" type="email" formControlName="email" class="form-control" placeholder="Email" autocomplete="email"/>
+            <span class="text-danger" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">*Υποχρεωτικό πεδίο</span>
+            <span class="text-danger" *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched">*Λαθος μορφή email</span>
+          </div>
+          <div *ngIf="!showErrorAlert">   
+          <button  [disabled]="form.invalid" type="submit" class="btn btn-success float-start my-4">
+            Παράγγειλε τώρα
+          </button>
+        </div>
+        </form>
+      </div>
+      <div class="my-5 text-center">
+        <p class="p-5">
+          Δεν έχεις λογαριασμό; Κάνε εγγραφή
+          <a data-bs-dismiss="offcanvas" routerLink="/sign-up">εδώ</a>
+        </p>
+      </div>
+    </div>
+    </div>
+  </div>
 </div>

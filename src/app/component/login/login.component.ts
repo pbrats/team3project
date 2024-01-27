@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NavigationEnd, Router, RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { PublisherService } from '../../service/publisher.service';
+import { UsersService } from '../../service/users.service';
 
 @Component({
   selector: 'app-login',
@@ -12,49 +13,52 @@ import { PublisherService } from '../../service/publisher.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  isWelcomePage!: boolean;
   publisherService = inject(PublisherService);
   router = inject(Router);
-
+  userService: UsersService=inject(UsersService);
+  showErrorAlert = false;
   form!: FormGroup;
 
   constructor(){}
-
   ngOnInit(){
     this.setFormValues();
   }
-
   setFormValues(){
     this.form = new FormGroup({
       phone: new FormControl("", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]),
       email: new FormControl("", [Validators.required, Validators.email])
     })
   }
-
   onSubmit(){
+    let typedEmail = this.form.value.email;
+    let typedPhone = this.form.value.phone;
+    this.userService.authenticate(typedEmail, typedPhone).subscribe(authenticatedUser => {
+      // console.log(authenticatedUser)
+      if (authenticatedUser) {
+        // Authentication successful, you can navigate or perform other actions
+        console.log('Login successful!');
+        // console.log(authenticatedUser)
+        this.showErrorAlert = false;
+        localStorage.setItem('alertShown','no');
+        sessionStorage.setItem('User', JSON.stringify(authenticatedUser));
+        this.router.navigate(["discovery"]);
+      } else {
+        // Authentication failed, show error message or take appropriate action
+        console.log('Invalid email or password');
+        // console.log(authenticatedUser)
+        this.showErrorAlert = true;
+      }
+    });
     if(this.form.valid){
       console.log("valid!");
     } else {
       this.form.markAllAsTouched();
       console.log("invalid");
     }
-    console.log(this.form);
-    this.isWelcomePage=false;
-    console.log("isWelcomePage: " + this.isWelcomePage);
-    this.publisherService.publishData(this.isWelcomePage);
-    
-    this.router.events.subscribe(event=>{
-      if(event instanceof NavigationEnd){
-        if (event.url.includes('sign-up')){
-          this.isWelcomePage=true;
-          this.publisherService.publishData(this.isWelcomePage);
-        }else{
-          this.isWelcomePage=false;
-          this.publisherService.publishData(this.isWelcomePage);
-        }
-      }
-    });
+    this.form.reset();
+    // console.log(this.form);
   }
-
-
+  closeErrorAlert() {
+    this.showErrorAlert = false;
+  }
 }

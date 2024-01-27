@@ -14,6 +14,7 @@ import { FaqsComponent } from './component/faqs/faqs.component';
 import { SupportComponent } from './component/support/support.component';
 import { SearchComponent } from './component/search/search.component';
 import { ProfileComponent } from './component/profile/profile.component';
+import { PreviousOrdersComponent } from './component/previous-orders/previous-orders.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "welcome", pathMatch:"full"},
@@ -33,5 +34,6 @@ export const routes: Routes = [
     {path: "support", component: SupportComponent},
     {path: "terms-of-use", component: TermsOfUseComponent},
     {path: "search", component: SearchComponent},
+    {path: "previous-orders", component: PreviousOrdersComponent},
     {path: "**", component: NotFoundComponent}
 ];

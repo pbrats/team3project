@@ -1,11 +1,7 @@
-<!-- login alert -->
+<!-- login/signup alert -->
 <div *ngIf="showAlertFlag" class="alert alert-success alert-dismissible mt-3" role="alert">
-    <div><i class="bi bi-person-fill-check m-2" style="width:40px; height:40px"></i>Welcome!  {{first_name}}!</div>
+    <div><i class="bi bi-person-fill-check m-2" style="width:40px; height:40px"></i>Welcome<span class="text-success"> {{User.first_name}} {{User.last_name}}</span> !</div>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-   
-</div>
-<div class="container pt-3">
-    <h3>Welcome back {{first_name}}!</h3>
 </div>
 <!-- categories container -->
 <div class="container mt-5 mb-5"> 

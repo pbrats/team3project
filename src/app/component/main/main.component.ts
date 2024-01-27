@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core';
 import { FamousStoresGeneralComponent } from '../famous-stores-general/famous-stores-general.component';
 import { AllStoresComponent } from '../all-stores/all-stores.component';
 import { CategoriesComponent } from '../categories/categories.component';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { StoresService } from '../../service/stores.service';
 import { FamousStoresGeneralService } from '../../service/famous-stores-general.service';
 import { UniqueCategoryPipe } from "../../pipe/unique-category.pipe";
@@ -38,7 +38,9 @@ export class MainComponent {
   
   ngOnInit() {
     this.titleService.setTitle("Discovery");
-    this.publisherService.publishData(this.isWelcomePage);
+    // this.isWelcomePage=false;
+    // this.publisherService.publishData(this.isWelcomePage);
+
     // this.first_name = JSON.stringify(sessionStorage.getItem("first_name")).replace(/"/g, "");
     // if(this.first_name){
     //   this.showAlertFlagSignUp= true;
@@ -58,6 +60,7 @@ export class MainComponent {
       const hasAlertBeenShown = localStorage.getItem('alertShown');
       // console.log(hasAlertBeenShown);
       if (this.User && hasAlertBeenShown==='no') {
+        
         this.showAlertFlag = true;
         setTimeout(() => {
             this.showAlertFlag = false;
@@ -65,7 +68,8 @@ export class MainComponent {
             // A WAY TO FIX THE PROBLEMATIC LOAD
 
             // window.location.reload();
-          }, 5000); 
+
+          }, 3000); 
         // Set the flag in local storage to indicate that the alert has been shown
         localStorage.setItem('alertShown', 'yes');
         }
@@ -102,6 +106,22 @@ export class MainComponent {
   }
   constructor(private route: ActivatedRoute,private titleService: Title) {
     titleService.setTitle("Discovery");
+    // this.isWelcomePage=false;
+    // this.publisherService.publishData(this.isWelcomePage);
+    // this.isWelcomePage=false;
+
+    this.router.events.subscribe((event) => console.log(event));
+    this.router.events.subscribe(event=>{
+      if(event instanceof NavigationEnd){
+        if (event.url.includes('discovery')){
+          this.isWelcomePage=false;
+          this.publisherService.publishData(this.isWelcomePage);
+        }else {
+          this.isWelcomePage=true;
+          this.publisherService.publishData(this.isWelcomePage);
+        }
+      }
+    });
   }
   viewFamousStores(){
     this.router.navigate(["famous-stores"]);

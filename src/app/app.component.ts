@@ -42,9 +42,8 @@ export class AppComponent {
   constructor(private router: Router,private route: ActivatedRoute) {
     this.publisherService.listenForData()
     .subscribe((data)=>{
-      this.isWelcomePage=data;
-      // console.log(this.isWelcomePage);
+          this.isWelcomePage=data;
+          console.log(this.isWelcomePage);
     })
   }
-  
 }

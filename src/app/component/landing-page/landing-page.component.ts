@@ -58,7 +58,7 @@ export class LandingPageComponent implements OnInit {
         if (event.url.includes('welcome')||event.url.includes('')){
           this.isWelcomePage=true;
           this.publisherService.publishData(this.isWelcomePage);
-        }else{
+        }else {
           this.isWelcomePage=false;
           this.publisherService.publishData(this.isWelcomePage);
         }

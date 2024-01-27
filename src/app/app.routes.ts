@@ -13,13 +13,9 @@ import { TermsOfUseComponent } from './component/terms-of-use/terms-of-use.compo
 import { FaqsComponent } from './component/faqs/faqs.component';
 import { SupportComponent } from './component/support/support.component';
 import { SearchComponent } from './component/search/search.component';
-<<<<<<< HEAD
-import { OrderHistoryComponent } from './order-history/order-history.component';
-=======
 import { ProfileComponent } from './component/profile/profile.component';
 import { PreviousOrdersComponent } from './component/previous-orders/previous-orders.component';
 
->>>>>>> 3a5c0c17c0a96ee8d8f7121b0ecc82cac6f77337
 export const routes: Routes = [
     {path: "", redirectTo: "welcome", pathMatch:"full"},
     {path: "welcome", component: LandingPageComponent},
@@ -38,11 +34,6 @@ export const routes: Routes = [
     {path: "support", component: SupportComponent},
     {path: "terms-of-use", component: TermsOfUseComponent},
     {path: "search", component: SearchComponent},
-<<<<<<< HEAD
-    {path: "**", component: NotFoundComponent},
-    {path: "previous-orders", component: OrderHistoryComponent},
-=======
     {path: "previous-orders", component: PreviousOrdersComponent},
     {path: "**", component: NotFoundComponent}
->>>>>>> 3a5c0c17c0a96ee8d8f7121b0ecc82cac6f77337
 ];

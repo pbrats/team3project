@@ -1,7 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-<<<<<<< HEAD
-=======
-@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import "bootstrap-icons/font/bootstrap-icons.css" ;
 ::-webkit-scrollbar {
     width:14px;
   }
@@ -19,4 +17,3 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #198754; 
   }
->>>>>>> 3a5c0c17c0a96ee8d8f7121b0ecc82cac6f77337

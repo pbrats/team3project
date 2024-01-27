@@ -10,18 +10,13 @@ import { UniqueCategoryPipe } from "../../pipe/unique-category.pipe";
 import { Title } from '@angular/platform-browser';
 import { CategoriesService } from '../../service/categories.service';
 import { CategoriesPhotosService } from '../../service/categories-photos.service';
-<<<<<<< HEAD
-=======
 import { PublisherService } from '../../service/publisher.service';
-
->>>>>>> 3a5c0c17c0a96ee8d8f7121b0ecc82cac6f77337
 @Component({
     selector: 'app-main',
     standalone: true,
     templateUrl: './main.component.html',
     styleUrl: './main.component.css',
     imports: [CommonModule, FamousStoresGeneralComponent, AllStoresComponent, CategoriesComponent, UniqueCategoryPipe]
-   
 })
 export class MainComponent {
   router: Router =inject(Router);
@@ -127,30 +122,9 @@ export class MainComponent {
       }
     });
   }
-
-viewFamousStores(){
-  this.router.navigate(["famous-stores"]);
-}
-viewStores(){
-  this.router.navigate(["stores"]);
-}
-viewCategories(){
-  this.router.navigate(["categories"]);
-}
-onCategoryClick(category: string) {
-  this.router.navigate(["categories",category]);
-}
-onViewStoreDetails(idClicked: number) {
-  const foundStore = this.stores.find((store: any) => store.id === idClicked);
-  console.log(foundStore);
-  if (foundStore){
-    this.router.navigate(["stores",idClicked]);
-  }else{
-    this.router.navigate(["menu-not-found"]);
+  viewFamousStores(){
+    this.router.navigate(["famous-stores"]);
   }
-<<<<<<< HEAD
-}}
-=======
   viewStores(){
     this.router.navigate(["stores"]);
   }
@@ -170,4 +144,3 @@ onViewStoreDetails(idClicked: number) {
     }
   }
 }
->>>>>>> 3a5c0c17c0a96ee8d8f7121b0ecc82cac6f77337

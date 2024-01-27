@@ -48,8 +48,12 @@ export class AppComponent {
   constructor(private router: Router,private route: ActivatedRoute) {
     this.publisherService.listenForData()
     .subscribe((data)=>{
-      this.isWelcomePage=data;
-      console.log(this.isWelcomePage);
+          this.isWelcomePage=data;
+          console.log(this.isWelcomePage);
     })
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3a5c0c17c0a96ee8d8f7121b0ecc82cac6f77337

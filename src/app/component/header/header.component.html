@@ -6,9 +6,9 @@
                     <svg class="bi me-2" width="40" height="32" role="img" aria-label="rocket-takeoff" fill="currentColor"><use xlink:href="#rocket-takeoff"/></svg>
                     WL DELIVERY
                 </a>
-                <form [formGroup]="form" (submit)="onSubmit()" class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto text-center">
-                    <input formControlName="searchData" type="search" class="form-control" placeholder="Search..." aria-label="Search">
-                    <button type="submit" class="btn btn-success btn-sm" [disabled]="!form.valid"><i class="bi bi-search"></i></button>
+                <form [formGroup]="form" (submit)="onSubmit()" class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto text-center d-flex mx-auto">
+                    <input formControlName="searchData" id="searchData" type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                    <button type="submit" class="btn btn-success rounded rounded-3 btn-sm ms-1" [disabled]="!form.valid"><i class="bi bi-search"></i></button>
                   </form>
                 <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
                     <!-- <li>
@@ -24,13 +24,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link text-white">
+                        <a routerLink="previous-orders" routerLinkActive="active" class="nav-link text-white">
                             <svg class="bi d-block mx-auto mb-1" width="24" height="24" fill="currentColor"><use xlink:href="#receipt"/></svg>
                             Previous Orders
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link text-white">
+                        <a routerLink="profile" routerLinkActive="active" class="nav-link text-white">
                             <svg class="bi d-block mx-auto mb-1" width="24" height="24" fill="currentColor"><use xlink:href="#people-circle"/></svg>
                             Profile
                         </a>

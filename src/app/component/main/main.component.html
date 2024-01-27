@@ -1,3 +1,8 @@
+<!-- login/signup alert -->
+<div *ngIf="showAlertFlag" class="alert alert-success alert-dismissible mt-3" role="alert">
+    <div><i class="bi bi-person-fill-check m-2" style="width:40px; height:40px"></i>Welcome<span class="text-success"> {{User.first_name}} {{User.last_name}}</span> !</div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
 <!-- categories container -->
 <div class="container mt-5 mb-5"> 
     <div class="container " >  
@@ -11,7 +16,7 @@
             <ng-template #categoriesBlock> 
                 <div class="card-group card-group-scroll mt-3">
                     @for (cat of fCategories| uniqueCategory; track $index){
-                        <div class="card border border-success m-1" (click)="onCategoryClick(cat.category)" title="click for details">
+                        <div class="card border border-success rounded rounded-3 m-1" (click)="onCategoryClick(cat.category)" title="click for details">
                             <div class="card-body text-center shadow">
                                 <div *ngFor="let photo of photosCategories">
                                     <div *ngIf="photo.category==cat.category">
@@ -50,7 +55,7 @@
             <ng-template #famousBlock>
                 <div class="card-group card-group-scroll mt-3">
                     @for (famousStore of famousStoresGeneral; track $index){
-                        <div class="card border border-success m-1">
+                        <div class="card border border-success rounded rounded-2 m-1">
                             <div class="card-body text-center text-end shadow" (click)="onViewStoreDetails(famousStore.id)" title="click for details">
                                 <img [src]="famousStore.logo" class="card-img-top" alt="{{famousStore.name}} store photo" style="width: 40%">
                                 <h5 class="card-title">{{famousStore.name}}</h5>

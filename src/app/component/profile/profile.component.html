@@ -1,0 +1,66 @@
+<div class="container">
+    <h1>Προφίλ</h1>
+</div>
+
+<!-- <div class="card" style="width: 18rem;">
+    <div class="card-header">
+      <h3>{{first_name}} {{last_name}}</h3>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{phone}}</li>
+      <li class="list-group-item">{{email}}</li>
+      <li class="list-group-item">{{address}}</li>
+    </ul>
+  </div> -->
+  <div class="row">
+  <div class="card col-6 ml-auto">
+      <h4 class="card-title">
+          photo
+      </h4>
+      <img [src]="User.photo" class="card-img-top" alt="{{User.first_name}} {{User.last_name}} user's photo" style="width:300px;">
+  </div>
+</div>
+<div class="row">
+    <div class="card col-6 ml-auto">
+        <h4 class="card-title">
+            Fisrt Name
+        </h4>
+        <p class="card-body">{{User.first_name}}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="card col-6 ml-auto">
+        <h4 class="card-title">
+            Last Name
+        </h4>
+        <p class="card-body">{{User.last_name}}</p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card col-6 ml-auto">
+            <h4 class="card-title">
+                Τηλέφωνο
+            </h4>
+            <p class="card-body">{{User.phone}}</p>
+        </div>
+    </div>
+    <div class="row">
+      <div class="card col-6 ml-auto">
+          <h4 class="card-title">
+              Email
+          </h4>
+          <p class="card-body">{{User.email}}</p>
+      </div>
+  </div>
+  
+<div class="row">
+    <div class="card col-6 ml-auto">
+        <h4 class="card-title">
+            address
+        </h4>
+        <p class="card-body">{{User.address}}</p>
+    </div>
+</div>
+</div>
+

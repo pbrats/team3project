@@ -15,7 +15,7 @@ export class AboutComponent {
   isAboutPage=true;
 
   constructor(private titleService: Title,private router: Router) {
-    titleService.setTitle("About");
+    titleService.setTitle("About us");
     this.isAboutPage=true;
     this.publisherService.publishData(this.isAboutPage);
     this.router.events.subscribe(event=>{

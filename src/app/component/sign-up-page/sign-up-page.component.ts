@@ -38,10 +38,10 @@ export class SignUpPageComponent implements OnInit {
     this.signUpForm = new FormGroup({
       phone: new FormControl("", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]),
       email: new FormControl("", [Validators.required, Validators.email]),
-      first_name: new FormControl(""),
-      last_name: new FormControl(""),
-      address: new FormControl(""),
-      password: new FormControl("")
+      first_name: new FormControl("", Validators.required),
+      last_name: new FormControl("", Validators.required),
+      address: new FormControl("", Validators.required),
+      password: new FormControl("", Validators.required)
     }); 
     
   }

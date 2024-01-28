@@ -1,0 +1,24 @@
+<div style="display:flex; direction:row; justify-content: space-between; align-items: baseline;">
+  <div>
+    <h4>My Order</h4>
+  </div>
+  <div>
+    <button class="btn btn-outline-success m-1" (click)="onClearOrder()">Clear</button>
+    <button class="btn btn-success m-1" data-bs-toggle="modal" data-bs-target="#checkoutModal">Checkout</button>
+  </div>
+</div>
+<hr>
+<div *ngIf="products.length > 0; else emptyCart">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" *ngFor="let product of products;">
+      {{ product.name }} [{{ product.quantity }}] - &euro; {{ (product.price || 0) * (product.quantity || 0) | number:'1.2-2'
+      }}
+    </li>
+
+  </ul>
+</div>
+
+<ng-template #emptyCart>
+  <p>Your cart is empty.</p>
+</ng-template>
+

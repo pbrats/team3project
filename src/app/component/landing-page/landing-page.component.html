@@ -1,0 +1,15 @@
+<div class="container my-5">
+    <div class="row justify-content-between"  style="align-items: center;">
+        <div class="col d-flex flex-wrap align-items-center justify-content-lg-start">
+            <h1 class="text-center" *ngIf="animateHeading" [@moveHeading]>Παραγγειλε <br><span class="text-success fst-italic fw-bold">{{orderText}} </span><br> αμεσα !</h1>
+            <button type="button" class="btn btn-success" data-bs-toggle="offcanvas"
+            data-bs-target="#login" (click)="selectedbuttonOrder(); buttonOrderClicked = true;" *ngIf="animateButton" [@moveButton] >Παραγγειλε τωρα</button>
+        </div>
+        <div class="col justify-content-lg-end">
+            <img *ngIf="animateImage" [@moveImage] width="400" height="400"  src="assets/landing-page/LANDING-PAGE-photo.png">
+        </div>
+    </div> 
+</div>
+<div class="offcanvas offcanvas-end" id="login">
+    <app-login></app-login>
+</div>

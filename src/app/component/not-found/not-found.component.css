@@ -1,0 +1,140 @@
+@-moz-keyframes move-astronaut {
+    100% { -moz-transform: translate(-100px, -100px);}
+}
+@-webkit-keyframes move-astronaut {
+    100% { -webkit-transform: translate(-100px, -100px);}
+}
+@keyframes move-astronaut{
+    100% { -webkit-transform: translate(-100px, -100px); transform:translate(-100px, -100px); }
+}
+@-moz-keyframes rotate-astronaut {
+    100% { -moz-transform: rotate(-720deg);}
+}
+@-webkit-keyframes rotate-astronaut {
+    100% { -webkit-transform: rotate(-720deg);}
+}
+@keyframes rotate-astronaut{
+    100% { -webkit-transform: rotate(-720deg); transform:rotate(-720deg); }
+}
+.object_astronaut{
+    animation: rotate-astronaut 200s infinite linear both alternate;
+}
+.object_pizza{
+    animation: rotate-astronaut 80s infinite linear both alternate;
+}
+.object_other{
+    animation: rotate-astronaut 140s infinite linear both alternate;
+}
+.object_souvlaki{
+    animation: rotate-astronaut 130s infinite linear both alternate;
+}
+.object_fast_food{
+    animation: rotate-astronaut 120s infinite linear both alternate;
+}
+.object_coffee{
+    animation: rotate-astronaut 100s infinite linear both alternate;
+}
+.object_asian{
+    animation: rotate-astronaut 110s infinite linear both alternate;
+}
+.object_donut{
+    animation: rotate-astronaut 70s infinite linear both alternate;
+}
+.box_astronaut{
+    z-index: 110 !important;
+    position: absolute;
+    top: 40%;
+    right: 76%;
+    will-change: transform;
+    animation: move-astronaut 50s infinite linear both alternate;
+}
+.box_fast_food{
+    z-index: 110 !important;
+    position: absolute;
+    top: 62%;
+    right: 4%;
+    will-change: transform;
+    animation: move-astronaut 20s infinite linear both alternate;
+}
+.box_asian{
+    z-index: 110 !important;
+    position: absolute;
+    top: 72%;
+    right: 15%;
+    will-change: transform;
+    animation: move-astronaut 18s infinite linear both alternate;
+}
+.box_coffee{
+    z-index: 110 !important;
+    position: absolute;
+    top: 30%;
+    right: 27%;
+    will-change: transform;
+    animation: move-astronaut 15s infinite linear both alternate;
+}
+.box_pizza{
+    z-index: 110 !important;
+    position: absolute;
+    top: 35%;
+    right: 38%;
+    will-change: transform;
+    animation: move-astronaut 12s infinite linear both alternate;
+}
+.box_other{
+    z-index: 110 !important;
+    position: absolute;
+    top:32%;
+    right: 6%;
+    will-change: transform;
+    animation: move-astronaut 28s infinite linear both alternate;
+}
+.box_souvlaki{
+    z-index: 110 !important;
+    position: absolute;
+    top: 77%;
+    right: 36%;
+    will-change: transform;
+    animation: move-astronaut 22s infinite linear both alternate;
+}
+.box_donut{
+    z-index: 110 !important;
+    position: absolute;
+    top: 55%;
+    right: 24%;
+    will-change: transform;
+    animation: move-astronaut 18s infinite linear both alternate;
+}
+@media only screen and (max-width: 600px){
+    .box_astronaut{
+        top: 70%;
+    }
+    .box_pizza{
+        top: 70%;
+    }
+    .box_other{
+        top: 70%;
+    }
+    .box_donut{
+        top: 70%;
+    }
+    .box_coffee{
+        top: 70%;
+    }
+    .box_asian{
+        top: 70%;
+    }
+    .box_souvlaki{
+        top: 70%;
+    }
+    .box_fast_food{
+        top: 70%;
+    }
+}
+.big {
+    font:
+      250px "Helvetica";
+  }
+.heading {
+    font:
+      60px "Helvetica";
+}

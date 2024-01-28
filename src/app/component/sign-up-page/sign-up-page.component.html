@@ -1,0 +1,135 @@
+<div class="container border">
+  <div class="row d-grid gap-3">
+    <h2 class="text-center">Welcome!</h2>
+    <form [formGroup]="signUpForm" class="col-4 mx-auto">
+      <div>
+        <label class="form-label" for="phone"
+          >Phone number<span class="text-danger">*</span></label
+        >
+        <input
+          type="phone"
+          name="phone"
+          id="phone"
+          formControlName="phone"
+          class="form-control"
+          placeholder="Phone number"
+          autocomplete="tel"
+        />
+        <span
+          class="text-danger"
+          *ngIf="
+            signUpForm.get('phone')?.hasError('required') &&
+            signUpForm.get('phone')?.touched
+          "
+          >*Required</span
+        >
+        <span
+          class="text-danger"
+          *ngIf="
+            signUpForm.get('phone')?.hasError('minlength') &&
+            signUpForm.get('phone')?.touched
+          "
+          >*10 characters minimum length</span
+        >
+        <span
+          class="text-danger"
+          *ngIf="
+            signUpForm.get('phone')?.hasError('maxlength') &&
+            signUpForm.get('phone')?.touched
+          "
+          >*10 characters maximum length</span
+        >
+      </div>
+      <div>
+        <label class="form-label" for="email"
+          >Email<span class="text-danger">*</span></label
+        >
+        <input
+          type="email"
+          name="email"
+          id="email"
+          formControlName="email"
+          class="form-control"
+          placeholder="Email"
+          autocomplete="email"
+        />
+        <span
+          class="text-danger"
+          *ngIf="
+            signUpForm.get('email')?.hasError('required') &&
+            signUpForm.get('email')?.touched
+          "
+          >*Required</span
+        >
+        <span
+          class="text-danger"
+          *ngIf="
+            signUpForm.get('email')?.hasError('email') &&
+            signUpForm.get('email')?.touched
+          "
+          >*Please enter a valid email</span
+        >
+      </div>
+      <div>
+        <label class="form-label" for="first_name">First name</label>
+        <input
+          type="name"
+          name="first_name"
+          id="first_name"
+          formControlName="first_name"
+          class="form-control"
+          placeholder="First name"
+          autocomplete="given-name"
+        />
+      </div>
+      <div>
+        <label class="form-label" for="last_name">Last name</label>
+        <input
+          type="name"
+          name="last_name"
+          id="last_name"
+          formControlName="last_name"
+          class="form-control"
+          placeholder="Last name"
+          autocomplete="family-name"
+        />
+      </div>
+      <div>
+        <label class="form-label" for="address">Address</label>
+        <input
+          formControlName="address"
+          name="address"
+          id="address"
+          class="form-control"
+          placeholder="Address"
+          autocomplete="street-address"
+        />
+      </div>
+      <div>
+        <label class="form-label" for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          formControlName="password"
+          class="form-control"
+          placeholder="Password"
+          autocomplete="new-password"
+        />
+      </div>
+      <div class="col-6 mx-auto d-grid gap-2 pt-4">
+        <button
+          (click)="onSubmit()"
+          routerLink="/discovery"
+          [disabled]="signUpForm.invalid"
+          type="submit"
+          type="button"
+          class="btn btn-success"
+        >
+          Register
+        </button>
+        <br />
+      </div>
+    </form>
+  </div>
+</div>

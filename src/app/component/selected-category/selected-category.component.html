@@ -1,0 +1,94 @@
+<div class="container mt-3 mb-3 pb-5 pt-3">
+    <h1 class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-success ">{{selectedCategory}}</h1>
+    <div class="text-success text-end ">
+        <i class="bi bi-funnel-fill fs-5 mx-2"></i>
+        <!-- <svg class="bi" width="24" height="24" fill="currentColor"><use xlink:href="#funnel-fill"/></svg> -->
+        <button  class="btn btn-sm btn-outline-success m-1" (click)="sortStoresByRating()">Rating 
+            <!-- <svg class="bi" width="24" height="24" fill="currentColor"><use xlink:href="#arrow-down"/></svg> -->
+            <i class="bi bi-arrow-down fs-6"></i>
+        </button>
+        <button  class="btn btn-sm btn-outline-success m-1" (click)="sortStoresByDeliveryTime()">Delivery time 
+            <!-- <svg class="bi" width="24" height="24" fill="currentColor"><use xlink:href="#arrow-up"/></svg> -->
+            <i class="bi bi-arrow-up fs-6"></i>
+        </button>
+        <button  class="btn btn-sm btn-outline-success m-1" (click)="sortStoresAlphabetically()">
+            <!-- <svg class="bi" width="24" height="24" fill="currentColor"><use xlink:href="#alpha-down"/></svg> -->
+            <i class="bi bi-sort-alpha-down fs-6"></i>
+        </button>
+        <button  class="btn btn-sm btn-outline-success m-1" (click)="sortStoresZtoA()">
+            <i class="bi bi-sort-alpha-down-alt fs-6"></i>
+        </button>
+    </div>
+    <ng-template *ngIf="hasLoadedStores; then storesBlock else noStoresBlock"></ng-template>
+    <ng-template #storesBlock> 
+        <div class="row row-cols-4 ">
+            <div class="m-3" *ngFor="let store of stores">
+                <div class="col-sm-4 m-4 p-1">
+                    <div class="card border border-success m-3" style="width: 350%; height: 365px" (click)="onViewStoreDetails(store.id)" title="click for details">
+                        <div class="card-body text-center shadow">
+                            <div *ngFor="let info of storeInfos">
+                                <div *ngIf="info.name==store.name">
+                                    <img [src]="info.logo" class="card-img-top" alt="{{info.name}} store photo" style="width: 50%; height:10%">
+                                </div>
+                            </div>
+                            <h5 class="card-title">{{store.name}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted"> {{store.category}}</h6>
+                            <div *ngFor="let info of storeInfos" class="m-3">
+                                <div *ngIf="info.name==store.name">
+                                    <div >
+                                        <span class="card-text text-success mx-2">
+                                            <i class="bi bi-star-fill"></i>
+                                            <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#star-fill"/></svg> -->
+                                        </span><span> {{info.rating}} </span>
+                                        <span class="card-text text-success mx-2">
+                                            <i class="bi bi-send-fill"></i>
+                                            <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#send-fill"/></svg> -->
+                                        </span><span> {{info.delivery_cost}}&euro; </span>
+                                        <span class="card-text text-success mx-2">
+                                            <i class="bi bi-clock-fill"></i>
+                                            <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#clock-fill"/></svg> -->
+                                        </span><span> {{info.delivery_time}}'</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="btn btn-success text-wrap">{{store.name}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #noStoresBlock>
+        <h1 class="text-success text-center fs-3 fst-italic fw-normal">Loading Stores ..</h1>
+        <br>
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border text-success align-center" style="width: 3rem; height: 3rem;" role="status">
+                <span class="visually-hidden ">Loading...</span>
+            </div>
+        </div>
+    </ng-template>
+</div>
+<!-- <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="send-fill"  viewBox="0 0 16 16">
+        <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z"/>
+    </symbol>
+    <symbol id="clock-fill"  viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+    </symbol>
+    <symbol id="star-fill"  viewBox="0 0 16 16">
+        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+    </symbol>
+    <symbol id="funnel-fill"  viewBox="0 0 16 16">
+        <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5z"/>
+    </symbol>
+    <symbol id="alpha-down"  viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M10.082 5.629 9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371zm1.57-.785L11 2.687h-.047l-.652 2.157z"/>
+        <path d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645zM4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293z"/>
+    </symbol>
+    <symbol id="arrow-down"  viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1"/>
+    </symbol>
+    <symbol id="arrow-up"  viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
+    </symbol>
+</svg> -->

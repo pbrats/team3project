@@ -1,0 +1,54 @@
+<div class="container" style="position: relative;">
+  <div class="row">
+    <div class="col-8 p-2">
+      <app-store-description [store]="store"></app-store-description>
+      <div class="col-12">
+        <div id="store-details" class="col-12 p-2">
+          <div class="container row p-2">
+            <div class="col-4">
+              <h2 class="text-success">Menu</h2>
+            </div>
+          </div>
+          <div class="d-flex flex-row flex-wrap col-12 border border-light rounded-2 p-2">
+            <!-- <app-categories class="col-3 p-2" [store]="store" [categories]="categories"></app-categories> -->
+            <app-products-list class="col-12" [categories]="categories"></app-products-list>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="shopping-cart" class="col-4 p-4 bg-light text-dark container vh-100 rounded-2"
+      style="position: sticky; top:100px; align-content: space-between;">
+      <app-shoping-cart class="d-flex align-items-stretch" style="display: flex; flex-direction: column;"
+        [product]="selectedProduct"></app-shoping-cart>
+    </div>
+  </div>
+</div>
+<app-product-details [product]="previewedProduct"></app-product-details>
+
+<!-- CheckoutModal -->
+<div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="checkoutModalLabel">Order confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-1">
+            <i class="bi bi-check-circle-fill text-success" ></i>
+            <!-- <img src="/assets/images/success.png" style="width:2rem"> -->
+          </div>
+          <div class="col">
+            <p>Congrats! Your order is on the way</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-product-details [product]="previewedProduct"></app-product-details>

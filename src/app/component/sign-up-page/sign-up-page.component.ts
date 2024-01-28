@@ -41,7 +41,7 @@ export class SignUpPageComponent implements OnInit {
       first_name: new FormControl("", Validators.required),
       last_name: new FormControl("", Validators.required),
       address: new FormControl("", Validators.required),
-      password: new FormControl("", Validators.required)
+      password: new FormControl("", [Validators.required,Validators.minLength(4)])
     }); 
     
   }

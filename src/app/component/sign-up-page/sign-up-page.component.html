@@ -81,6 +81,14 @@
           placeholder="First name"
           autocomplete="given-name"
         />
+        <span
+          class="text-danger"
+          *ngIf="
+            signUpForm.get('first_name')?.hasError('required') &&
+            signUpForm.get('first_name')?.touched
+          "
+          >*Required</span
+        >
       </div>
       <div>
         <label class="form-label" for="last_name">Last name</label>
@@ -93,6 +101,14 @@
           placeholder="Last name"
           autocomplete="family-name"
         />
+        <span
+        class="text-danger"
+        *ngIf="
+          signUpForm.get('last_name')?.hasError('required') &&
+          signUpForm.get('last_name')?.touched
+        "
+        >*Required</span
+      >
       </div>
       <div>
         <label class="form-label" for="address">Address</label>
@@ -104,6 +120,14 @@
           placeholder="Address"
           autocomplete="street-address"
         />
+        <span
+        class="text-danger"
+        *ngIf="
+          signUpForm.get('address')?.hasError('required') &&
+          signUpForm.get('address')?.touched
+        "
+        >*Required</span
+      >
       </div>
       <div>
         <label class="form-label" for="password">Password</label>
@@ -116,6 +140,22 @@
           placeholder="Password"
           autocomplete="new-password"
         />
+        <span
+        class="text-danger"
+        *ngIf="
+          signUpForm.get('password')?.hasError('required') &&
+          signUpForm.get('password')?.touched
+        "
+        >*Required</span
+      >
+      <span
+          class="text-danger"
+          *ngIf="
+            signUpForm.get('password')?.hasError('minlength') &&
+            signUpForm.get('password')?.touched
+          "
+          >*4 characters minimum length</span
+        >
       </div>
       <div class="col-6 mx-auto d-grid gap-2 pt-4">
         <button

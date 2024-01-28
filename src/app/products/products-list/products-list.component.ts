@@ -19,9 +19,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './products-list.component.css'
 })
 export class ProductsListComponent implements OnInit {
-  @Input() categories:string[]=[];
+  @Input() categories!:string[];
   category:any;
-  allProducts: Product[]=[];
+  allProducts!: any;
   service = inject(StoreService);
   activatedRoute = inject(ActivatedRoute);
   id!: number;
@@ -35,8 +35,9 @@ export class ProductsListComponent implements OnInit {
           next: (res) => {
             this.allProducts = res;
             console.log(this.allProducts);
+    
           }
-        })
+        });
       },
     });
   }

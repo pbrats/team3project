@@ -1,52 +1,59 @@
-
-<div class="card mb-3" style="max-width: 540px;">
+<!-- <div class="card mb-6 sm-4" >
   <div class="row g-0">
-      <div class="col-md-4">
+   <div class="col-md-4">
+    <div *ngFor="let photo of productPhotos">
+      <div *ngIf="photo.category==product.category">
+        <div class="col-md-12 ">
+          <img [src]="photo.background_image" class="img-fluid rounded-start" style="object-fit: cover; height:142px"  alt="{{photo.category}} product photo">
+        </div>
+      </div>
+    </div>
+   </div>
+      
+   
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}<span class="badge bg-secondary"
+            style="position: absolute; top:20px; right:20px">${{product.price | number:'1.2-2' }} </span></h5>
+        <p class="card-text">{{ product.category }}</p>
+        <div class="row">
+          <div class="col">
+            <a class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"
+            (click)="onPreview()">Details</a>
+          </div>
+          <div class="col text-end">
+            <a class="btn btn-primary" (click)="addToCart(product)" *ngIf="product">Add to cart</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div> -->
+
+<div class="card m-1" style="width: 16.5rem;">
   <div *ngFor="let photo of productPhotos">
     <div *ngIf="photo.category==product.category">
-        <img [src]="photo.background_image" class="card-img-top" alt="{{photo.category}} product photo" style="height:40%; object-fit: cover;">
+      <img [src]="photo.background_image" class="card-img-top" alt="{{photo.category}} product photo"
+        style="height:40%; object-fit: cover;">
     </div>
-</div>
-</div>
-<div class="col-md-8">
-    <div class="card-body">
-      <h5 class="card-title text-wrap" style="width: 10rem;">{{ product.name }}<span class="badge bg-secondary" style="position: absolute; top:20px; right:20px">${{product.price | number:'1.2-2' }} </span></h5>
-      <p class="card-text">{{ product.category }}</p>
-      <div class="row">
-        <div class="col">
-          <a class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" (click)="onPreview()">Details</a>
-        </div>
-        <div class="col text-end">
-          <!-- <a class="btn btn-primary" (click)="onSelected()">Add to cart</a> -->
-          <a class="btn btn-primary" (click)="addToCart(product)" *ngIf="product">Add to cart</a>
-        </div>
-        
+  </div>
+  <div class="card-body position-relative">
+    <h5 class="card-title text-wrap" style="width: 10rem;">{{ product.name }}<span class="badge bg-secondary"
+        style="position: absolute; top:20px; right:20px">${{product.price}}</span></h5>
+    <p class="card-text">{{ product.category }}</p>
+    <div class="row">
+      <div class="col">
+        <a class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+          (click)="onPreview()">Details</a>
       </div>
-      
+      <div class="col text-end">
+        <!-- <a class="btn btn-primary" (click)="onSelected()">Add to cart</a>  -->
+        <a class="btn btn-primary" (click)="onAddToCart(product)" *ngIf="product">Add</a>
+      </div>
+
     </div>
 
+  </div>
 </div>
-</div>
-</div>
-<!-- <div class="card m-2" style="width: 18rem;">
-  <div *ngFor="let photo of productPhotos">
-    <div *ngIf="photo.category==product.category">
-        <img [src]="photo.background_image" class="card-img-top" alt="{{photo.category}} product photo" style="height:40%; object-fit: cover;">
-    </div>
-</div>
-    <div class="card-body position-relative">
-      <h5 class="card-title text-wrap" style="width: 10rem;">{{ product.name }}<span class="badge bg-secondary" style="position: absolute; top:20px; right:20px">${{product.price}}</span></h5>
-      <p class="card-text">{{ product.category }}</p>
-      <div class="row">
-        <div class="col">
-          <a class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="onPreview()">Details</a>
-        </div>
-        <div class="col text-end">
-          <a class="btn btn-primary" (click)="onSelected()">Add to cart</a> -->
-          <!-- <a class="btn btn-primary" (click)="addToCart(product)" *ngIf="product">Add to cart</a>
-        </div>
-        
-      </div>
-      
-    </div>
-</div> --> 

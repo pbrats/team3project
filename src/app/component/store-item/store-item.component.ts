@@ -1,7 +1,7 @@
 import { Component, Input, inject } from '@angular/core';
 import { Store } from '../../interfaces/store';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { StoresInfosService } from '../../service/stores-infos.service';
 import { StoresService } from '../../service/stores.service';
 
@@ -31,9 +31,10 @@ ngOnInit() {
   onViewStoreDetails(idClicked: number) {
     const foundStore = this.stores.find((store: any) => store.id === idClicked);
     console.log(foundStore);
-    if (foundStore){
-      this.router.navigate(["stores",idClicked]);
-    }else{
+    if (foundStore)
+        this.router.navigate(["stores",idClicked]);
+      
+    else{
       this.router.navigate(["menu-not-found"]);
     }
   }

@@ -43,4 +43,18 @@ export class StoreService {
       })
     );
   }
+  getProductsByCategoryForStore(storeId: number){
+    return this.getProductsByStore(storeId).pipe(
+      map(products => {
+        const categories = this.getProductCategoriesByStore(products);
+        const productsByCategory: { [category: string]: Product[] } = {};
+
+        categories.forEach(category => {
+          productsByCategory[category] = products.filter(product => product.category === category);
+        });
+
+        return productsByCategory;
+      })
+    );
+  }
 }

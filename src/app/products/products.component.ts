@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { StoreService } from '../service/store.service';
-import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductItemComponent } from './products-list/product-item/product-item.component';
@@ -13,13 +12,11 @@ import { Product } from '../interfaces/product';
 import { CategoriesComponent } from './categories/categories.component'
 import { Title } from '@angular/platform-browser';
 
-import { CategoryProductListComponent } from './products-list/category-product-list/category-product-list.component';
 
 @Component({
   selector: 'app-products',
   standalone: true,
   imports: [
-    ProductDetailsComponent,
     ShopingCartComponent,
     ProductsListComponent,
     ProductItemComponent,
@@ -46,6 +43,7 @@ export class ProductsComponent implements OnInit {
   cats: any;
   categories: string[] = [];
   @Input() category!:string;
+  catProducts:any[]=[];
 
   constructor(private titleService: Title) {}
   ngOnInit() {
@@ -68,6 +66,9 @@ export class ProductsComponent implements OnInit {
           }
         })
       },
+    });
+    this.service.getProductsByCategoryForStore(this.id).subscribe(productsByCategory => {
+      console.log(productsByCategory);
     });
     this.service.categorySelected.subscribe({
       next: (res: any) => (this.selectedCategory = res),
@@ -96,4 +97,17 @@ export class ProductsComponent implements OnInit {
   sortStoresZtoA():void {
     this.allProducts.sort((a: { name: string; }, b: { name: string; }) => b.name.localeCompare(a.name));
   }
+
+  getProductsByCat(categories:any,products:any) {
+    for (let cat of categories){
+      for (let pro of products){
+        if (pro.category == cat) {
+          this.catProducts.push(pro);
+          console.log(this.catProducts);
+        }
+      }
+    }
+  }
 }
+
+

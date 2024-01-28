@@ -1,6 +1,6 @@
-<div class="d-flex flex-row flex-wrap m-1" *ngFor="let category of categories">
-  <h4 class="col-12 p-2">{{category}}</h4>
+<div class="col-12" style="display: flex; flex-direction: row; flex-wrap: wrap; " *ngFor="let category of categories">
+  <h5 id="{{category}}" class="col-12">{{category}}</h5>
   <div *ngFor="let product of allProducts">
-    <app-product-item *ngIf="product.category == category" [product]="product"></app-product-item>
+    <app-product-item *ngIf="product.category == category"  [product]="product"></app-product-item>
   </div>
 </div>

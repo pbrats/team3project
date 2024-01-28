@@ -17,16 +17,21 @@ import { Product } from '../../../interfaces/product';
 export class ProductItemComponent implements OnInit {
   productPhotos: any;
   productPhotoService:  ProductsPhotosService=inject(ProductsPhotosService);
+  @Input() product!: any;
+  allCategories!: any;
+  service = inject(StoreService);
+  @Input() allProducts!: any;
+  cartService=inject(CartService);
 
   ngOnInit(){
     this.productPhotoService.getProductsPhotos().subscribe((response) => {
       this.productPhotos = response;
     });
+
+    
    
   }
-  service = inject(StoreService);
-  @Input() product!: Product;
-  cartService=inject(CartService);
+  
 
   
   onSelected(){
@@ -36,10 +41,12 @@ export class ProductItemComponent implements OnInit {
     this.service.productPreviewed.emit(this.product)
    }
 
-   addToCart(product: Product): void {
-    this.service.productSelected.emit(this.product)
+   onAddToCart(product: Product): void {
+    // this.service.productSelected.emit(this.product)
     this.cartService.addToCart(product);
   }
+
+  
   
   }
   

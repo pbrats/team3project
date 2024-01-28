@@ -36,7 +36,7 @@ export class SignUpPageComponent implements OnInit {
   }
   setFormValues() {
     this.signUpForm = new FormGroup({
-      phone: new FormControl("", Validators.required),
+      phone: new FormControl("", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]),
       email: new FormControl("", [Validators.required, Validators.email]),
       first_name: new FormControl(""),
       last_name: new FormControl(""),
@@ -47,16 +47,11 @@ export class SignUpPageComponent implements OnInit {
   }
   onSubmit(){
     if(this.signUpForm.valid){
-      // console.log(this.signUpForm.value)
       localStorage.setItem('alertShown','no');
       sessionStorage.setItem("User",JSON.stringify(this.signUpForm.value));
-      // sessionStorage.setItem("phone",this.signUpForm.value.phone);
-      // sessionStorage.setItem("email",this.signUpForm.value.email);
-      // sessionStorage.setItem("first_name",this.signUpForm.value.first_name);
-      // sessionStorage.setItem("last_name",this.signUpForm.value.last_name);
-      // sessionStorage.setItem("address",this.signUpForm.value.address);
     } else {
       this.signUpForm.markAllAsTouched();
     }
   }
+
 }

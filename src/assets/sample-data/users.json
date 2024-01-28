@@ -20,6 +20,54 @@
                 "store_name":"Nanou Donuts House",
                 "total":8,
                 "date":"22/12/23"
+             },
+             {
+                "id":3,
+                "store_name":"KFC",
+                "total":19,
+                "date":"01/11/23"
+             },
+             {
+                "id":4,
+                "store_name":"McDonald's",
+                "total":15,
+                "date":"21/01/24"
+             },
+             {
+                "id":5,
+                "store_name":"Piatsa Kalamaki",
+                "total":9,
+                "date":"10/12/23"
+             },
+             {
+                "id":6,
+                "store_name":"HOOCUT",
+                "total":17,
+                "date":"18/12/23"
+             },
+             {
+                "id":7,
+                "store_name":"Coffee Island",
+                "total":6.8,
+                "date":"10/11/23"
+             },
+             {
+                "id":8,
+                "store_name":"Everest",
+                "total":10.3,
+                "date":"07/12/23"
+             },
+             {
+                "id":9,
+                "store_name":"StreetWok",
+                "total":21,
+                "date":"28/12/23"
+             },
+             {
+                "id":10,
+                "store_name":"Everest",
+                "total":12.7,
+                "date":"16/01/24"
              }
         ]
 },
@@ -41,9 +89,21 @@
          },
          {
             "id":2,
-            "store_name":"Gregory's",
+            "store_name":"Gregory",
             "total":9,
             "date":"12/12/23"
+         },
+         {
+            "id":3,
+            "store_name":"Domino's Pizza",
+            "total":19,
+            "date":"19/01/24"
+         },
+         {
+            "id":4,
+            "store_name":"Wabi Sabi",
+            "total":29,
+            "date":"07/01/24"
          }
     ]
 },

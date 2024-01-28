@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { PublisherService } from '../../service/publisher.service';
 import { Title } from '@angular/platform-browser';
+import { StoresInfosService } from '../../service/stores-infos.service';
 
 @Component({
   selector: 'app-previous-orders',
@@ -14,11 +15,17 @@ export class PreviousOrdersComponent {
   User:any;
   publisherService =inject(PublisherService);
   isWelcomePage=false;
+  storeInfosService =inject(StoresInfosService);
+  storesInfos:any;
+
   constructor(private titleService: Title) {
     titleService.setTitle("Previous Orders");
   }
  
   ngOnInit(){
+    this.storeInfosService.getStoresInfos().subscribe((response) => {
+      this.storesInfos = response;
+    });
     
     this.publisherService.publishData(this.isWelcomePage);
     const storedUser = sessionStorage.getItem('User');

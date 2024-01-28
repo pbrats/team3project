@@ -1,0 +1,58 @@
+.container.m-5 {
+    padding: 80px;
+    width: 100%;
+    border: 2px solid #198754; /* Border color for the container */
+    border-radius: 10px; /* Border radius for rounded corners */
+
+  }
+  
+  .text-success {
+    color: #198754; /* Text color for success class */
+  }
+  
+  .table.table-dark {
+    border: 2px solid #198754; /* Border color for the table */
+    border-radius: 10px; /* Border radius for rounded corners in the table */
+    border-collapse: collapse; /* Collapse border spacing in the table */
+    width: 100%; /* Make the table width 100% of the container */
+  }
+  
+  .table.table-dark th,
+  .table.table-dark td {
+    border: 1px solid #198754; /* Border color for table header and cells */
+    padding: 3px; /* Padding for the cells */
+  }
+  
+  .table.table-dark thead th {
+    background-color: #198754; /* Background color for table header */
+    color: #ffffff; /* Text color for table header */
+  }
+  
+  .table.table-dark tbody tr:hover {
+    background-color: #156b40; /* Darken the background color on hover */
+  }
+  
+  .container.m-5.text-success {
+    border: 2px solid #198754; /* Border color for the success message container */
+    border-radius: 10px; /* Border radius for rounded corners in the success message container */
+    padding: 15px; /* Padding for the success message container */
+  }
+  
+  .container.m-5.text-success h2 {
+    margin-bottom: 0; /* Remove margin bottom for the heading inside the success message container */
+  }
+  * {
+    box-sizing: border-box;
+  }
+  
+  #myInput {
+    background-image: url('/css/searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+  }
+  

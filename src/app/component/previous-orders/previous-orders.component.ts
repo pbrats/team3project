@@ -14,6 +14,13 @@ export class PreviousOrdersComponent {
   User:any;
   publisherService =inject(PublisherService);
   isWelcomePage=false;
+store_name: any;
+  filteredOrders: any[] = [];
+  orders: any;
+  totalOrders: any;
+  famousService: any;
+  famousStores: any;
+  
   constructor(private titleService: Title) {
     titleService.setTitle("Previous Orders");
   }
@@ -32,5 +39,10 @@ export class PreviousOrdersComponent {
       // Handle the case when no user information is stored in local storage
       console.log('No user information found in local storage');
     }
-  }
-}
+    
+    
+
+  
+
+}};
+

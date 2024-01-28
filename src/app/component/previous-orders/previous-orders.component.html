@@ -1,11 +1,15 @@
+
 <div class="container m-5">
     <h1 class="text-success ">Previous Orders</h1>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for stores.." title="Type in a name">
     <ng-template *ngIf="User.previous_orders && User.previous_orders.length>0 ; then foundBlock else noFoundBlock"></ng-template>
+    
     <ng-template #foundBlock> 
         <table class="table table dark table-striped table-hover m-5">
             <thead>
             <tr>
                 <th scope="col">#</th>
+               
                 <th scope="col">Store Name</th>
                 <th scope="col">Date</th>
                 <th scope="col">Total</th>
@@ -15,15 +19,23 @@
                 @for( order of User.previous_orders; track $index){
             <tr>
                 <th scope="row">{{order.id}}</th>
-                <td>{{order.store}}</td>
+                <td>{{order.store_name}}</td>
                 <td>{{order.date}}</td>
                 <td>{{order.total}} &euro;</td>
-            </tr>
-        }
+                    </tr>
+                }
+                  
+                
+                                                      
             </tbody>
+
+            
         </table>
+      
     </ng-template>
+</div>
+
+                                            
     <ng-template #noFoundBlock> 
         <h2 class="container m-5 text-success text-center fst-italic fw-normal">No previous orders found</h2>
     </ng-template>
-</div>

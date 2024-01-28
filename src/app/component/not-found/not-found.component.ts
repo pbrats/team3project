@@ -1,9 +1,8 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { PublisherService } from '../../service/publisher.service';
 
 @Component({
   selector: 'app-not-found',
@@ -29,8 +28,6 @@ import { PublisherService } from '../../service/publisher.service';
 
 export class NotFoundComponent {
   animateHeading = false;
-  publisherService =inject(PublisherService);
-  isWelcomePage=false;
 
   triggerAnimation() {
     this.animateHeading = true;
@@ -40,6 +37,5 @@ export class NotFoundComponent {
   }
   ngOnInit() {
     this. triggerAnimation();
-    this.publisherService.publishData(this.isWelcomePage);
   }
 }

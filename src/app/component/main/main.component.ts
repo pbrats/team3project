@@ -3,14 +3,13 @@ import { Component, inject } from '@angular/core';
 import { FamousStoresGeneralComponent } from '../famous-stores-general/famous-stores-general.component';
 import { AllStoresComponent } from '../all-stores/all-stores.component';
 import { CategoriesComponent } from '../categories/categories.component';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StoresService } from '../../service/stores.service';
 import { FamousStoresGeneralService } from '../../service/famous-stores-general.service';
 import { UniqueCategoryPipe } from "../../pipe/unique-category.pipe";
 import { Title } from '@angular/platform-browser';
 import { CategoriesService } from '../../service/categories.service';
 import { CategoriesPhotosService } from '../../service/categories-photos.service';
-import { PublisherService } from '../../service/publisher.service';
 
 @Component({
     selector: 'app-main',
@@ -31,53 +30,9 @@ export class MainComponent {
   photosCategories: any;
   hasLoadedCategories : boolean= false;
   hasLoadedFamous : boolean= false;
-  showAlertFlag= false;
-  User: any; 
-  publisherService =inject(PublisherService);
-  isWelcomePage=false;
-  
+
   ngOnInit() {
     this.titleService.setTitle("Discovery");
-    // this.isWelcomePage=false;
-    // this.publisherService.publishData(this.isWelcomePage);
-
-    // this.first_name = JSON.stringify(sessionStorage.getItem("first_name")).replace(/"/g, "");
-    // if(this.first_name){
-    //   this.showAlertFlagSignUp= true;
-    // }
-    // setTimeout(() => {
-    //   this.showAlertFlagSignUp = false;
-    // }, 5000); 
-
-    // Retrieve the stored user information from local storage
-    const storedUser = sessionStorage.getItem('User');
-    // console.log( storedUser);
-    if (storedUser) {
-      // Parse the stored JSON string back into an object
-      this.User = JSON.parse(storedUser);
-      // console.log(this.User);
-      // Now, this.User contains the information of the authenticated user
-      const hasAlertBeenShown = localStorage.getItem('alertShown');
-      // console.log(hasAlertBeenShown);
-      if (this.User && hasAlertBeenShown==='no') {
-        
-        this.showAlertFlag = true;
-        setTimeout(() => {
-            this.showAlertFlag = false;
-
-            // A WAY TO FIX THE PROBLEMATIC LOAD
-
-            // window.location.reload();
-
-          }, 3000); 
-        // Set the flag in local storage to indicate that the alert has been shown
-        localStorage.setItem('alertShown', 'yes');
-        }
-    } else {
-      // Handle the case when no user information is stored in local storage
-      console.log('No user information found in local storage');
-      this.showAlertFlag = false;
-    }
     this.catService.getCategories().subscribe({
       next: data => {
         setTimeout(() =>{
@@ -97,7 +52,7 @@ export class MainComponent {
     .subscribe({
       next: response => {
         setTimeout(() =>{
-          // console.log(response);
+          console.log(response);
           this.famousStoresGeneral =response;
           this.hasLoadedFamous=true;
         },10);
@@ -106,22 +61,6 @@ export class MainComponent {
   }
   constructor(private route: ActivatedRoute,private titleService: Title) {
     titleService.setTitle("Discovery");
-    // this.isWelcomePage=false;
-    // this.publisherService.publishData(this.isWelcomePage);
-    // this.isWelcomePage=false;
-
-    this.router.events.subscribe((event) => console.log(event));
-    this.router.events.subscribe(event=>{
-      if(event instanceof NavigationEnd){
-        if (event.url.includes('discovery')){
-          this.isWelcomePage=false;
-          this.publisherService.publishData(this.isWelcomePage);
-        }else {
-          this.isWelcomePage=true;
-          this.publisherService.publishData(this.isWelcomePage);
-        }
-      }
-    });
   }
   viewFamousStores(){
     this.router.navigate(["famous-stores"]);
@@ -137,7 +76,7 @@ export class MainComponent {
   }
   onViewStoreDetails(idClicked: number) {
     const foundStore = this.stores.find((store: any) => store.id === idClicked);
-    // console.log(foundStore);
+    console.log(foundStore);
     if (foundStore){
       this.router.navigate(["stores",idClicked]);
     }else{

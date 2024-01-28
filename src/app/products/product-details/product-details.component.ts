@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, inject } from '@angular/core';
 import { ProductsPhotosService } from '../../service/products-photos.service';
-
 @Component({
   selector: 'app-product-details',
   standalone: true,

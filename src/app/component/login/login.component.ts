@@ -4,7 +4,6 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { Router, RouterLink } from '@angular/router';
 import { PublisherService } from '../../service/publisher.service';
 import { UsersService } from '../../service/users.service';
-
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -18,7 +17,6 @@ export class LoginComponent {
   userService: UsersService=inject(UsersService);
   showErrorAlert = false;
   form!: FormGroup;
-
   constructor(){}
   ngOnInit(){
     this.setFormValues();

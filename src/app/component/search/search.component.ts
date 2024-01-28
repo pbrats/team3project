@@ -2,8 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StoresService } from '../../service/stores.service';
-import { FamousStoresGeneralService } from '../../service/famous-stores-general.service';
-import { PublisherService } from '../../service/publisher.service';
+import { Publisher2Service } from '../../service/publisher2.service';
 
 @Component({
   selector: 'app-search',
@@ -13,43 +12,50 @@ import { PublisherService } from '../../service/publisher.service';
   styleUrl: './search.component.css'
 })
 export class SearchComponent {
-  famousStores:any;
+  publisherService2 =inject(Publisher2Service);
   stores:any;
   storesService: StoresService =inject(StoresService);
-  famousService: FamousStoresGeneralService =inject(FamousStoresGeneralService);
   searchResult: any[]=[];
-  query: string = '';
-  publisherService =inject(PublisherService);
-  isWelcomePage=false;
 
-  constructor(private router: Router,private route: ActivatedRoute) {}
+  constructor(private router: Router,private route: ActivatedRoute) {
+    this.publisherService2.listenForData2()
+    .subscribe((data)=>{
+      this.searchResult=data;
+      console.log('ekei')
+      console.log(this.searchResult);
+      console.log(this.searchResult.length);
+    })
+  }
   
-  ngOnInit() {
-    this.publisherService.publishData(this.isWelcomePage);
+  ngOnit(){
     this.storesService.getStores().subscribe((response) => {
       this.stores = response;
     });
-    this.route.queryParams.subscribe(params => {
-      this.query = params['query'];
-      if (this.query) {
-        this.famousService.getFamousStoresGeneral().subscribe((response) => {
-          this.famousStores = response;
-          this.searchResult = this.famousStores.filter((store: { name: string , category:string}) =>
-           store.name.toLowerCase().includes(this.query.toLowerCase())
-            ||
-            store.category.toLowerCase().includes(this.query.toLowerCase())
-          );
-          // console.log(this.searchResult)
-        });
-      }
-    });
+  //   this.publisherService2.listenForData2()
+  //   .subscribe((data)=>{
+  //     this.filter=data;
+  //     console.log('edo')
+  //     console.log(this.filter);
+  //   })
   }
-  onViewStoreDetails(idClicked: number) {
-    const foundStore = this.stores.find((store: any) => store.id === idClicked);
-    // console.log(foundStore);
+  // ngOnChanges(simplechange:any){
+  //   this.publisherService2.listenForData2()
+  //   .subscribe((data)=>{
+  //     this.searchResult=data;
+  //     console.log('ekei2')
+  //     console.log(this.searchResult);
+  //     console.log(this.searchResult.length);
+  //   })
+  // }
+  onStoreClick(clickName: string) {
+    console.log(12)
+    const foundStore = this.stores.find((store: any) => store.name === clickName);
+    console.log(foundStore);
     if (foundStore){
-      this.router.navigate(["stores",idClicked]);
+      console.log(13)
+      this.router.navigate(["stores",clickName]);
     }else{
+      console.log(14)
       this.router.navigate(["menu-not-found"]);
     }
   }

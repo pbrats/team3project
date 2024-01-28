@@ -15,10 +15,10 @@ export class ShopingCartComponent {
   products: Product[]=[];
   cartService=inject(CartService);
   ngOnInit(){
-    // console.log(this.products);
+    console.log(this.products);
   }
   ngOnChanges(change:SimpleChange) {
-    // console.log(this.products);
+    console.log(this.products);
   }
   ngOnDestroy(){
     this.products = this.cartService.clearCart();
@@ -26,5 +26,10 @@ export class ShopingCartComponent {
   constructor() {
     // Initialize cartItems with the items from the CartService
     this.products = this.cartService.getCart();
+  }
+
+  onClearOrder() {
+    this.products = this.cartService.clearCart();
+
   }
 }

@@ -22,13 +22,13 @@ export class SelectedStoreFromCategoryComponent {
   
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params:any) => {
-      // console.log(params);
+      console.log(params);
       this.selectedStore = params.name;
-      // console.log(this.selectedStore);
+      console.log(this.selectedStore);
       this.titleService.setTitle(`${this.selectedStore}`);
       this.storesService.getStores().subscribe((data:any) => {
         this.items = data.filter((item:any) => item.name === this.selectedStore);
-        // console.log(this.items);
+        console.log(this.items);
       });
     });
   }

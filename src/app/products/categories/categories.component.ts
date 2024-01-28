@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '../../interfaces/store';
 
 @Component({
   selector: 'app-categories',
@@ -10,6 +11,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CategoriesComponent implements OnInit{
   @Input() categories:string[]=[];
+  @Input() store!: Store
 
   ngOnInit() {}
 }

@@ -5,7 +5,6 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriesService } from '../../service/categories.service';
 import { CategoriesPhotosService } from '../../service/categories-photos.service';
-import { PublisherService } from '../../service/publisher.service';
 
 @Component({
     selector: 'app-categories',
@@ -23,11 +22,8 @@ export class CategoriesComponent {
   catPhotoService: CategoriesPhotosService =inject(CategoriesPhotosService);
   photosCategories: any;
   hasLoadedCategories : boolean= false;
-  publisherService =inject(PublisherService);
-  isWelcomePage=false;
   
   ngOnInit() {
-    this.publisherService.publishData(this.isWelcomePage);
     this.catService.getCategories().subscribe({
       next: data => {
       setTimeout(() =>{

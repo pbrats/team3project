@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { StoreService } from '../../service/store.service';
+import { Store } from '../../interfaces/store';
 import { StoreItemComponent } from '../../component/store-item/store-item.component';
 import { CommonModule } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { StoresInfosService } from '../../service/stores-infos.service';
-import { PublisherService } from '../../service/publisher.service';
 
 @Component({
   selector: 'app-all-stores',
@@ -19,23 +19,20 @@ export class AllStoresComponent {
   hasLoadedStores : boolean= false;
   storeInfosService: StoresInfosService =inject(StoresInfosService);
   storeInfos: any;
-  publisherService =inject(PublisherService);
-  isWelcomePage=false;
-  
-  ngOnInit() {
-    this.publisherService.publishData(this.isWelcomePage);
-    this.storeInfosService.getStoresInfos().subscribe((response) => {
-      this.storeInfos = response;
-    });
-    this.service.getStores().subscribe({
-      next: (res) => {
-        setTimeout(() =>{
-          (this.stores = res)
-          this.hasLoadedStores=true;
-        },10);
-      }
-    });
-  }
+
+ngOnInit() {
+  this.storeInfosService.getStoresInfos().subscribe((response) => {
+    this.storeInfos = response;
+  });
+  this.service.getStores().subscribe({
+    next: (res) => {
+      setTimeout(() =>{
+        (this.stores = res)
+        this.hasLoadedStores=true;
+      },10);
+    }
+  });
+}
   constructor(private titleService: Title) {
     titleService.setTitle("Stores");
   }

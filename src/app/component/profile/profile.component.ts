@@ -41,6 +41,7 @@ export class ProfileComponent {
 
   SignOut(){
     sessionStorage.clear();
+    localStorage.clear();
   }
 
 }

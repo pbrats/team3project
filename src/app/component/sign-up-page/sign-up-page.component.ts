@@ -15,7 +15,6 @@ export class SignUpPageComponent implements OnInit {
   isSignUpPage=true;
   publisherService = inject(PublisherService);
   signUpForm!: FormGroup;
-  showErrorAlert = false;
 
   constructor(private router: Router) {
     this.isSignUpPage=true;
@@ -55,7 +54,4 @@ export class SignUpPageComponent implements OnInit {
     }
   }
 
-  closeErrorAlert() {
-    this.showErrorAlert = false;
-  }
 }

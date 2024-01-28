@@ -12,6 +12,7 @@ import { Product } from '../interfaces/product';
 import { CategoriesComponent } from './categories/categories.component'
 import { Title } from '@angular/platform-browser';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { PublisherService } from '../service/publisher.service';
 
 
 @Component({
@@ -46,31 +47,34 @@ export class ProductsComponent implements OnInit {
   categories: string[] = [];
   @Input() category!:string;
   catProducts:any[]=[];
+  publisherService =inject(PublisherService);
+  isWelcomePage=false;
 
   constructor(private titleService: Title) {}
   ngOnInit() {
+    this.publisherService.publishData(this.isWelcomePage);
     this.activatedRoute.params.subscribe({
       next: (params: any) => {
         this.id = +params['id'];
         this.service.getStoreById(this.id).subscribe({
           next: (res) => {
             this.store = res;
-            console.log(this.store);
+            // console.log(this.store);
             this.titleService.setTitle(`${this.store.name}`);
             this.categories=this.service.getProductCategoriesByStore(this.store.products);
-            console.log(this.categories)
+            // console.log(this.categories);
           }
         });
         this.service.getProductsByStore(this.id).subscribe({
           next: (res) => {
             this.allProducts = res;
-            console.log(this.allProducts);
+            // console.log(this.allProducts);
           }
         })
       },
     });
     this.service.getProductsByCategoryForStore(this.id).subscribe(productsByCategory => {
-      console.log(productsByCategory);
+      // console.log(productsByCategory);
     });
     this.service.categorySelected.subscribe({
       next: (res: any) => (this.selectedCategory = res),
@@ -105,7 +109,7 @@ export class ProductsComponent implements OnInit {
       for (let pro of products){
         if (pro.category == cat) {
           this.catProducts.push(pro);
-          console.log(this.catProducts);
+          // console.log(this.catProducts);
         }
       }
     }

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CommonModule, NgFor } from '@angular/common';
 import { StoresInfosService } from '../../service/stores-infos.service';
 import { StoresService } from '../../service/stores.service';
+import { PublisherService } from '../../service/publisher.service';
 
 @Component({
   selector: 'app-store-item',
@@ -19,8 +20,11 @@ storeInfosService: StoresInfosService =inject(StoresInfosService);
 storeInfos: any;
 stores:any;
 storeService: StoresService =inject(StoresService);
+publisherService =inject(PublisherService);
+isWelcomePage=false;
 
 ngOnInit() {
+  this.publisherService.publishData(this.isWelcomePage);
   this.storeInfosService.getStoresInfos().subscribe((response) => {
     this.storeInfos = response;
   });
@@ -31,10 +35,9 @@ ngOnInit() {
   onViewStoreDetails(idClicked: number) {
     const foundStore = this.stores.find((store: any) => store.id === idClicked);
     console.log(foundStore);
-    if (foundStore)
+    if (foundStore){
         this.router.navigate(["stores",idClicked]);
-      
-    else{
+    }else{
       this.router.navigate(["menu-not-found"]);
     }
   }

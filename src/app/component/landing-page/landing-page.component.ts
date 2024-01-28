@@ -5,11 +5,12 @@ import { Title } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
 import { PublisherService } from '../../service/publisher.service';
 import { Subject, interval, takeUntil } from 'rxjs';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,LoginComponent],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css',
   animations: [
@@ -50,7 +51,7 @@ export class LandingPageComponent implements OnInit {
     titleService.setTitle("Welcome");
     this.isWelcomePage=true;
     this.publisherService.publishData(this.isWelcomePage);
-    console.log(this.isWelcomePage);
+    // console.log(this.isWelcomePage);
     this.router.events.subscribe((event) => console.log(event));
     this.router.events.subscribe(event=>{
       if(event instanceof NavigationEnd){
@@ -79,7 +80,7 @@ export class LandingPageComponent implements OnInit {
   }
   selectedbuttonOrder(){
     this.buttonOrderClicked=true;
-    console.log(this.buttonOrderClicked);
+    // console.log(this.buttonOrderClicked);
     this.actionEventEmitter.emit(this.buttonOrderClicked);
   }
   private startUpdatingText() {

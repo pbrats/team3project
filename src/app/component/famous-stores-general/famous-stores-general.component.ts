@@ -5,6 +5,7 @@ import { StoresInfosService } from '../../service/stores-infos.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { StoresService } from '../../service/stores.service';
+import { PublisherService } from '../../service/publisher.service';
 
 @Component({
   selector: 'app-famous-stores-general',
@@ -20,8 +21,11 @@ export class FamousStoresGeneralComponent {
   storeService: StoresService =inject(StoresService);
   hasLoadedFamous : boolean= false;
   router: Router =inject(Router);
+  publisherService =inject(PublisherService);
+  isWelcomePage=false;
 
   ngOnInit() {
+    this.publisherService.publishData(this.isWelcomePage);
     this.storeService.getStores().subscribe((response) => {
       this.stores = response;
     });
@@ -29,7 +33,7 @@ export class FamousStoresGeneralComponent {
     .subscribe({
       next: response => {
         setTimeout(() =>{
-          console.log(response);
+          // console.log(response);
           this.famousStores =response;
           this.hasLoadedFamous=true;
         },10);

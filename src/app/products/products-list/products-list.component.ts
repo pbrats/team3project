@@ -34,7 +34,7 @@ export class ProductsListComponent implements OnInit {
         this.service.getProductsByStore(this.id).subscribe({
           next: (res) => {
             this.allProducts = res;
-            console.log(this.allProducts);
+            // console.log(this.allProducts);
     
           }
         });

@@ -6,6 +6,7 @@ import { HeaderComponent } from './component/header/header.component';
 import { LandingHeaderComponent } from './component/landing-header/landing-header.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductsListComponent } from './products/products-list/products-list.component';
+import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { ProductItemComponent } from './products/products-list/product-item/product-item.component';
 import { ShopingCartComponent } from './products/shoping-cart/shoping-cart.component';
 import { FormsModule } from '@angular/forms';
@@ -29,7 +30,8 @@ import { PublisherService } from './service/publisher.service';
         ProductItemComponent,
         ShopingCartComponent,
         FormsModule,
-        RouterLink
+        RouterLink,
+        ProductDetailsComponent
     ]
 })
 export class AppComponent {

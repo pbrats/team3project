@@ -23,7 +23,7 @@
               </div>
             </div>
           </div>
-          <div class="d-flex flex-row flex-wrap col-12 border border-light rounded-2 p-2"  >
+          <div class="d-flex flex-row flex-wrap col-12 border border-light rounded-2 p-2">
             <!-- <app-categories class="col-3 p-2" [store]="store" [categories]="categories"></app-categories> -->
             <app-products-list class="col-12" [categories]="categories"></app-products-list>
           </div>
@@ -33,26 +33,28 @@
 
     <div id="shopping-cart" class="col-4 p-4 bg-light text-dark container vh-100 rounded-2"
       style="position: sticky; top:100px; align-content: space-between;">
-      <div class="container">
-        <div style="display:flex; direction:row; justify-content: space-between; align-items: baseline;">
-          <div>
-            <h4>My Order</h4>
-          </div>
-          <div>
-            <button class="btn btn-outline-success">Checkout</button>
-          </div>
-        </div>
-        <hr>
-        <app-shoping-cart class="d-flex align-items-stretch" style="display: flex; flex-direction: column;"
-          [product]="selectedProduct"></app-shoping-cart>
-      </div>
-      
-        
-       
-     
+      <app-shoping-cart class="d-flex align-items-stretch" style="display: flex; flex-direction: column;"
+        [product]="selectedProduct"></app-shoping-cart>
     </div>
   </div>
 </div>
 
 
-<!-- <app-product-details [product]="previewedProduct"></app-product-details> -->
+<!-- CheckoutModal -->
+<div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="checkoutModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

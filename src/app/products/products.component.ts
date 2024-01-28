@@ -11,6 +11,7 @@ import { Store } from '../interfaces/store';
 import { Product } from '../interfaces/product';
 import { CategoriesComponent } from './categories/categories.component'
 import { Title } from '@angular/platform-browser';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 
 @Component({
@@ -23,7 +24,8 @@ import { Title } from '@angular/platform-browser';
     CommonModule,
     FormsModule,
     StoreDescriptionComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    ProductDetailsComponent
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',

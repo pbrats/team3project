@@ -41,16 +41,17 @@
   </div>
   <div class="card-body position-relative">
     <h5 class="card-title text-wrap" style="width: 10rem;">{{ product.name }}<span class="badge bg-secondary"
-        style="position: absolute; top:20px; right:20px">${{product.price}}</span></h5>
+        style="position: absolute; top:20px; right:20px">{{product.price}} &euro;</span></h5>
     <p class="card-text">{{ product.category }}</p>
     <div class="row">
       <div class="col">
-        <a class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+        <a class="btn btn-light border" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"
           (click)="onPreview()">Details</a>
       </div>
+
       <div class="col text-end">
         <!-- <a class="btn btn-primary" (click)="onSelected()">Add to cart</a>  -->
-        <a class="btn btn-primary" (click)="onAddToCart(product)" *ngIf="product">Add</a>
+        <a class="btn btn-success" (click)="onAddToCart(product)" *ngIf="product">Add</a>
       </div>
 
     </div>

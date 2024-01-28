@@ -24,7 +24,7 @@
     </div>
   </div>
 </div>
-
+<app-product-details [product]="previewedProduct"></app-product-details>
 
 <!-- CheckoutModal -->
 <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
@@ -37,7 +37,8 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-1">
-            <img src="/assets/images/success.png" style="width:2rem">
+            <i class="bi bi-check-circle-fill text-success" ></i>
+            <!-- <img src="/assets/images/success.png" style="width:2rem"> -->
           </div>
           <div class="col">
             <p>Congrats! Your order is on the way</p>
@@ -45,7 +46,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
       </div>
     </div>
   </div>

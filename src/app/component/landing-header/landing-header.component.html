@@ -1,17 +1,46 @@
 <header>
-    <div class="px-3 py-2 bg-dark bg-gradient text-white">
-        <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a class="nav-link" routerLink="welcome" routerLinkActive="active" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="rocket-takeoff" fill="currentColor"><use xlink:href="#rocket-takeoff"/></svg>
-                    WL DELIVERY
-                </a>
-                <div class="text-end">
-                    <button routerLink="sign-up" type="button" class="btn btn-success">Sign up</button>
-                </div>
-            </div>
+  <div class="px-3 py-2 bg-dark bg-gradient text-white">
+    <div class="container">
+      <div
+        class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+      >
+        <a
+          class="nav-link"
+          routerLink="welcome"
+          routerLinkActive="active"
+          class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none"
+        >
+          <svg
+            class="bi me-2"
+            width="40"
+            height="32"
+            role="img"
+            aria-label="rocket-takeoff"
+            fill="currentColor"
+          >
+            <use xlink:href="#rocket-takeoff" />
+          </svg>
+          WL DELIVERY
+        </a>
+        <div class="text-end">
+          <!-- <button routerLink="sign-up" type="button" class="btn btn-success">Sign up</button> -->
+          <!-- Button to open the offcanvas sidebar -->
+          <button
+            class="btn btn-success mx-3"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#login"
+          >
+            Login / Sign up
+          </button>
+
+          <div class="offcanvas offcanvas-end" id="login">
+            <app-login></app-login>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </header>
 <!-- svg links -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">

@@ -1,0 +1,36 @@
+<div class="container m-5">
+    <h1 class="text-success ">Previous Orders</h1>
+    <ng-template *ngIf="User.previous_orders && User.previous_orders.length>0 ; then foundBlock else noFoundBlock"></ng-template>
+    <ng-template #foundBlock> 
+        <table class="table table dark table-striped table-hover m-5">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Store Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Total</th>
+            </tr>
+            </thead>
+            <tbody class="text-center">
+                @for( order of User.previous_orders; track $index){
+            <tr>
+                <th scope="row">{{$index+1}}</th>
+                <td class="text-start">
+                    {{order.store_name}}
+                    <div class="text-center" *ngFor="let info of storesInfos">
+                        <div *ngIf="info.name==order.store_name">
+                            <img [src]="info.logo" class="card-img-top" alt="{{info.name}} store photo" style="width: 100px; height:10%">
+                        </div>
+                    </div>
+                </td>
+                <td>{{order.date}}</td>
+                <td>{{order.total}} &euro;</td>
+            </tr>
+        }
+            </tbody>
+        </table>
+    </ng-template>
+    <ng-template #noFoundBlock> 
+        <h2 class="container m-5 text-success text-center fst-italic fw-normal">No previous orders found</h2>
+    </ng-template>
+</div>

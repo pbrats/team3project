@@ -13,6 +13,7 @@
       <div class="text-center mt-2 mb-2">
         <img
       [src]="User.photo"
+      onerror =  "this.src='../assets/users/blank-profile.png';" 
       class="card-img-top"
       alt="{{ User.first_name }} {{ User.last_name }} user's photo"
       style="width: 300px"

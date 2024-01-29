@@ -6,20 +6,27 @@
     
     <ng-template #foundBlock> 
         <table class="table table dark table-striped table-hover m-5">
-            <thead>
+            <thead >
             <tr>
-                <th scope="col">#</th>
-               
-                <th scope="col">Store Name</th>
-                <th scope="col">Date</th>
-                <th scope="col">Total</th>
+                <th class="text-success fw-bold text-decoration-underline" scope="col">#</th>
+                <th class="text-success fw-bold text-decoration-underline" scope="col">Store Name</th>
+                <th class="text-success fw-bold text-decoration-underline" scope="col">Date</th>
+                <th class="text-success fw-bold text-decoration-underline" scope="col">Total</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody >
                 @for( order of User.previous_orders; track $index){
             <tr>
-                <th scope="row">{{order.id}}</th>
-                <td>{{order.store_name}}</td>
+                <th scope="row">{{$index+1}}</th>
+                <td class="text-start">
+                    {{order.store_name}}
+                    <div class="text-center" *ngFor="let info of storesInfos">
+                        <div *ngIf="info.name==order.store_name">
+                            <img [src]="info.logo" class="card-img-top" alt="{{info.name}} store photo" style="width: 100px; height:10%">
+                            <a class="link mx-5" (click)="onViewStoreDetails(info.id)" title="click for details">View store</a>
+                        </div>
+                    </div>
+                </td>
                 <td>{{order.date}}</td>
                 <td>{{order.total}} &euro;</td>
                     </tr>

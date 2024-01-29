@@ -6,7 +6,7 @@ import { LoginComponent } from '../login/login.component';
 @Component({
   selector: 'app-landing-header',
   standalone: true,
-  imports: [RouterLink,RouterLinkActive,CommonModule, LoginComponent],
+  imports: [RouterLink,RouterLinkActive,CommonModule,LoginComponent],
   templateUrl: './landing-header.component.html',
   styleUrl: './landing-header.component.css'
 })

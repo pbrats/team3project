@@ -34,10 +34,10 @@ export class MainComponent {
   User: any; 
   publisherService =inject(PublisherService);
   isWelcomePage=false;
-  
+
   ngOnInit() {
     this.titleService.setTitle("Discovery");
-    // this.isWelcomePage=false;
+     // this.isWelcomePage=false;
     // this.publisherService.publishData(this.isWelcomePage);
 
     // this.first_name = JSON.stringify(sessionStorage.getItem("first_name")).replace(/"/g, "");
@@ -66,7 +66,7 @@ export class MainComponent {
 
             // A WAY TO FIX THE PROBLEMATIC LOAD
 
-            // window.location.reload();
+            window.location.reload();
 
           }, 3000); 
         // Set the flag in local storage to indicate that the alert has been shown

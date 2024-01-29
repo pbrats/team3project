@@ -13,4 +13,5 @@ export class FamousStoresGeneralService {
   getFamousStoresGeneral(){
     return this.http.get(this.endpointUrl);
   }
+  
 }

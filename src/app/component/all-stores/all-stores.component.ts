@@ -21,21 +21,21 @@ export class AllStoresComponent {
   storeInfos: any;
   publisherService =inject(PublisherService);
   isWelcomePage=false;
-  
-  ngOnInit() {
-    this.publisherService.publishData(this.isWelcomePage);
-    this.storeInfosService.getStoresInfos().subscribe((response) => {
-      this.storeInfos = response;
-    });
-    this.service.getStores().subscribe({
-      next: (res) => {
-        setTimeout(() =>{
-          (this.stores = res)
-          this.hasLoadedStores=true;
-        },10);
-      }
-    });
-  }
+
+ngOnInit() {
+  this.publisherService.publishData(this.isWelcomePage);
+  this.storeInfosService.getStoresInfos().subscribe((response) => {
+    this.storeInfos = response;
+  });
+  this.service.getStores().subscribe({
+    next: (res) => {
+      setTimeout(() =>{
+        (this.stores = res)
+        this.hasLoadedStores=true;
+      },10);
+    }
+  });
+}
   constructor(private titleService: Title) {
     titleService.setTitle("Stores");
   }

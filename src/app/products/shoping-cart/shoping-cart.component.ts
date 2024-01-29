@@ -27,4 +27,9 @@ export class ShopingCartComponent {
     // Initialize cartItems with the items from the CartService
     this.products = this.cartService.getCart();
   }
+
+  onClearOrder() {
+    this.products = this.cartService.clearCart();
+
+  }
 }

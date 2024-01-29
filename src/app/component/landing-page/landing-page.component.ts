@@ -10,7 +10,7 @@ import { LoginComponent } from '../login/login.component';
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [CommonModule, LoginComponent],
+  imports: [CommonModule,LoginComponent],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css',
   animations: [
@@ -58,7 +58,7 @@ export class LandingPageComponent implements OnInit {
         if (event.url.includes('welcome')||event.url.includes('')){
           this.isWelcomePage=true;
           this.publisherService.publishData(this.isWelcomePage);
-        }else {
+        }else{
           this.isWelcomePage=false;
           this.publisherService.publishData(this.isWelcomePage);
         }
@@ -91,5 +91,4 @@ export class LandingPageComponent implements OnInit {
         this.currentIndex = (this.currentIndex + 1) % this.orderTexts.length;
       });
   }
-  
 }

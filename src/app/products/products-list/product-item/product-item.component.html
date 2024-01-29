@@ -32,7 +32,7 @@
   </div>
 </div> -->
 
-<div class="card m-1" style="width: 16.5rem;">
+<div class="card h-100 m-1" style="width: 16.5rem;">
   <div *ngFor="let photo of productPhotos">
     <div *ngIf="photo.category==product.category">
       <img [src]="photo.background_image" class="card-img-top" alt="{{photo.category}} product photo"

@@ -14,7 +14,13 @@
         </div>
         <div class="col-md">
             <h3 class="card-title">{{ store.name }}</h3>
-            <h6 class="card-subtitle mb-2 text-muted mt-5"> {{store.category}}</h6>
+            <ng-template *ngIf="store.category==='FAST_FOOD';then content else other_content"></ng-template> 
+            <ng-template #content>
+                <h6 class="card-subtitle mb-2 text-muted mt-5"> FAST FOOD</h6>
+            </ng-template>
+            <ng-template #other_content>
+                <h6 class="card-subtitle mb-2 text-muted mt-5"> {{store.category}}</h6>
+            </ng-template>
             <p class="card-text fst-italic">The best <span class="text-lowercase text-success">{{store.category}}</span> in town located at {{store.address}}.</p>
             
             <div *ngFor="let info of storeInfos" class="mt-2" >

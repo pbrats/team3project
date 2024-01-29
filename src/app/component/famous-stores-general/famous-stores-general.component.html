@@ -28,7 +28,13 @@
                         <div class="card-body text-center shadow" (click)="onViewStoreDetails(famousStore.id)" title="click for details">
                             <img [src]="famousStore.logo" class="card-img-top" alt="{{famousStore.name}} store photo" style="width: 40%">
                             <h5 class="card-title">{{famousStore.name}}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"> {{famousStore.category}}</h6>
+                            <ng-template *ngIf="famousStore.category==='FAST_FOOD';then content else other_content"></ng-template> 
+                                <ng-template #content>
+                                    <h6 class="card-subtitle mb-2 text-muted"> FAST FOOD</h6>
+                                </ng-template>
+                                <ng-template #other_content>
+                                    <h6 class="card-subtitle mb-2 text-muted"> {{famousStore.category}}</h6>
+                                </ng-template>
                             <div >
                                 <span class="card-text text-success mx-2">
                                     <i class="bi bi-star-fill"></i>
@@ -43,7 +49,7 @@
                                     <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#clock-fill"/></svg> -->
                                 </span><span> {{famousStore.delivery_time}}'</span>
                             </div>
-                            <a class="btn btn-success text-wrap">{{famousStore.name}}</a>
+                            <a class="btn btn-success text-wrap mt-3">{{famousStore.name}}</a>
                         </div>
                     </div>
                 </div>

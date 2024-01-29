@@ -9,7 +9,13 @@
           </div>
         </div>
         <h5 class="card-title">{{ store.name }}</h5>
-        <p class="card-subtitle mb-2 text-muted">{{ store.category }}</p>
+        <ng-template *ngIf="store.category==='FAST_FOOD';then content else other_content"></ng-template> 
+        <ng-template #content>
+          <p class="card-subtitle mb-2 text-muted">FAST FOOD</p>
+        </ng-template>
+        <ng-template #other_content>
+          <p class="card-subtitle mb-2 text-muted">{{ store.category }}</p>
+        </ng-template>
         <div *ngFor="let info of storeInfos" class="m-3">
           <div *ngIf="info.name==store.name">
             <div>

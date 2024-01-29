@@ -22,6 +22,7 @@ export class PreviousOrdersComponent {
   stores:any;
   storeService: StoresService =inject(StoresService);
   router: Router =inject(Router);
+  $index: any;
   
   constructor(private titleService: Title) {
     titleService.setTitle("Previous Orders");

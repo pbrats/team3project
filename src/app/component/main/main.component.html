@@ -28,9 +28,16 @@
                                         <img [src]="photo.background_image" class="card-img-top" alt="{{photo.category}}category photo" style="height:5rem ;width: 5rem;">
                                     </div>
                                 </div>
-                                <h5 class="card-title m-2 text-success fw-bold">{{cat.category}}</h5>
+                                <ng-template *ngIf="cat.category==='FAST_FOOD';then content else other_content"></ng-template> 
+                                <ng-template #content>
+                                    <h5 class="card-title m-2 text-success">FAST FOOD</h5>
+                                </ng-template>
+                                <ng-template #other_content>
+                                    <h5 class="card-title m-2 text-success">{{cat.category}}</h5>
+                                </ng-template>
                                 <!-- <a class="btn btn-success">{{cat.category}}</a> -->
                             </div>
+                            <!-- </div> -->
                         </div>
                     }
                 </div>  
@@ -65,7 +72,13 @@
                             <div class="card-body text-center text-end shadow" (click)="onViewStoreDetails(famousStore.id)" title="click for details">
                                 <img [src]="famousStore.logo" class="card-img-top" alt="{{famousStore.name}} store photo" style="width: 40%">
                                 <h5 class="card-title">{{famousStore.name}}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted"> {{famousStore.category}}</h6>
+                                <ng-template *ngIf="famousStore.category==='FAST_FOOD';then content else other_content"></ng-template> 
+                                <ng-template #content>
+                                    <h6 class="card-subtitle mb-2 text-muted">FAST FOOD</h6>
+                                </ng-template>
+                                <ng-template #other_content>
+                                    <h6 class="card-subtitle mb-2 text-muted"> {{famousStore.category}}</h6>
+                                </ng-template>
                                 <div class=" mb-3">
                                     <span class="card-text text-success mx-2">
                                         <i class="bi bi-star-fill"></i>

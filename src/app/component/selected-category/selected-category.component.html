@@ -1,5 +1,11 @@
 <div class="container mt-3 mb-3 pb-5 pt-3">
-    <h1 class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-success ">{{selectedCategory}}</h1>
+    <ng-template *ngIf="selectedCategory==='FAST_FOOD';then content else other_content"></ng-template> 
+    <ng-template #content>
+        <h1 class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-success ">FAST FOOD</h1>
+     </ng-template>
+    <ng-template #other_content>
+        <h1 class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-success ">{{selectedCategory}}</h1>
+    </ng-template>
     <div class="text-success text-end ">
         <i class="bi bi-funnel-fill fs-5 mx-2"></i>
         <!-- <svg class="bi" width="24" height="24" fill="currentColor"><use xlink:href="#funnel-fill"/></svg> -->
@@ -32,7 +38,13 @@
                                 </div>
                             </div>
                             <h5 class="card-title">{{store.name}}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"> {{store.category}}</h6>
+                            <ng-template *ngIf="selectedCategory==='FAST_FOOD';then content else other_content"></ng-template> 
+                            <ng-template #content>
+                                <h6 class="card-subtitle mb-2 text-muted">FAST FOOD</h6>
+                            </ng-template>
+                            <ng-template #other_content>
+                                <h6 class="card-subtitle mb-2 text-muted"> {{store.category}}</h6>
+                            </ng-template>
                             <div *ngFor="let info of storeInfos" class="m-3">
                                 <div *ngIf="info.name==store.name">
                                     <div >

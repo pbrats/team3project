@@ -6,7 +6,7 @@
 </div>
 <!-- categories container -->
 <div class="container mt-5 mb-5"> 
-    <div class="container " >  
+    <div class="container">  
         <!-- <app-categories /> -->
         <div class="container mt-n3 mb-3 p-4 rounded-4">
             <div class="container p-2" style="display: flex; flex-direction: row; justify-content: space-between;">
@@ -67,7 +67,7 @@
             <ng-template #famousBlock>
                 <div class="card-group card-group-scroll mt-3">
                     @for (famousStore of famousStoresGeneral; track $index){
-                        <div class="card border border-success rounded rounded-2 m-1" style="width:70%; height: 320px">
+                        <div class="card border border-success rounded rounded-2 m-1" style="width:70%; height: 320px; justify-content: center;">
                             <div class="card-body text-center text-end shadow" (click)="onViewStoreDetails(famousStore.id)" title="click for details">
                                 <img [src]="famousStore.logo" class="card-img-top" alt="{{famousStore.name}} store photo" style="width: 40%">
                                 <h5 class="card-title">{{famousStore.name}}</h5>

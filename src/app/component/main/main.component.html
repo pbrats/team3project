@@ -7,14 +7,13 @@
 <!-- categories container -->
 <div class="container mt-5 mb-5"> 
     <div class="container " >  
-        <!-- <div class="text-end">
-            <button class="btn btn-sm btn-outline-success" (click)="viewCategories()" > Show All Categories</button>
-        </div> -->
         <!-- <app-categories /> -->
         <div class="container mt-n3 mb-3 p-4 rounded-4">
             <div class="container p-2" style="display: flex; flex-direction: row; justify-content: space-between;">
                 <h1 class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-success ">Categories</h1>
-                <button class="btn btn-sm btn-outline-success rounded-4" (click)="viewCategories()" > Show All Categories</button>
+                 <div class="text-end mt-5 mb-4">
+                    <button class="btn btn-sm btn-outline-success" (click)="viewCategories()" > Show All Categories</button>
+                </div>
             </div>
             <ng-template *ngIf="hasLoadedCategories; then categoriesBlock else noCategoriesBlock"></ng-template>
             <ng-template #categoriesBlock> 
@@ -54,7 +53,7 @@
         </div>
     </div>  
 </div>
-<div class="container bg-light">
+<div class="container">
 <!-- famous stores container -->
 <div class="container mt-5 mb-5"> 
     <div class="container" >

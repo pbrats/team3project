@@ -67,32 +67,36 @@
             <ng-template #famousBlock>
                 <div class="card-group card-group-scroll mt-3">
                     @for (famousStore of famousStoresGeneral; track $index){
-                        <div class="card border border-success rounded rounded-2 m-1" style="width:70%; height: 320px; justify-content: center;">
-                            <div class="card-body text-center text-end shadow" (click)="onViewStoreDetails(famousStore.id)" title="click for details">
-                                <img [src]="famousStore.logo" class="card-img-top" alt="{{famousStore.name}} store photo" style="width: 40%">
-                                <h5 class="card-title">{{famousStore.name}}</h5>
-                                <ng-template *ngIf="famousStore.category==='FAST_FOOD';then content else other_content"></ng-template> 
-                                <ng-template #content>
-                                    <h6 class="card-subtitle mb-2 text-muted">FAST FOOD</h6>
-                                </ng-template>
-                                <ng-template #other_content>
-                                    <h6 class="card-subtitle mb-2 text-muted"> {{famousStore.category}}</h6>
-                                </ng-template>
-                                <div class=" mb-3">
-                                    <span class="card-text text-success mx-2">
-                                        <i class="bi bi-star-fill"></i>
-                                        <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#star-fill"/></svg> -->
-                                    </span><span> {{famousStore.rating}} </span>
-                                    <span class="card-text text-success mx-2">
-                                        <i class="bi bi-send-fill"></i>
-                                        <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#send-fill"/></svg> -->
-                                    </span><span> {{famousStore.delivery_cost}}&euro; </span>
-                                    <span class="card-text text-success mx-2">
-                                        <i class="bi bi-clock-fill"></i>
-                                        <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#clock-fill"/></svg> -->
-                                    </span><span> {{famousStore.delivery_time}}'</span>
+                        <div class="card border border-success rounded rounded-2 m-1" style="width:70%; height: 315px; justify-content: center;">
+                            <div class="card-body text-center text-end shadow" (click)="onViewStoreDetails(famousStore.id)" title="click for details" style="display: flex; flex-direction: column; justify-content: space-between">
+                                <div>
+                                    <img [src]="famousStore.logo" class="card-img-top" alt="{{famousStore.name}} store photo" style="width: 40%">
+                                    <h5 class="card-title">{{famousStore.name}}</h5>
+                                    <ng-template *ngIf="famousStore.category==='FAST_FOOD';then content else other_content"></ng-template> 
+                                    <ng-template #content>
+                                        <h6 class="card-subtitle mb-2 text-muted">FAST FOOD</h6>
+                                    </ng-template>
+                                    <ng-template #other_content>
+                                        <h6 class="card-subtitle mb-2 text-muted"> {{famousStore.category}}</h6>
+                                    </ng-template>
+                                    <div class=" mb-3">
+                                        <span class="card-text text-success mx-2">
+                                            <i class="bi bi-star-fill"></i>
+                                            <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#star-fill"/></svg> -->
+                                        </span><span> {{famousStore.rating}} </span>
+                                        <span class="card-text text-success mx-2">
+                                            <i class="bi bi-send-fill"></i>
+                                            <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#send-fill"/></svg> -->
+                                        </span><span> {{famousStore.delivery_cost}}&euro; </span>
+                                        <span class="card-text text-success mx-2">
+                                            <i class="bi bi-clock-fill"></i>
+                                            <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#clock-fill"/></svg> -->
+                                        </span><span> {{famousStore.delivery_time}}'</span>
+                                    </div>
                                 </div>
-                                <a class="btn btn-success text-wrap">{{famousStore.name}}</a>
+                                <div style="display: flex; flex-direction: column; justify-content:center">
+                                    <a class="btn btn-success text-wrap">{{famousStore.name}}</a>
+                                </div>
                             </div>
                         </div>
                     }

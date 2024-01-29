@@ -5,33 +5,36 @@
             <div class="mx-5 mb-5" *ngFor="let store of searchResult">
                 <div class="col-sm-4 mx-5">
                     <div class="card border border-success " style="width: 350%;height: 330px; ">
-                        <div class="card-body text-center shadow" (click)="onViewStoreDetails(store.id)" title="click for details">
-                            <img [src]="store.logo" class="card-img-top" alt="{{store.name}} store photo" style="width: 130px;height:23% ">
-                            <h5 class="card-title">{{store.name}}</h5>
-                            <ng-template *ngIf="store.category==='FAST_FOOD';then content else other_content"></ng-template> 
-                                <ng-template #content>
-                                    <h6 class="card-subtitle mb-2 text-muted"> FAST FOOD</h6>
-                                </ng-template>
-                                <ng-template #other_content>
-                                    <h6 class="card-subtitle mb-2 text-muted"> {{store.category}}</h6>
-                                </ng-template>
-                            
-                            <div class="mb-3">
-                                <span class="card-text text-success mx-2">
-                                <i class="bi bi-star-fill"></i>
-                                <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#star-fill"/></svg> -->
-                                </span><span> {{store.rating}} </span>
-                                <span class="card-text text-success mx-2">
-                                <i class="bi bi-send-fill"></i>
-                                <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#send-fill"/></svg> -->
-                                </span><span> {{store.delivery_cost}}&euro; </span>
-                                <span class="card-text text-success mx-2">
-                                <i class="bi bi-clock-fill"></i>
-                                <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#clock-fill"/></svg> -->
-                                </span><span> {{store.delivery_time}}'</span>
+                        <div class="card-body text-center shadow" style="display: flex; flex-direction: column; justify-content: space-between" (click)="onViewStoreDetails(store.id)" title="click for details">
+                            <div>
+                                <img [src]="store.logo" class="card-img-top" alt="{{store.name}} store photo" style="width: 50%;height:40% ">
+                                <h5 class="card-title">{{store.name}}</h5>
+                                <ng-template *ngIf="store.category==='FAST_FOOD';then content else other_content"></ng-template> 
+                                    <ng-template #content>
+                                        <h6 class="card-subtitle mb-2 text-muted"> FAST FOOD</h6>
+                                    </ng-template>
+                                    <ng-template #other_content>
+                                        <h6 class="card-subtitle mb-2 text-muted"> {{store.category}}</h6>
+                                    </ng-template>
+                                
+                                <div class="mb-3">
+                                    <span class="card-text text-success mx-2">
+                                    <i class="bi bi-star-fill"></i>
+                                    <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#star-fill"/></svg> -->
+                                    </span><span> {{store.rating}} </span>
+                                    <span class="card-text text-success mx-2">
+                                    <i class="bi bi-send-fill"></i>
+                                    <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#send-fill"/></svg> -->
+                                    </span><span> {{store.delivery_cost}}&euro; </span>
+                                    <span class="card-text text-success mx-2">
+                                    <i class="bi bi-clock-fill"></i>
+                                    <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#clock-fill"/></svg> -->
+                                    </span><span> {{store.delivery_time}}'</span>
+                                </div>
                             </div>
-                            <a class="btn btn-success text-wrap">{{store.name}}</a>
-                        
+                            <div style="display: flex; flex-direction: column; justify-content:center">
+                                <a class="btn btn-success text-wrap">{{store.name}}</a>
+                            </div>
                         </div>
                     </div>
                 </div>

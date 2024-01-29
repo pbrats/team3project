@@ -20,6 +20,7 @@
                     <div class="text-center" *ngFor="let info of storesInfos">
                         <div *ngIf="info.name==order.store_name">
                             <img [src]="info.logo" class="card-img-top" alt="{{info.name}} store photo" style="width: 100px; height:10%">
+                            <a class="link mx-5" (click)="onViewStoreDetails(info.id)" title="click for details">View store</a>
                         </div>
                     </div>
                 </td>

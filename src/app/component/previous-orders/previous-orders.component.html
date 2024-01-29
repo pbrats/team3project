@@ -9,6 +9,7 @@
                 <th class="text-success fw-bold text-decoration-underline" scope="col">Store Name</th>
                 <th class="text-success fw-bold text-decoration-underline" scope="col">Date</th>
                 <th class="text-success fw-bold text-decoration-underline" scope="col">Total</th>
+                <th class="text-success fw-bold text-decoration-underline" scope="col">Rating</th>
             </tr>
             </thead>
             <tbody >
@@ -17,14 +18,27 @@
                 <th scope="row">{{$index+1}}</th>
                 <td class="text-start">
                     {{order.store_name}}
-                    <div class="text-center" *ngFor="let info of storesInfos">
+                    <div class="text-end" *ngFor="let info of storesInfos">
                         <div *ngIf="info.name==order.store_name">
                             <img [src]="info.logo" class="card-img-top" alt="{{info.name}} store photo" style="width: 100px; height:10%">
+                            <a class="link mx-5" (click)="onViewStoreDetails(info.id)" title="click for details">View store</a>
                         </div>
                     </div>
                 </td>
                 <td>{{order.date}}</td>
                 <td>{{order.total}} &euro;</td>
+                <td><div class="rate">
+                    <input type="radio" id="star5" name="rate" value="5" />
+                    <label for="star5" title="text">5 stars</label>
+                    <input type="radio" id="star4" name="rate" value="4" />
+                    <label for="star4" title="text">4 stars</label>
+                    <input type="radio" id="star3" name="rate" value="3" />
+                    <label for="star3" title="text">3 stars</label>
+                    <input type="radio" id="star2" name="rate" value="2" />
+                    <label for="star2" title="text">2 stars</label>
+                    <input type="radio" id="star1" name="rate" value="1" />
+                    <label for="star1" title="text">1 star</label>
+                  </div></td>
             </tr>
         }
             </tbody>

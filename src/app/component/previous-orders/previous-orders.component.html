@@ -2,14 +2,14 @@
     <h1 class="text-success ">Previous Orders</h1>
     <ng-template *ngIf="User.previous_orders && User.previous_orders.length>0 ; then foundBlock else noFoundBlock"></ng-template>
     <ng-template #foundBlock> 
-        <table class="table table dark table-striped table-hover m-5">
+        <table class="table table-striped table-hover m-5">
             <thead >
             <tr>
-                <th class="text-success fw-bold text-decoration-underline" scope="col">#</th>
-                <th class="text-success fw-bold text-decoration-underline" scope="col">Store Name</th>
-                <th class="text-success fw-bold text-decoration-underline" scope="col">Date</th>
-                <th class="text-success fw-bold text-decoration-underline" scope="col">Total</th>
-                <th class="text-success fw-bold text-decoration-underline" scope="col">Rating</th>
+                <th class="text-success fw-bold text-decoration-underline fs-5" scope="col">#</th>
+                <th class="text-success fw-bold text-decoration-underline fs-5" scope="col">Store Name</th>
+                <th class="text-success fw-bold text-decoration-underline fs-5" scope="col">Date</th>
+                <th class="text-success fw-bold text-decoration-underline fs-5" scope="col">Total</th>
+                <th class="text-success fw-bold text-decoration-underline fs-5" scope="col">Rating</th>
             </tr>
             </thead>
             <tbody >
@@ -21,7 +21,7 @@
                     <div class="text-end" *ngFor="let info of storesInfos">
                         <div *ngIf="info.name==order.store_name">
                             <img [src]="info.logo" class="card-img-top" alt="{{info.name}} store photo" style="width: 100px; height:10%">
-                            <a class="link-success  link-offset-1 link-offset-2-hover link-underline-opacity-75 link-underline-opacity-100-hover mx-5" (click)="onViewStoreDetails(info.id)" title="click for details">View store</a>
+                            <a class="link-success link-offset-1 link-offset-2-hover link-underline-opacity-75 link-underline-opacity-100-hover mx-5" (click)="onViewStoreDetails(info.id)" title="click for details">View store</a>
                         </div>
                     </div>
                 </td>

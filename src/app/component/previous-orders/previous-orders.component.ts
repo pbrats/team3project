@@ -5,6 +5,8 @@ import { Title } from '@angular/platform-browser';
 import { StoresInfosService } from '../../service/stores-infos.service';
 import { StoresService } from '../../service/stores.service';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-previous-orders',

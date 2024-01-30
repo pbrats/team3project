@@ -120,7 +120,7 @@
    "previous_orders":[ 
        {
            "id":1,
-           "store_name":"Domino's",
+           "store_name":"Domino's Pizza",
            "total":18,
            "date":"22/12/23"
         }

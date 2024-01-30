@@ -24,10 +24,12 @@
         <div class="row row-cols-4">
             @for (famousStore of famousStores; track $index){
                 <div class="col-sm-4 my-2">
-                    <div class="card border border-success m-3" style="width: 90%; height: 90%">
+                    <div class="card border border-success m-3" style="width: 90%; height: 100%">
                         <div class="card-body text-center shadow" style="display: flex; flex-direction: column; justify-content: space-between" (click)="onViewStoreDetails(famousStore.id)" title="click for details">
-                            <div>
-                                <img [src]="famousStore.logo" class="card-img-top" alt="{{famousStore.name}} store photo" style="width: 40%">
+                            <div >
+                                <img [src]="famousStore.logo" class="card-img-top" alt="{{famousStore.name}} store photo" style="width: 50%;height:100%">
+                            </div>
+                            <div class="mb-2">
                                 <h5 class="card-title">{{famousStore.name}}</h5>
                                 <ng-template *ngIf="famousStore.category==='FAST_FOOD';then content else other_content"></ng-template> 
                                     <ng-template #content>
@@ -36,20 +38,20 @@
                                     <ng-template #other_content>
                                         <h6 class="card-subtitle mb-2 text-muted"> {{famousStore.category}}</h6>
                                     </ng-template>
-                                <div >
-                                    <span class="card-text text-success mx-2">
-                                        <i class="bi bi-star-fill"></i>
-                                        <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#star-fill"/></svg> -->
-                                    </span><span>{{famousStore.rating}} </span>
-                                    <span class="card-text text-success mx-2">
-                                        <i class="bi bi-send-fill"></i>
-                                        <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#send-fill"/></svg> -->
-                                    </span><span>{{famousStore.delivery_cost}}&euro; </span>
-                                    <span class="card-text text-success mx-2">
-                                        <i class="bi bi-clock-fill"></i>
-                                        <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#clock-fill"/></svg> -->
-                                    </span><span> {{famousStore.delivery_time}}'</span>
-                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <span class="card-text text-success mx-2">
+                                    <i class="bi bi-star-fill"></i>
+                                    <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#star-fill"/></svg> -->
+                                </span><span>{{famousStore.rating}} </span>
+                                <span class="card-text text-success mx-2">
+                                    <i class="bi bi-send-fill"></i>
+                                    <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#send-fill"/></svg> -->
+                                </span><span>{{famousStore.delivery_cost}}&euro; </span>
+                                <span class="card-text text-success mx-2">
+                                    <i class="bi bi-clock-fill"></i>
+                                    <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#clock-fill"/></svg> -->
+                                </span><span> {{famousStore.delivery_time}}'</span>
                             </div>
                             <div style="display: flex; flex-direction: column; justify-content:center">
                                 <a class="btn btn-success text-wrap mt-3">{{famousStore.name}}</a>

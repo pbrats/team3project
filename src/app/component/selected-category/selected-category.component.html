@@ -33,46 +33,50 @@
                     <div class="card border border-success m-3" style="width: 350%; height: 330px" (click)="onViewStoreDetails(store.id)" title="click for details">
                         <div class="card-body text-center shadow" style="display: flex; flex-direction: column; justify-content: space-between">
                             <div>
-                            <div *ngFor="let info of storeInfos">
-                                <div *ngIf="info.name==store.name">
-                                    <img [src]="info.logo" class="card-img-top" alt="{{info.name}} store photo" style="width: 50%; height:10%">
-                                </div>
-                            </div>
-                            <h5 class="card-title">{{store.name}}</h5>
-                            <ng-template *ngIf="selectedCategory==='FAST_FOOD';then content else other_content"></ng-template> 
-                            <ng-template #content>
-                                <h6 class="card-subtitle mb-2 text-muted">FAST FOOD</h6>
-                            </ng-template>
-                            <ng-template #other_content>
-                                <h6 class="card-subtitle mb-2 text-muted"> {{store.category}}</h6>
-                            </ng-template>
-                            <div *ngFor="let info of storeInfos" class="m-3">
-                                <div *ngIf="info.name==store.name">
-                                    <div>
-                                        <span class="card-text text-success mx-2">
-                                            <i class="bi bi-star-fill"></i>
-                                            <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#star-fill"/></svg> -->
-                                        </span><span> {{info.rating}} </span>
-                                        <span class="card-text text-success mx-2">
-                                            <i class="bi bi-send-fill"></i>
-                                            <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#send-fill"/></svg> -->
-                                        </span><span> {{info.delivery_cost}}&euro; </span>
-                                        <span class="card-text text-success mx-2">
-                                            <i class="bi bi-clock-fill"></i>
-                                            <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#clock-fill"/></svg> -->
-                                        </span><span> {{info.delivery_time}}'</span>
+                                <div *ngFor="let info of storeInfos">
+                                    <div *ngIf="info.name==store.name">
+                                        <img [src]="info.logo" class="card-img-top" alt="{{info.name}} store photo" style="width: 50%; height:10%">
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div style="display: flex; flex-direction: column; justify-content:center">
-                            <a class="btn btn-success text-wrap">{{store.name}}</a>
+                            <div>
+                                <h5 class="card-title">{{store.name}}</h5>
+                                <ng-template *ngIf="selectedCategory==='FAST_FOOD';then content else other_content"></ng-template> 
+                                <ng-template #content>
+                                    <h6 class="card-subtitle mb-2 text-muted">FAST FOOD</h6>
+                                </ng-template>
+                                <ng-template #other_content>
+                                    <h6 class="card-subtitle mb-2 text-muted"> {{store.category}}</h6>
+                                </ng-template>
+                            </div>
+                            <div>
+                                <div *ngFor="let info of storeInfos" class="m-3">
+                                    <div *ngIf="info.name==store.name">
+                                        <div>
+                                            <span class="card-text text-success mx-2">
+                                                <i class="bi bi-star-fill"></i>
+                                                <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#star-fill"/></svg> -->
+                                            </span><span> {{info.rating}} </span>
+                                            <span class="card-text text-success mx-2">
+                                                <i class="bi bi-send-fill"></i>
+                                                <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#send-fill"/></svg> -->
+                                            </span><span> {{info.delivery_cost}}&euro; </span>
+                                            <span class="card-text text-success mx-2">
+                                                <i class="bi bi-clock-fill"></i>
+                                                <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#clock-fill"/></svg> -->
+                                            </span><span> {{info.delivery_time}}'</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex; flex-direction: column; justify-content:center">
+                                <a class="btn btn-success text-wrap">{{store.name}}</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </ng-template>
     <ng-template #noStoresBlock>
         <h1 class="text-success text-center fs-3 fst-italic fw-normal">Loading Stores ..</h1>

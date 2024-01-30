@@ -4,19 +4,21 @@
         <div class="row row-cols-5 mx-5">
             <div class="mx-5 mb-5" *ngFor="let store of searchResult">
                 <div class="col-sm-4 mx-5">
-                    <div class="card border border-success " style="width: 350%;height: 330px; ">
+                    <div class="card border border-success " style="width: 350%;height: 335px; ">
                         <div class="card-body text-center shadow" style="display: flex; flex-direction: column; justify-content: space-between" (click)="onViewStoreDetails(store.id)" title="click for details">
                             <div>
-                                <img [src]="store.logo" class="card-img-top" alt="{{store.name}} store photo" style="width: 50%;height:40% ">
+                                <img [src]="store.logo" class="card-img-top" alt="{{store.name}} store photo" style="width: 60%;height:100% ">
+                            </div>
+                            <div>
                                 <h5 class="card-title">{{store.name}}</h5>
                                 <ng-template *ngIf="store.category==='FAST_FOOD';then content else other_content"></ng-template> 
-                                    <ng-template #content>
-                                        <h6 class="card-subtitle mb-2 text-muted"> FAST FOOD</h6>
-                                    </ng-template>
-                                    <ng-template #other_content>
-                                        <h6 class="card-subtitle mb-2 text-muted"> {{store.category}}</h6>
-                                    </ng-template>
-                                
+                                <ng-template #content>
+                                    <h6 class="card-subtitle mb-2 text-muted"> FAST FOOD</h6>
+                                </ng-template>
+                                <ng-template #other_content>
+                                    <h6 class="card-subtitle mb-2 text-muted"> {{store.category}}</h6>
+                                </ng-template>
+                            </div>
                                 <div class="mb-3">
                                     <span class="card-text text-success mx-2">
                                     <i class="bi bi-star-fill"></i>
@@ -31,7 +33,6 @@
                                     <!-- <svg class="bi" width="16" height="16" fill="currentColor"><use xlink:href="#clock-fill"/></svg> -->
                                     </span><span> {{store.delivery_time}}'</span>
                                 </div>
-                            </div>
                             <div style="display: flex; flex-direction: column; justify-content:center">
                                 <a class="btn btn-success text-wrap">{{store.name}}</a>
                             </div>

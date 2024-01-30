@@ -1,6 +1,6 @@
 <div class="col-12" style="display: flex; flex-direction: row; flex-wrap: wrap; " *ngFor="let category of categories">
   <h5 id="{{category}}" class="col-12 my-4 text-success">{{category}}</h5>
-  <div *ngFor="let product of allProducts">
+  <div *ngFor="let product of allProducts" class="mb-2">
     <app-product-item *ngIf="product.category == category"  [product]="product"></app-product-item>
   </div>
 </div>

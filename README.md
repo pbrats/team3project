@@ -1,6 +1,7 @@
 # Team3project - WL DELIVERY Service
 
 The project was implemented during the Front-End Development Bootcamp by Code.Hub powered by WE LEAD.
+
 WL DELIVERY Service is a web application that allows individuals to order food, coffee, beverages, etc. online. To use the application, the user must register using unique phone and email address or login with a pre-existing account.
 
 After initial registration or login, the user can:

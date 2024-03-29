@@ -38,6 +38,7 @@ After initial registration or login, the user can:
 
 ● Contact the WL DELIVERY team using the contact form on Support page, which can be accessed from the link in the footer.
 
+
 Information for login with pre-existing accounts:
 
 Example1 : User with previous orders (stores with an existing menu)
